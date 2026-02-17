@@ -57,7 +57,7 @@ export default function MyProfile() {
     }
   ]);
 
-  const [implements, setImplements] = useState([
+  const [userImplements, setUserImplements] = useState([
     {
       id: "1",
       name: "Ferguson 2-Furrow Plough",
@@ -146,7 +146,7 @@ export default function MyProfile() {
             <TabsList className="grid w-full max-w-2xl grid-cols-3 mb-8">
               <TabsTrigger value="personal">Personal Info</TabsTrigger>
               <TabsTrigger value="tractors">My Tractors ({tractors.length})</TabsTrigger>
-              <TabsTrigger value="implements">My Implements ({implements.length})</TabsTrigger>
+              <TabsTrigger value="implements">My Implements ({userImplements.length})</TabsTrigger>
             </TabsList>
 
             {/* Personal Information Tab */}
@@ -496,7 +496,7 @@ export default function MyProfile() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {implements.map((implement) => (
+                {userImplements.map((implement) => (
                   <Card key={implement.id}>
                     <CardContent className="p-6">
                       <div className="flex items-start justify-between mb-3">
@@ -536,7 +536,7 @@ export default function MyProfile() {
                 ))}
               </div>
 
-              {implements.length === 0 && (
+              {userImplements.length === 0 && (
                 <Card className="text-center py-12">
                   <CardContent>
                     <Wrench className="w-12 h-12 text-gray-300 mx-auto mb-4" />
