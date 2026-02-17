@@ -1,6 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
+import { MembersNav } from "@/components/Layout/MembersNav";
 import { GDPRConsent } from "@/components/Layout/GDPRConsent";
 import { useState } from "react";
 import { ShoppingCart, Search, Filter } from "lucide-react";
@@ -100,57 +101,12 @@ export default function Shop() {
     <>
       <SEO
         title="Shop - Ferguson Club"
-        description="Browse our selection of Ferguson Club merchandise, technical manuals, and books"
+        description="Official Ferguson Club merchandise and publications"
       />
       
       <div className="min-h-screen bg-white">
         <Header />
-
-        {/* Members Navigation */}
-        <section className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex space-x-8 overflow-x-auto py-4">
-              <Link href="/members/dashboard" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Dashboard
-              </Link>
-              <Link href="/members/resources" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Resources
-              </Link>
-              <Link href="/members/directory" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Member Directory
-              </Link>
-              <Link href="/members/registrations" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                DVLA Registrations
-              </Link>
-              <Link href="/news" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                News
-              </Link>
-              <Link href="/events" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Events
-              </Link>
-              <Link href="/gallery" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Gallery
-              </Link>
-              <Link href="/tvo-licence" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                TVO Licence
-              </Link>
-              <Link href="/marketplace" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Marketplace
-              </Link>
-              <Link href="/shop" className="text-[#8B1538] font-semibold whitespace-nowrap border-b-2 border-[#8B1538]">
-                Shop
-              </Link>
-              <Link href="/links" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Useful Links
-              </Link>
-              <Link href="/forum" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Forum
-              </Link>
-            </nav>
-          </div>
-        </section>
-
-        <GDPRConsent />
+        <MembersNav />
 
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-gray-50 to-white pt-24 pb-16">

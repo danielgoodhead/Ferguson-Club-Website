@@ -1,7 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
-import { GDPRConsent } from "@/components/Layout/GDPRConsent";
+import { MembersNav } from "@/components/Layout/MembersNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -171,54 +171,11 @@ export default function Forum() {
     <>
       <SEO
         title="Forum - Ferguson Club"
-        description="Join our community forum to discuss Ferguson tractors, get technical help, share restoration projects, and connect with fellow enthusiasts."
+        description="Community forum for Ferguson tractor discussions and support"
       />
       <div className="min-h-screen flex flex-col bg-white">
         <Header />
-
-        {/* Members Navigation */}
-        <section className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex space-x-8 overflow-x-auto py-4">
-              <Link href="/members/dashboard" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Dashboard
-              </Link>
-              <Link href="/members/resources" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Resources
-              </Link>
-              <Link href="/members/directory" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Member Directory
-              </Link>
-              <Link href="/members/registrations" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                DVLA Registrations
-              </Link>
-              <Link href="/news" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                News
-              </Link>
-              <Link href="/events" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Events
-              </Link>
-              <Link href="/gallery" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Gallery
-              </Link>
-              <Link href="/tvo-licence" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                TVO Licence
-              </Link>
-              <Link href="/marketplace" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Marketplace
-              </Link>
-              <Link href="/shop" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Shop
-              </Link>
-              <Link href="/links" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Useful Links
-              </Link>
-              <Link href="/forum" className="text-[#8B1538] font-semibold whitespace-nowrap border-b-2 border-[#8B1538]">
-                Forum
-              </Link>
-            </nav>
-          </div>
-        </section>
+        <MembersNav />
 
         {/* Page Header */}
         <section className="bg-white py-16 border-b">
@@ -245,8 +202,6 @@ export default function Forum() {
             </div>
           </div>
         </section>
-
-        <GDPRConsent />
 
         {/* Forum Actions */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

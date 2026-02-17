@@ -14,8 +14,8 @@ export function MembersNav() {
 
   const isActive = (href: string) => path === href || path.startsWith(href + "/");
   
-  const isClubActive = path.includes("/news") || path.includes("/events") || path.includes("/gallery");
-  const isServicesActive = path.includes("/tvo-licence") || path.includes("/marketplace") || path.includes("/shop") || path.includes("/members/registrations");
+  const isClubActive = path.includes("/news") || path.includes("/events") || path.includes("/gallery") || path.includes("/shop") || path.includes("/members/directory") || path.includes("/members/[id]");
+  const isServicesActive = path.includes("/tvo-licence") || path.includes("/marketplace") || path.includes("/members/registrations");
   const isCommunityActive = path.includes("/links") || path.includes("/forum");
 
   return (
@@ -35,12 +35,6 @@ export function MembersNav() {
             Resources
           </Link>
           <Link 
-            href="/members/directory" 
-            className={`font-semibold whitespace-nowrap transition-colors ${path.includes('/members/directory') || path.includes('/members/[id]') ? 'text-[#8B1538] border-b-2 border-[#8B1538]' : 'text-gray-600 hover:text-[#8B1538]'}`}
-          >
-            Directory
-          </Link>
-          <Link 
             href="/members/profile" 
             className={`font-semibold whitespace-nowrap transition-colors ${isActive('/members/profile') ? 'text-[#8B1538] border-b-2 border-[#8B1538]' : 'text-gray-600 hover:text-[#8B1538]'}`}
           >
@@ -54,6 +48,9 @@ export function MembersNav() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48">
               <DropdownMenuItem asChild>
+                <Link href="/members/directory" className={path.includes("/members/directory") || path.includes("/members/[id]") ? "text-[#8B1538] font-medium" : ""}>Member Directory</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
                 <Link href="/news" className={path.includes("/news") ? "text-[#8B1538] font-medium" : ""}>News</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
@@ -61,6 +58,9 @@ export function MembersNav() {
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/gallery" className={path.includes("/gallery") ? "text-[#8B1538] font-medium" : ""}>Gallery</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/shop" className={path.includes("/shop") ? "text-[#8B1538] font-medium" : ""}>Shop</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -76,9 +76,6 @@ export function MembersNav() {
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/marketplace" className={path.includes("/marketplace") ? "text-[#8B1538] font-medium" : ""}>Marketplace</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/shop" className={path.includes("/shop") ? "text-[#8B1538] font-medium" : ""}>Shop</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/members/registrations" className={path.includes("/members/registrations") ? "text-[#8B1538] font-medium" : ""}>DVLA Registrations</Link>

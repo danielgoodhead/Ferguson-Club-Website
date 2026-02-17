@@ -4,7 +4,7 @@ import { Footer } from "@/components/Layout/Footer";
 import { MembersNav } from "@/components/Layout/MembersNav";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { User, Mail, Phone, MapPin, Calendar, Tractor, Wrench, Plus, Edit, Trash2, Eye, EyeOff, Save } from "lucide-react";
+import { User, Mail, Phone, MapPin, Calendar, Tractor, Wrench, Plus, Edit, Trash2, Eye, EyeOff, Save, Pencil, Upload } from "lucide-react";
 import { useState } from "react";
 
 export default function MyProfile() {
@@ -122,9 +122,22 @@ export default function MyProfile() {
                         {profile.name.split(" ").map(n => n[0]).join("")}
                       </AvatarFallback>
                     </Avatar>
-                    <Button variant="outline" size="sm">
-                      Upload Photo
-                    </Button>
+                    <div className="relative">
+                      <input
+                        type="file"
+                        id="avatar-upload"
+                        className="hidden"
+                        accept="image/*"
+                      />
+                      <label htmlFor="avatar-upload">
+                        <Button variant="outline" size="sm" className="cursor-pointer flex items-center gap-2" asChild>
+                          <span>
+                            <Upload className="h-4 w-4" />
+                            Upload Photo
+                          </span>
+                        </Button>
+                      </label>
+                    </div>
                     <div className="mt-6 text-center">
                       <Badge className="bg-[#8B1538]">Active Member</Badge>
                       <p className="text-sm text-gray-500 mt-2">Member since {profile.joinDate}</p>
@@ -204,13 +217,16 @@ export default function MyProfile() {
             </TabsContent>
 
             {/* Tractors Tab */}
-            <TabsContent value="tractors">
-              <div className="mb-6 flex justify-between items-center">
-                <h2 className="text-2xl font-bold text-gray-900">My Tractors</h2>
+            <TabsContent value="tractors" className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">My Tractors</h2>
+                  <p className="text-gray-600 mt-1">Manage your Ferguson tractor collection</p>
+                </div>
                 <Dialog open={isAddTractorOpen} onOpenChange={setIsAddTractorOpen}>
                   <DialogTrigger asChild>
                     <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
-                      <Plus className="w-4 h-4 mr-2" />
+                      <Plus className="h-4 w-4 mr-2" />
                       Add Tractor
                     </Button>
                   </DialogTrigger>
@@ -302,73 +318,159 @@ export default function MyProfile() {
                 </Dialog>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {tractors.map((tractor) => (
-                  <Card key={tractor.id}>
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <CardTitle className="text-xl mb-2">{tractor.model}</CardTitle>
-                          <div className="flex flex-wrap gap-2">
-                            <Badge variant="outline">{tractor.year}</Badge>
-                            <Badge variant="outline">{tractor.color}</Badge>
-                            <Badge className={
-                              tractor.condition === "Fully Restored" ? "bg-green-500" :
-                              tractor.condition === "Work in Progress" ? "bg-yellow-500" :
-                              "bg-blue-500"
-                            }>
-                              {tractor.condition}
-                            </Badge>
+              {tractors.length === 0 ? (
+                <Card className="p-12 text-center">
+                  <Tractor className="h-16 w-16 mx-auto text-gray-400 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No tractors yet</h3>
+                  <p className="text-gray-600 mb-6">Start building your collection by adding your first Ferguson tractor</p>
+                  <Dialog open={isAddTractorOpen} onOpenChange={setIsAddTractorOpen}>
+                    <DialogTrigger asChild>
+                      <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                        <Plus className="h-4 w-4 mr-2" />
+                        Add Your First Tractor
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle>Add New Tractor</DialogTitle>
+                        <DialogDescription>
+                          Add a Ferguson tractor to your collection
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="space-y-4 py-4">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="tractor-model">Model</Label>
+                            <Select>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select model" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="te20">Ferguson TE20</SelectItem>
+                                <SelectItem value="tea20">Ferguson TEA20</SelectItem>
+                                <SelectItem value="tef20">Ferguson TEF20</SelectItem>
+                                <SelectItem value="to20">Ferguson TO20</SelectItem>
+                                <SelectItem value="to30">Ferguson TO30</SelectItem>
+                                <SelectItem value="to35">Ferguson TO35</SelectItem>
+                                <SelectItem value="mf35">Massey Ferguson 35</SelectItem>
+                                <SelectItem value="mf65">Massey Ferguson 65</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="tractor-year">Year</Label>
+                            <Input id="tractor-year" placeholder="e.g., 1948" />
                           </div>
                         </div>
-                        <div className="flex gap-2">
-                          <Button variant="ghost" size="sm">
-                            <Edit className="w-4 h-4" />
-                          </Button>
-                          <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700">
-                            <Trash2 className="w-4 h-4" />
-                          </Button>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        <div>
-                          <span className="text-sm text-gray-500">Serial Number:</span>
-                          <p className="font-mono text-sm">{tractor.serialNumber}</p>
-                        </div>
-                        <div>
-                          <span className="text-sm text-gray-500">Description:</span>
-                          <p className="text-sm text-gray-700 mt-1">{tractor.description}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
 
-              {tractors.length === 0 && (
-                <Card className="text-center py-12">
-                  <CardContent>
-                    <Tractor className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                    <p className="text-gray-500 mb-4">You haven't added any tractors yet</p>
-                    <Button onClick={() => setIsAddTractorOpen(true)} className="bg-[#8B1538] hover:bg-[#6B0E28]">
-                      <Plus className="w-4 h-4 mr-2" />
-                      Add Your First Tractor
-                    </Button>
-                  </CardContent>
+                        <div className="space-y-2">
+                          <Label htmlFor="serial-number">Serial Number</Label>
+                          <Input id="serial-number" placeholder="e.g., TE20/123456" />
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="color">Color</Label>
+                            <Input id="color" placeholder="e.g., Grey, Grey & Gold" />
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="condition">Condition</Label>
+                            <Select>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select condition" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="fully-restored">Fully Restored</SelectItem>
+                                <SelectItem value="original">Original</SelectItem>
+                                <SelectItem value="work-in-progress">Work in Progress</SelectItem>
+                                <SelectItem value="for-restoration">For Restoration</SelectItem>
+                                <SelectItem value="parts">For Parts</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="tractor-description">Description</Label>
+                          <Textarea 
+                            id="tractor-description" 
+                            rows={3}
+                            placeholder="Tell us about this tractor..."
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="tractor-image">Photos</Label>
+                          <Input id="tractor-image" type="file" accept="image/*" multiple />
+                          <p className="text-xs text-gray-500">Upload up to 5 photos</p>
+                        </div>
+                      </div>
+                      <DialogFooter>
+                        <Button variant="outline" onClick={() => setIsAddTractorOpen(false)}>
+                          Cancel
+                        </Button>
+                        <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                          Add Tractor
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
                 </Card>
+              ) : (
+                <div className="grid md:grid-cols-2 gap-6">
+                  {tractors.map((tractor) => (
+                    <Card key={tractor.id}>
+                      <CardHeader>
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <CardTitle className="flex items-center gap-2">
+                              <Tractor className="h-5 w-5 text-[#8B1538]" />
+                              {tractor.model}
+                            </CardTitle>
+                            <CardDescription>
+                              {tractor.year} • Serial: {tractor.serialNumber}
+                            </CardDescription>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-gray-100 rounded-full">
+                              <Pencil className="h-4 w-4 text-gray-500" />
+                            </Button>
+                            <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-red-50 hover:text-red-700 rounded-full text-red-600">
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div>
+                            <span className="text-sm text-gray-500">Serial Number:</span>
+                            <p className="font-mono text-sm">{tractor.serialNumber}</p>
+                          </div>
+                          <div>
+                            <span className="text-sm text-gray-500">Description:</span>
+                            <p className="text-sm text-gray-700 mt-1">{tractor.description}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               )}
             </TabsContent>
 
             {/* Implements Tab */}
-            <TabsContent value="implements">
-              <div className="mb-6 flex justify-between items-center">
-                <h2 className="text-2xl font-bold text-gray-900">My Implements</h2>
+            <TabsContent value="implements" className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">My Implements</h2>
+                  <p className="text-gray-600 mt-1">Manage your Ferguson implement collection</p>
+                </div>
                 <Dialog open={isAddImplementOpen} onOpenChange={setIsAddImplementOpen}>
                   <DialogTrigger asChild>
                     <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
-                      <Plus className="w-4 h-4 mr-2" />
+                      <Plus className="h-4 w-4 mr-2" />
                       Add Implement
                     </Button>
                   </DialogTrigger>
@@ -453,58 +555,147 @@ export default function MyProfile() {
                 </Dialog>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {userImplements.map((implement) => (
-                  <Card key={implement.id}>
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="font-bold text-lg">{implement.name}</h3>
-                        <div className="flex gap-2">
-                          <Button variant="ghost" size="sm">
-                            <Edit className="w-4 h-4" />
-                          </Button>
-                          <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700">
-                            <Trash2 className="w-4 h-4" />
-                          </Button>
+              {userImplements.length === 0 ? (
+                <Card className="p-12 text-center">
+                  <Wrench className="h-16 w-16 mx-auto text-gray-400 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No implements yet</h3>
+                  <p className="text-gray-600 mb-6">Start building your collection by adding your first implement</p>
+                  <Dialog open={isAddImplementOpen} onOpenChange={setIsAddImplementOpen}>
+                    <DialogTrigger asChild>
+                      <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                        <Plus className="h-4 w-4 mr-2" />
+                        Add Your First Implement
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-2xl">
+                      <DialogHeader>
+                        <DialogTitle>Add New Implement</DialogTitle>
+                        <DialogDescription>
+                          Add a Ferguson implement to your collection
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="space-y-4 py-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="implement-name">Implement Name</Label>
+                          <Input id="implement-name" placeholder="e.g., Ferguson 2-Furrow Plough" />
                         </div>
-                      </div>
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-500">Type:</span>
-                          <Badge variant="outline">{implement.type}</Badge>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-500">Year:</span>
-                          <span className="text-sm font-medium">{implement.year}</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-500">Condition:</span>
-                          <Badge className={
-                            implement.condition === "Excellent" ? "bg-green-500" :
-                            implement.condition === "Very Good" ? "bg-blue-500" :
-                            implement.condition === "Good" ? "bg-yellow-500" :
-                            "bg-orange-500"
-                          }>
-                            {implement.condition}
-                          </Badge>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
 
-              {userImplements.length === 0 && (
-                <Card className="text-center py-12">
-                  <CardContent>
-                    <Wrench className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                    <p className="text-gray-500 mb-4">You haven't added any implements yet</p>
-                    <Button onClick={() => setIsAddImplementOpen(true)} className="bg-[#8B1538] hover:bg-[#6B0E28]">
-                      <Plus className="w-4 h-4 mr-2" />
-                      Add Your First Implement
-                    </Button>
-                  </CardContent>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="implement-type">Type</Label>
+                            <Select>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select type" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="plough">Plough</SelectItem>
+                                <SelectItem value="harrow">Harrow</SelectItem>
+                                <SelectItem value="cultivator">Cultivator</SelectItem>
+                                <SelectItem value="mower">Mower</SelectItem>
+                                <SelectItem value="baler">Baler</SelectItem>
+                                <SelectItem value="spreader">Spreader</SelectItem>
+                                <SelectItem value="transport">Transport Box</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="implement-year">Year/Era</Label>
+                            <Input id="implement-year" placeholder="e.g., 1950s" />
+                          </div>
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="implement-condition">Condition</Label>
+                          <Select>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select condition" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="excellent">Excellent</SelectItem>
+                              <SelectItem value="very-good">Very Good</SelectItem>
+                              <SelectItem value="good">Good</SelectItem>
+                              <SelectItem value="fair">Fair</SelectItem>
+                              <SelectItem value="restoration">Needs Restoration</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="implement-description">Description (Optional)</Label>
+                          <Textarea 
+                            id="implement-description" 
+                            rows={3}
+                            placeholder="Any additional details..."
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="implement-image">Photos</Label>
+                          <Input id="implement-image" type="file" accept="image/*" multiple />
+                          <p className="text-xs text-gray-500">Upload up to 3 photos</p>
+                        </div>
+                      </div>
+                      <DialogFooter>
+                        <Button variant="outline" onClick={() => setIsAddImplementOpen(false)}>
+                          Cancel
+                        </Button>
+                        <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                          Add Implement
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
                 </Card>
+              ) : (
+                <div className="grid md:grid-cols-2 gap-6">
+                  {userImplements.map((implement) => (
+                    <Card key={implement.id}>
+                      <CardHeader>
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <CardTitle className="flex items-center gap-2">
+                              <Wrench className="h-5 w-5 text-[#8B1538]" />
+                              {implement.name}
+                            </CardTitle>
+                            <CardDescription>{implement.type} • {implement.year}</CardDescription>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button variant="ghost" size="icon" className="h-8 w-8">
+                              <Pencil className="h-4 w-4" />
+                            </Button>
+                            <Button variant="ghost" size="icon" className="h-8 w-8 text-red-600 hover:text-red-700">
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="p-6">
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm text-gray-500">Type:</span>
+                            <Badge variant="outline">{implement.type}</Badge>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm text-gray-500">Year:</span>
+                            <span className="text-sm font-medium">{implement.year}</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm text-gray-500">Condition:</span>
+                            <Badge className={
+                              implement.condition === "Excellent" ? "bg-green-500" :
+                              implement.condition === "Very Good" ? "bg-blue-500" :
+                              implement.condition === "Good" ? "bg-yellow-500" :
+                              "bg-orange-500"
+                            }>
+                              {implement.condition}
+                            </Badge>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               )}
             </TabsContent>
           </Tabs>
