@@ -22,8 +22,8 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-16 h-12 transform group-hover:scale-105 transition-transform duration-300">
+          <Link href="/" className="flex items-center group">
+            <div className="relative w-32 h-16 transform group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/ferguson-club-logo.png"
                 alt="Ferguson Club Logo"
@@ -31,10 +31,6 @@ export function Header() {
                 className="object-contain"
                 priority
               />
-            </div>
-            <div className="hidden sm:block">
-              <div className="text-xl font-bold text-gray-900 tracking-tight">Ferguson Club</div>
-              <div className="text-xs text-gray-500 tracking-wider">EST. 1998</div>
             </div>
           </Link>
 

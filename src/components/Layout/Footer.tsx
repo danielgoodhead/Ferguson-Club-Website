@@ -1,56 +1,29 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone, Facebook, Twitter, Instagram } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
+    <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* About Section */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#8B1538] to-[#5a0e24] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">FC</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand Section */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-block mb-6">
+              <div className="relative w-48 h-24">
+                <Image
+                  src="/ferguson-club-logo.png"
+                  alt="Ferguson Club"
+                  fill
+                  className="object-contain"
+                />
               </div>
-              <div>
-                <div className="font-bold text-gray-900">Ferguson Club</div>
-                <div className="text-xs text-gray-500">EST. 1998</div>
-              </div>
-            </div>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              The world's premier community for Ferguson tractor enthusiasts, collectors, and historians.
+            </Link>
+            <p className="text-gray-400 leading-relaxed">
+              Celebrating and preserving Ferguson tractor heritage since 1998. Join our community of enthusiasts.
             </p>
-            <div className="flex space-x-3">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-[#8B1538] text-gray-600 hover:text-white transition-all duration-200"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-[#8B1538] text-gray-600 hover:text-white transition-all duration-200"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-[#8B1538] text-gray-600 hover:text-white transition-all duration-200"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
