@@ -1,0 +1,112 @@
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/membership", label: "Membership" },
+    { href: "/events", label: "Events" },
+    { href: "/news", label: "News" },
+    { href: "/gallery", label: "Gallery" },
+    { href: "/contact", label: "Contact" },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#8B1538] to-[#5a0e24] rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
+              <span className="text-white font-bold text-xl">FC</span>
+            </div>
+            <div className="hidden sm:block">
+              <div className="text-xl font-bold text-gray-900 tracking-tight">Ferguson Club</div>
+              <div className="text-xs text-gray-500 tracking-wider">EST. 1998</div>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#8B1538] hover:bg-gray-50 rounded-lg transition-all duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <Link href="/members">
+              <Button variant="ghost" size="sm" className="text-gray-700">
+                <User className="w-4 h-4 mr-2" />
+                Members
+              </Button>
+            </Link>
+            <Link href="/membership">
+              <Button 
+                size="sm" 
+                className="bg-[#8B1538] hover:bg-[#6B1028] text-white shadow-lg shadow-red-900/20"
+              >
+                Join Now
+              </Button>
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden py-4 border-t border-gray-100 animate-in slide-in-from-top-5 duration-200">
+            <nav className="flex flex-col space-y-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-[#8B1538] hover:bg-gray-50 rounded-lg transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="pt-4 flex flex-col space-y-2 border-t border-gray-100 mt-2">
+                <Link href="/members" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="outline" className="w-full justify-start">
+                    <User className="w-4 h-4 mr-2" />
+                    Members Area
+                  </Button>
+                </Link>
+                <Link href="/membership" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="w-full bg-[#8B1538] hover:bg-[#6B1028]">
+                    Join Now
+                  </Button>
+                </Link>
+              </div>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+}
