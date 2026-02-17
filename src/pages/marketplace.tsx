@@ -1,15 +1,16 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
-import { GDPRConsent } from "@/components/Layout/GDPRConsent";
-import { useState } from "react";
-import { Search, Filter, MapPin, Clock, Tag, Plus, Bell, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { MembersNav } from "@/components/Layout/MembersNav";
 import Link from "next/link";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Search, Plus, Tractor, Wrench, MapPin, Calendar, Eye, Filter, Clock, Heart, Tag } from "lucide-react";
 
 const listings = [
   {
@@ -146,52 +147,7 @@ export default function Marketplace() {
       
       <div className="min-h-screen bg-white">
         <Header />
-
-        {/* Members Navigation */}
-        <section className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex space-x-8 overflow-x-auto py-4">
-              <Link href="/members/dashboard" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Dashboard
-              </Link>
-              <Link href="/members/resources" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Resources
-              </Link>
-              <Link href="/members/directory" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Member Directory
-              </Link>
-              <Link href="/members/registrations" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                DVLA Registrations
-              </Link>
-              <Link href="/news" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                News
-              </Link>
-              <Link href="/events" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Events
-              </Link>
-              <Link href="/gallery" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Gallery
-              </Link>
-              <Link href="/tvo-licence" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                TVO Licence
-              </Link>
-              <Link href="/marketplace" className="text-[#8B1538] font-semibold whitespace-nowrap border-b-2 border-[#8B1538]">
-                Marketplace
-              </Link>
-              <Link href="/shop" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Shop
-              </Link>
-              <Link href="/links" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Useful Links
-              </Link>
-              <Link href="/forum" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Forum
-              </Link>
-            </nav>
-          </div>
-        </section>
-
-        <GDPRConsent />
+        <MembersNav />
 
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-gray-50 to-white pt-24 pb-16">

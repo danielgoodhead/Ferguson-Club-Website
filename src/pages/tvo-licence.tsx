@@ -1,70 +1,28 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
-import { GDPRConsent } from "@/components/Layout/GDPRConsent";
-import { FileText, AlertCircle, CheckCircle } from "lucide-react";
+import { MembersNav } from "@/components/Layout/MembersNav";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import Link from "next/link";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Checkbox } from "@/components/ui/checkbox";
+import { FileText, AlertCircle, CheckCircle2, Info } from "lucide-react";
 
 export default function TVOLicence() {
   return (
     <>
-      <SEO
-        title="TVO Licence - Ferguson Club"
-        description="Apply for your TVO (Tractor Vaporising Oil) licence for historic Ferguson tractors"
+      <SEO 
+        title="TVO Licence Application - Ferguson Club"
+        description="Apply for a Tractor Vaporising Oil (TVO) usage licence through the Ferguson Club"
       />
       
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen flex flex-col">
         <Header />
-
-        {/* Members Navigation */}
-        <section className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex space-x-8 overflow-x-auto py-4">
-              <Link href="/members/dashboard" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Dashboard
-              </Link>
-              <Link href="/members/resources" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Resources
-              </Link>
-              <Link href="/members/directory" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Member Directory
-              </Link>
-              <Link href="/members/registrations" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                DVLA Registrations
-              </Link>
-              <Link href="/news" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                News
-              </Link>
-              <Link href="/events" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Events
-              </Link>
-              <Link href="/gallery" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Gallery
-              </Link>
-              <Link href="/tvo-licence" className="text-[#8B1538] font-semibold whitespace-nowrap border-b-2 border-[#8B1538]">
-                TVO Licence
-              </Link>
-              <Link href="/marketplace" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Marketplace
-              </Link>
-              <Link href="/shop" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Shop
-              </Link>
-              <Link href="/links" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Useful Links
-              </Link>
-              <Link href="/forum" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
-                Forum
-              </Link>
-            </nav>
-          </div>
-        </section>
-
-        <GDPRConsent />
+        <MembersNav />
 
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-gray-50 to-white pt-24 pb-16">
@@ -118,7 +76,7 @@ export default function TVOLicence() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-2xl p-8 border border-gray-200">
                 <div className="flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-gray-900 mb-2">Historic Vehicle</h3>
                     <p className="text-gray-600">
@@ -131,7 +89,7 @@ export default function TVOLicence() {
 
               <div className="bg-white rounded-2xl p-8 border border-gray-200">
                 <div className="flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-gray-900 mb-2">Club Membership</h3>
                     <p className="text-gray-600">
@@ -143,7 +101,7 @@ export default function TVOLicence() {
 
               <div className="bg-white rounded-2xl p-8 border border-gray-200">
                 <div className="flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-gray-900 mb-2">Documentation</h3>
                     <p className="text-gray-600">
@@ -155,7 +113,7 @@ export default function TVOLicence() {
 
               <div className="bg-white rounded-2xl p-8 border border-gray-200">
                 <div className="flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-gray-900 mb-2">Intended Use</h3>
                     <p className="text-gray-600">
