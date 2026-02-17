@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,8 +23,14 @@ export function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#8B1538] to-[#5a0e24] rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-              <span className="text-white font-bold text-xl">FC</span>
+            <div className="relative w-16 h-12 transform group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/ferguson-club-logo.png"
+                alt="Ferguson Club Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
             <div className="hidden sm:block">
               <div className="text-xl font-bold text-gray-900 tracking-tight">Ferguson Club</div>
@@ -37,7 +44,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#8B1538] hover:bg-gray-50 rounded-lg transition-all duration-200"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#BE0032] hover:bg-gray-50 rounded-lg transition-all duration-200"
               >
                 {link.label}
               </Link>
@@ -46,7 +53,7 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
-            <Link href="/members">
+            <Link href="/members/login">
               <Button variant="ghost" size="sm" className="text-gray-700">
                 <User className="w-4 h-4 mr-2" />
                 Members
@@ -55,7 +62,7 @@ export function Header() {
             <Link href="/membership">
               <Button 
                 size="sm" 
-                className="bg-[#8B1538] hover:bg-[#6B1028] text-white shadow-lg shadow-red-900/20"
+                className="bg-[#BE0032] hover:bg-[#9A0028] text-white shadow-lg shadow-red-600/20"
               >
                 Join Now
               </Button>
@@ -84,21 +91,21 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-[#8B1538] hover:bg-gray-50 rounded-lg transition-colors"
+                  className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-[#BE0032] hover:bg-gray-50 rounded-lg transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
               <div className="pt-4 flex flex-col space-y-2 border-t border-gray-100 mt-2">
-                <Link href="/members" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/members/login" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="outline" className="w-full justify-start">
                     <User className="w-4 h-4 mr-2" />
                     Members Area
                   </Button>
                 </Link>
                 <Link href="/membership" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-[#8B1538] hover:bg-[#6B1028]">
+                  <Button className="w-full bg-[#BE0032] hover:bg-[#9A0028]">
                     Join Now
                   </Button>
                 </Link>

@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 // UK Area Representatives (organized by postcode prefix)
 const ukAreaReps = {
@@ -130,69 +132,99 @@ const ukAreaReps = {
   "ZE": { name: "Bernice Robertson", email: "bernice.robertson@fergusonclub.com", phone: "01234 567906", area: "Shetland Islands" }
 };
 
-// International Representatives
-const internationalReps = [
-  {
+// International Representatives by Country
+const internationalReps: Record<string, { name: string; email: string; phone: string; region: string }> = {
+  "France": {
     name: "Pierre Dubois",
-    country: "France",
     email: "pierre.dubois@fergusonclub.com",
     phone: "+33 1 23 45 67 89",
     region: "Continental Europe"
   },
-  {
+  "Germany": {
     name: "Hans Mueller",
-    country: "Germany",
     email: "hans.mueller@fergusonclub.com",
     phone: "+49 30 12345678",
     region: "Central Europe"
   },
-  {
+  "Sweden": {
     name: "Lars Andersson",
-    country: "Sweden",
     email: "lars.andersson@fergusonclub.com",
     phone: "+46 8 123 456 78",
     region: "Scandinavia"
   },
-  {
+  "Norway": {
+    name: "Lars Andersson",
+    email: "lars.andersson@fergusonclub.com",
+    phone: "+46 8 123 456 78",
+    region: "Scandinavia"
+  },
+  "Denmark": {
+    name: "Lars Andersson",
+    email: "lars.andersson@fergusonclub.com",
+    phone: "+46 8 123 456 78",
+    region: "Scandinavia"
+  },
+  "Ireland": {
     name: "Michael O'Brien",
-    country: "Ireland",
     email: "michael.obrien@fergusonclub.com",
     phone: "+353 1 234 5678",
     region: "Ireland"
   },
-  {
+  "USA": {
     name: "John Anderson",
-    country: "USA",
     email: "john.anderson@fergusonclub.com",
     phone: "+1 555 123 4567",
     region: "North America"
   },
-  {
+  "Canada": {
     name: "Robert Mitchell",
-    country: "Canada",
     email: "robert.mitchell@fergusonclub.com",
     phone: "+1 416 555 1234",
     region: "North America"
   },
-  {
+  "Australia": {
     name: "David Thompson",
-    country: "Australia",
     email: "david.thompson@fergusonclub.com",
     phone: "+61 2 9876 5432",
     region: "Australia & New Zealand"
   },
-  {
+  "New Zealand": {
     name: "James Wilson",
-    country: "New Zealand",
     email: "james.wilson@fergusonclub.com",
     phone: "+64 9 876 5432",
     region: "Australia & New Zealand"
+  },
+  "Netherlands": {
+    name: "Hans Mueller",
+    email: "hans.mueller@fergusonclub.com",
+    phone: "+49 30 12345678",
+    region: "Central Europe"
+  },
+  "Belgium": {
+    name: "Pierre Dubois",
+    email: "pierre.dubois@fergusonclub.com",
+    phone: "+33 1 23 45 67 89",
+    region: "Continental Europe"
+  },
+  "Spain": {
+    name: "Pierre Dubois",
+    email: "pierre.dubois@fergusonclub.com",
+    phone: "+33 1 23 45 67 89",
+    region: "Continental Europe"
+  },
+  "Italy": {
+    name: "Pierre Dubois",
+    email: "pierre.dubois@fergusonclub.com",
+    phone: "+33 1 23 45 67 89",
+    region: "Continental Europe"
   }
-];
+};
 
 export default function Contact() {
+  const [locationType, setLocationType] = useState<"uk" | "international">("uk");
   const [postcode, setPostcode] = useState("");
-  const [searchResult, setSearchResult] = useState<typeof ukAreaReps[keyof typeof ukAreaReps] | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [searchResult, setSearchResult] = useState<{ name: string; email: string; phone: string; area?: string; region?: string } | null>(null);
   const [searchError, setSearchError] = useState("");
 
   const handlePostcodeSearch = () => {
@@ -204,7 +236,6 @@ export default function Contact() {
       return;
     }
 
-    // Extract the postcode area (first 1-2 letters)
     const postcodeArea = cleanPostcode.match(/^[A-Z]{1,2}/)?.[0] || "";
     
     if (postcodeArea && ukAreaReps[postcodeArea as keyof typeof ukAreaReps]) {
@@ -214,6 +245,25 @@ export default function Contact() {
       setSearchError("No area representative found for this postcode. Please contact our main office.");
       setSearchResult(null);
     }
+  };
+
+  const handleCountrySelect = (country: string) => {
+    setSelectedCountry(country);
+    if (internationalReps[country]) {
+      setSearchResult(internationalReps[country]);
+      setSearchError("");
+    } else {
+      setSearchError("No representative found for this country.");
+      setSearchResult(null);
+    }
+  };
+
+  const handleLocationTypeChange = (value: string) => {
+    setLocationType(value as "uk" | "international");
+    setSearchResult(null);
+    setSearchError("");
+    setPostcode("");
+    setSelectedCountry("");
   };
 
   return (
@@ -232,7 +282,7 @@ export default function Contact() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-                Get in <span className="text-[#8B1538]">Touch</span>
+                Get in <span className="text-[#BE0032]">Touch</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Whether you're a prospective member, current member, or just have a question about Ferguson tractors, 
@@ -242,60 +292,113 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* UK Postcode Lookup */}
+        {/* Representative Lookup */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-[#8B1538]/10 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-[#8B1538]" />
+                <div className="w-12 h-12 bg-[#BE0032]/10 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-[#BE0032]" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900">Find Your Area Representative</h2>
-                  <p className="text-gray-600">UK members only</p>
+                  <p className="text-gray-600">Connect with your local or regional contact</p>
                 </div>
               </div>
 
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Enter the first 2-3 characters of your UK postcode to find your local area representative. 
-                They can provide personalized support, information about local events, and connect you with nearby members.
+                Select your location type to find your local representative who can provide personalized support, 
+                information about local events, and connect you with nearby members.
               </p>
 
-              <div className="flex gap-4 mb-6">
-                <div className="flex-grow">
-                  <Label htmlFor="postcode" className="sr-only">Postcode</Label>
-                  <Input
-                    id="postcode"
-                    type="text"
-                    placeholder="e.g. SW1, M1, EH1"
-                    value={postcode}
-                    onChange={(e) => setPostcode(e.target.value.toUpperCase())}
-                    onKeyPress={(e) => e.key === "Enter" && handlePostcodeSearch()}
-                    className="text-lg h-14"
-                    maxLength={4}
-                  />
+              {/* Location Type Selection */}
+              <RadioGroup value={locationType} onValueChange={handleLocationTypeChange} className="mb-8">
+                <div className="flex gap-6">
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="uk" id="uk" />
+                    <Label htmlFor="uk" className="text-base font-medium cursor-pointer">
+                      United Kingdom
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="international" id="international" />
+                    <Label htmlFor="international" className="text-base font-medium cursor-pointer">
+                      International
+                    </Label>
+                  </div>
                 </div>
-                <Button 
-                  onClick={handlePostcodeSearch}
-                  size="lg"
-                  className="bg-[#8B1538] hover:bg-[#6B1028] text-white px-8 h-14"
-                >
-                  <Search className="w-5 h-5 mr-2" />
-                  Search
-                </Button>
-              </div>
+              </RadioGroup>
 
+              {/* UK Postcode Search */}
+              {locationType === "uk" && (
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex-grow">
+                      <Label htmlFor="postcode" className="sr-only">Postcode</Label>
+                      <Input
+                        id="postcode"
+                        type="text"
+                        placeholder="e.g. SW1, M1, EH1"
+                        value={postcode}
+                        onChange={(e) => setPostcode(e.target.value.toUpperCase())}
+                        onKeyPress={(e) => e.key === "Enter" && handlePostcodeSearch()}
+                        className="text-lg h-14"
+                        maxLength={4}
+                      />
+                    </div>
+                    <Button 
+                      onClick={handlePostcodeSearch}
+                      size="lg"
+                      className="bg-[#BE0032] hover:bg-[#9A0028] text-white px-8 h-14"
+                    >
+                      <Search className="w-5 h-5 mr-2" />
+                      Search
+                    </Button>
+                  </div>
+                  <p className="text-sm text-gray-500">
+                    Enter the first 2-3 characters of your UK postcode to find your area representative
+                  </p>
+                </div>
+              )}
+
+              {/* International Country Selection */}
+              {locationType === "international" && (
+                <div className="space-y-4">
+                  <div>
+                    <Label htmlFor="country" className="text-base font-medium mb-3 block">
+                      Select Your Country
+                    </Label>
+                    <Select value={selectedCountry} onValueChange={handleCountrySelect}>
+                      <SelectTrigger className="h-14 text-lg">
+                        <SelectValue placeholder="Choose a country..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {Object.keys(internationalReps).sort().map((country) => (
+                          <SelectItem key={country} value={country} className="text-base">
+                            {country}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              )}
+
+              {/* Error Message */}
               {searchError && (
-                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mt-6">
                   <p className="text-red-800">{searchError}</p>
                 </div>
               )}
 
+              {/* Search Result */}
               {searchResult && (
-                <div className="bg-white border-2 border-[#8B1538] rounded-2xl p-6 space-y-4 animate-in slide-in-from-bottom-5 duration-300">
+                <div className="bg-white border-2 border-[#BE0032] rounded-2xl p-6 space-y-4 mt-6 animate-in slide-in-from-bottom-5 duration-300">
                   <div className="flex items-center space-x-3 mb-4">
-                    <User className="w-6 h-6 text-[#8B1538]" />
-                    <h3 className="text-2xl font-bold text-gray-900">Your Area Representative</h3>
+                    <User className="w-6 h-6 text-[#BE0032]" />
+                    <h3 className="text-2xl font-bold text-gray-900">
+                      {locationType === "uk" ? "Your Area Representative" : "Your Regional Representative"}
+                    </h3>
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-4">
@@ -304,18 +407,22 @@ export default function Contact() {
                       <div className="text-lg font-semibold text-gray-900">{searchResult.name}</div>
                     </div>
                     <div>
-                      <div className="text-sm text-gray-600 mb-1">Area</div>
-                      <div className="text-lg font-semibold text-gray-900">{searchResult.area}</div>
+                      <div className="text-sm text-gray-600 mb-1">
+                        {locationType === "uk" ? "Area" : "Region"}
+                      </div>
+                      <div className="text-lg font-semibold text-gray-900">
+                        {searchResult.area || searchResult.region}
+                      </div>
                     </div>
                     <div>
                       <div className="text-sm text-gray-600 mb-1">Email</div>
-                      <a href={`mailto:${searchResult.email}`} className="text-lg text-[#8B1538] hover:underline">
+                      <a href={`mailto:${searchResult.email}`} className="text-lg text-[#BE0032] hover:underline">
                         {searchResult.email}
                       </a>
                     </div>
                     <div>
                       <div className="text-sm text-gray-600 mb-1">Phone</div>
-                      <a href={`tel:${searchResult.phone}`} className="text-lg text-[#8B1538] hover:underline">
+                      <a href={`tel:${searchResult.phone}`} className="text-lg text-[#BE0032] hover:underline">
                         {searchResult.phone}
                       </a>
                     </div>
@@ -326,54 +433,8 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* International Representatives */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center space-x-3 mb-4">
-                <Globe className="w-8 h-8 text-[#8B1538]" />
-                <h2 className="text-4xl font-bold text-gray-900">International Representatives</h2>
-              </div>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                For members outside the UK, please contact your regional representative
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {internationalReps.map((rep, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-                  <div className="space-y-3">
-                    <div>
-                      <div className="text-sm text-gray-600 mb-1">Name</div>
-                      <div className="text-lg font-bold text-gray-900">{rep.name}</div>
-                    </div>
-                    <div>
-                      <div className="text-sm text-gray-600 mb-1">Country</div>
-                      <div className="font-semibold text-gray-900">{rep.country}</div>
-                    </div>
-                    <div>
-                      <div className="text-sm text-gray-600 mb-1">Region</div>
-                      <div className="font-semibold text-gray-900">{rep.region}</div>
-                    </div>
-                    <div className="pt-3 border-t border-gray-100 space-y-2">
-                      <a href={`mailto:${rep.email}`} className="flex items-center text-[#8B1538] hover:underline">
-                        <Mail className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{rep.email}</span>
-                      </a>
-                      <a href={`tel:${rep.phone}`} className="flex items-center text-[#8B1538] hover:underline">
-                        <Phone className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{rep.phone}</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Contact Form */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Send Us a Message</h2>
@@ -382,7 +443,7 @@ export default function Contact() {
               </p>
             </div>
 
-            <form className="space-y-6">
+            <form className="bg-white rounded-3xl p-8 md:p-12 shadow-xl space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <Label htmlFor="name">Name *</Label>
@@ -409,7 +470,7 @@ export default function Contact() {
                 />
               </div>
 
-              <Button type="submit" size="lg" className="w-full bg-[#8B1538] hover:bg-[#6B1028] text-white">
+              <Button type="submit" size="lg" className="w-full bg-[#BE0032] hover:bg-[#9A0028] text-white">
                 Send Message
               </Button>
             </form>
@@ -417,35 +478,35 @@ export default function Contact() {
         </section>
 
         {/* Main Office Info */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Main Office</h2>
               
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-[#8B1538]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Mail className="w-8 h-8 text-[#8B1538]" />
+                  <div className="w-16 h-16 bg-[#BE0032]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Mail className="w-8 h-8 text-[#BE0032]" />
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">Email</h3>
-                  <a href="mailto:info@fergusonclub.com" className="text-[#8B1538] hover:underline">
+                  <a href="mailto:info@fergusonclub.com" className="text-[#BE0032] hover:underline">
                     info@fergusonclub.com
                   </a>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-[#8B1538]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Phone className="w-8 h-8 text-[#8B1538]" />
+                  <div className="w-16 h-16 bg-[#BE0032]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Phone className="w-8 h-8 text-[#BE0032]" />
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">Phone</h3>
-                  <a href="tel:+441234567890" className="text-[#8B1538] hover:underline">
+                  <a href="tel:+441234567890" className="text-[#BE0032] hover:underline">
                     +44 (0) 1234 567890
                   </a>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-[#8B1538]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-8 h-8 text-[#8B1538]" />
+                  <div className="w-16 h-16 bg-[#BE0032]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="w-8 h-8 text-[#BE0032]" />
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">Location</h3>
                   <p className="text-gray-600">United Kingdom</p>
