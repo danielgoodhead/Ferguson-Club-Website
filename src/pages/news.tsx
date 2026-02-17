@@ -2,65 +2,65 @@ import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
 import { GDPRConsent } from "@/components/Layout/GDPRConsent";
-import { Calendar, User, ArrowRight, Tag } from "lucide-react";
+import { Calendar, User, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
 
 const newsArticles = [
   {
     id: 1,
-    title: "Record Attendance at 2026 Spring Rally",
-    excerpt: "Our Spring Rally saw unprecedented attendance with over 500 Ferguson tractors from 15 countries, making it the largest gathering in club history.",
-    date: "February 15, 2026",
+    title: "Record Turnout at Annual Ferguson Rally 2024",
+    excerpt: "Over 500 Ferguson tractors gathered at the National Heritage Centre for our biggest rally yet. Members from across the UK and Europe showcased their beautifully restored machines.",
+    date: "2024-03-15",
     author: "Club Secretary",
-    category: "Events",
-    image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80",
-    featured: true
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=500&fit=crop",
+    category: "Events"
   },
   {
     id: 2,
-    title: "New Digital Archive Now Available",
-    excerpt: "Members can now access over 10,000 digitized documents including original workshop manuals, parts catalogs, and historical photographs.",
-    date: "February 10, 2026",
-    author: "Archives Team",
-    category: "Resources",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80"
+    title: "New Technical Manual Series Released",
+    excerpt: "We're excited to announce the release of our comprehensive TE20 restoration guide, featuring detailed photographs and step-by-step instructions from our expert restoration team.",
+    date: "2024-03-10",
+    author: "Technical Committee",
+    image: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=800&h=500&fit=crop",
+    category: "Resources"
   },
   {
     id: 3,
-    title: "Rare TE-20 'Grey Fergie' Restoration Complete",
-    excerpt: "Member John Davies completes stunning restoration of a 1948 TE-20, bringing it back to original factory specification.",
-    date: "February 5, 2026",
-    author: "Restoration Editor",
-    category: "Restoration",
-    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80"
+    title: "Ferguson Club Celebrates 50 Years",
+    excerpt: "This year marks half a century since the Ferguson Club was founded. Join us for special anniversary events throughout the year, including a gala dinner in September.",
+    date: "2024-03-01",
+    author: "Club Chairman",
+    image: "https://images.unsplash.com/photo-1464639351491-a172c2aa2911?w=800&h=500&fit=crop",
+    category: "Club News"
   },
   {
     id: 4,
-    title: "Technical Workshop Series Announced",
-    excerpt: "Six new hands-on workshops scheduled for 2026, covering hydraulics, engine rebuilding, and electrical systems.",
-    date: "January 28, 2026",
-    author: "Events Team",
-    category: "Events",
-    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80"
+    title: "Winter Workshop Series Announced",
+    excerpt: "Sign up now for our winter workshop series covering engine rebuilds, electrical systems, and hydraulics. Limited spaces available at our technical centre.",
+    date: "2024-02-28",
+    author: "Events Coordinator",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=500&fit=crop",
+    category: "Workshops"
   },
   {
     id: 5,
-    title: "Partnership with National Museum Announced",
-    excerpt: "Ferguson Club partners with National Agricultural Museum to preserve and display historic Ferguson tractors.",
-    date: "January 20, 2026",
-    author: "Club Chairman",
-    category: "News",
-    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80"
+    title: "Member Spotlight: The Smith Family Collection",
+    excerpt: "Meet the Smith family and their incredible collection of 12 Ferguson tractors, spanning from 1947 to 1965. Each machine has its own story and has been lovingly restored.",
+    date: "2024-02-20",
+    author: "Magazine Editor",
+    image: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=800&h=500&fit=crop",
+    category: "Members"
   },
   {
     id: 6,
-    title: "Member Spotlight: Sarah Thompson's Collection",
-    excerpt: "Meet Sarah Thompson and tour her impressive collection of six Ferguson tractors spanning three decades.",
-    date: "January 15, 2026",
-    author: "Features Editor",
-    category: "Members",
-    image: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=800&q=80"
+    title: "Parts Availability Update",
+    excerpt: "Good news for TE20 owners - we've secured a new supply of reproduction parts including steering boxes, clutch components, and engine gasket sets through our supplier network.",
+    date: "2024-02-15",
+    author: "Parts Coordinator",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=500&fit=crop",
+    category: "Parts"
   }
 ];
 
@@ -68,8 +68,8 @@ export default function News() {
   return (
     <>
       <SEO
-        title="News & Articles - Ferguson Club"
-        description="Latest news, restoration stories, technical articles, and updates from the Ferguson Club community."
+        title="Club News - Ferguson Club"
+        description="Latest news, updates, and stories from the Ferguson Club community"
       />
       
       <div className="min-h-screen bg-white">
@@ -81,131 +81,134 @@ export default function News() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-                News & <span className="text-[#8B1538]">Articles</span>
+                Club <span className="text-[#BE0032]">News</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Stay updated with the latest club news, restoration stories, technical articles, 
-                and insights from the Ferguson tractor community.
+                Stay updated with the latest news, events, and stories from the Ferguson Club community
               </p>
             </div>
           </div>
         </section>
 
         {/* Featured Article */}
-        {newsArticles.filter(article => article.featured).map(article => (
-          <section key={article.id} className="py-12 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl overflow-hidden shadow-xl border border-gray-200">
-                <div className="grid lg:grid-cols-2 gap-0">
-                  <div className="aspect-[4/3] lg:aspect-auto">
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-8 lg:p-12 flex flex-col justify-center">
-                    <div className="inline-flex items-center space-x-2 text-[#8B1538] font-semibold mb-4">
-                      <Tag className="w-4 h-4" />
-                      <span>Featured Article</span>
-                    </div>
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                      {article.title}
-                    </h2>
-                    <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                      {article.excerpt}
-                    </p>
-                    <div className="flex items-center space-x-6 text-sm text-gray-500 mb-8">
-                      <div className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        {article.date}
-                      </div>
-                      <div className="flex items-center">
-                        <User className="w-4 h-4 mr-2" />
-                        {article.author}
-                      </div>
-                    </div>
-                    <Link href={`/news/${article.id}`}>
-                      <Button className="bg-[#8B1538] hover:bg-[#6B1028] text-white group">
-                        Read Full Article
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
+        <section className="py-12 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Card className="overflow-hidden border-2 border-[#BE0032]">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="relative h-80 md:h-full">
+                  <img
+                    src={newsArticles[0].image}
+                    alt={newsArticles[0].title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-[#BE0032] text-white px-4 py-2 rounded-lg font-semibold">
+                      Featured
+                    </span>
                   </div>
                 </div>
+                <CardContent className="p-8 md:p-12 flex flex-col justify-center">
+                  <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                    <span className="flex items-center">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      {new Date(newsArticles[0].date).toLocaleDateString('en-GB', { 
+                        day: 'numeric', 
+                        month: 'long', 
+                        year: 'numeric' 
+                      })}
+                    </span>
+                    <span className="flex items-center">
+                      <User className="w-4 h-4 mr-2" />
+                      {newsArticles[0].author}
+                    </span>
+                  </div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                    {newsArticles[0].title}
+                  </h2>
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    {newsArticles[0].excerpt}
+                  </p>
+                  <Button className="bg-[#BE0032] hover:bg-[#9A0028] w-fit">
+                    Read Full Article
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </CardContent>
               </div>
-            </div>
-          </section>
-        ))}
+            </Card>
+          </div>
+        </section>
 
-        {/* Recent Articles Grid */}
-        <section className="py-20 bg-white">
+        {/* News Grid */}
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-12">Recent Articles</h2>
-            
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {newsArticles.filter(article => !article.featured).map((article) => (
-                <article 
-                  key={article.id}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-300 group"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-[#8B1538] text-white px-3 py-1 rounded-full text-xs font-semibold">
-                        {article.category}
+              {newsArticles.slice(1).map((article) => (
+                <Card key={article.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <CardHeader className="p-0">
+                    <div className="relative h-56 overflow-hidden">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute top-4 right-4">
+                        <span className="bg-white/90 backdrop-blur-sm text-[#BE0032] px-3 py-1 rounded-lg text-sm font-semibold">
+                          {article.category}
+                        </span>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-4 text-sm text-gray-600 mb-3">
+                      <span className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        {new Date(article.date).toLocaleDateString('en-GB', { 
+                          day: 'numeric', 
+                          month: 'short', 
+                          year: 'numeric' 
+                        })}
                       </span>
                     </div>
-                  </div>
-
-                  <div className="p-6 space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#8B1538] transition-colors line-clamp-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
                       {article.title}
                     </h3>
-
-                    <p className="text-gray-600 leading-relaxed line-clamp-3">
+                    <p className="text-gray-600 text-sm line-clamp-3 mb-4">
                       {article.excerpt}
                     </p>
-
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div className="text-sm text-gray-500">
-                        {article.date}
-                      </div>
-                      <Link 
-                        href={`/news/${article.id}`}
-                        className="text-[#8B1538] hover:underline font-medium text-sm flex items-center"
-                      >
-                        Read More
-                        <ArrowRight className="ml-1 w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </article>
+                  </CardContent>
+                  <CardFooter className="px-6 pb-6">
+                    <Button variant="outline" className="w-full group">
+                      Read More
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </CardFooter>
+                </Card>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Newsletter CTA */}
-        <section className="py-20 bg-gradient-to-br from-[#8B1538] to-[#6B1028] text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-6">
-              Stay Informed
-            </h2>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Members receive our quarterly magazine featuring in-depth articles, technical guides, 
-              and exclusive content delivered directly to your door.
-            </p>
-            <Link href="/membership">
-              <Button size="lg" className="bg-white text-[#8B1538] hover:bg-gray-100">
-                Become a Member
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
+        {/* Newsletter Signup */}
+        <section className="py-20 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-gradient-to-br from-[#BE0032] to-[#9A0028] rounded-3xl p-8 md:p-12 text-center text-white">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Stay Updated
+              </h2>
+              <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Subscribe to our newsletter to receive the latest club news, event announcements, and technical tips directly to your inbox
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  className="flex-grow px-6 py-4 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                />
+                <Button size="lg" className="bg-white text-[#BE0032] hover:bg-gray-100 whitespace-nowrap">
+                  Subscribe
+                </Button>
+              </div>
+            </div>
           </div>
         </section>
 
