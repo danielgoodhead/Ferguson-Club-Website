@@ -20,59 +20,45 @@ export default function TVOLicence() {
       <div className="min-h-screen bg-white">
         <Header />
 
-        {/* Member Navigation */}
-        <section className="bg-gradient-to-r from-[#8B1538] to-[#6B1028] text-white py-4 sticky top-0 z-40 shadow-lg">
+        {/* Members Navigation */}
+        <section className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center space-x-1 overflow-x-auto scrollbar-hide">
-              <Link href="/members/dashboard">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Dashboard
-                </Button>
+            <nav className="flex space-x-8 overflow-x-auto py-4">
+              <Link href="/members/dashboard" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                Dashboard
               </Link>
-              <Link href="/members/resources">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Resources
-                </Button>
+              <Link href="/members/resources" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                Resources
               </Link>
-              <Link href="/news">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  News
-                </Button>
+              <Link href="/members/directory" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                Member Directory
               </Link>
-              <Link href="/events">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Events
-                </Button>
+              <Link href="/members/registrations" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                DVLA Registrations
               </Link>
-              <Link href="/gallery">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Gallery
-                </Button>
+              <Link href="/news" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                News
               </Link>
-              <Link href="/tvo-licence">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  TVO Licence
-                </Button>
+              <Link href="/events" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                Events
               </Link>
-              <Link href="/marketplace">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Marketplace
-                </Button>
+              <Link href="/gallery" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                Gallery
               </Link>
-              <Link href="/shop">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Shop
-                </Button>
+              <Link href="/tvo-licence" className="text-[#8B1538] font-semibold whitespace-nowrap border-b-2 border-[#8B1538]">
+                TVO Licence
               </Link>
-              <Link href="/links">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Links
-                </Button>
+              <Link href="/marketplace" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                Marketplace
               </Link>
-              <Link href="/forum">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Forum
-                </Button>
+              <Link href="/shop" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                Shop
+              </Link>
+              <Link href="/links" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                Useful Links
+              </Link>
+              <Link href="/forum" className="text-gray-600 hover:text-[#8B1538] whitespace-nowrap transition-colors">
+                Forum
               </Link>
             </nav>
           </div>

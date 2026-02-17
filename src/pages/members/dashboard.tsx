@@ -1,11 +1,34 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { MembersNav } from "@/components/Layout/MembersNav";
 import Link from "next/link";
-import { CheckCircle2, Calendar, Users, FileText, ShoppingBag, Link2, MessageSquare, Camera, Newspaper, Wrench, Store } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Calendar, 
+  FileText, 
+  Users, 
+  TrendingUp, 
+  Wrench, 
+  ShoppingCart, 
+  MessageSquare, 
+  ExternalLink,
+  CheckCircle2,
+  Store,
+  Newspaper,
+  Camera,
+  ShoppingBag,
+  Link2
+} from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 export default function MemberDashboard() {
   return (
@@ -16,64 +39,7 @@ export default function MemberDashboard() {
       />
       <div className="min-h-screen flex flex-col bg-white">
         <Header />
-
-        {/* Member Navigation */}
-        <section className="bg-gradient-to-r from-[#8B1538] to-[#6B1028] text-white py-4 sticky top-0 z-40 shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center space-x-1 overflow-x-auto scrollbar-hide">
-              <Link href="/members/dashboard">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Dashboard
-                </Button>
-              </Link>
-              <Link href="/members/resources">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Resources
-                </Button>
-              </Link>
-              <Link href="/news">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  News
-                </Button>
-              </Link>
-              <Link href="/events">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Events
-                </Button>
-              </Link>
-              <Link href="/gallery">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Gallery
-                </Button>
-              </Link>
-              <Link href="/tvo-licence">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  TVO Licence
-                </Button>
-              </Link>
-              <Link href="/marketplace">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Marketplace
-                </Button>
-              </Link>
-              <Link href="/shop">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Shop
-                </Button>
-              </Link>
-              <Link href="/links">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Links
-                </Button>
-              </Link>
-              <Link href="/forum">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
-                  Forum
-                </Button>
-              </Link>
-            </nav>
-          </div>
-        </section>
+        <MembersNav />
 
         {/* Page Header */}
         <section className="bg-white border-b border-gray-200">
