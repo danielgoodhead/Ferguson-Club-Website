@@ -1,205 +1,268 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
-import { GDPRConsent } from "@/components/Layout/GDPRConsent";
-import { User, FileText, Calendar, BookOpen, Users, Settings, Download, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-
-const quickLinks = [
-  {
-    icon: FileText,
-    title: "Technical Library",
-    description: "Workshop manuals & parts catalogs",
-    href: "/members/resources",
-    color: "bg-blue-500"
-  },
-  {
-    icon: Calendar,
-    title: "Event Bookings",
-    description: "Manage your event registrations",
-    href: "/members/events",
-    color: "bg-green-500"
-  },
-  {
-    icon: Users,
-    title: "Member Directory",
-    description: "Connect with other members",
-    href: "/members/directory",
-    color: "bg-purple-500"
-  },
-  {
-    icon: BookOpen,
-    title: "Magazine Archive",
-    description: "Read past issues online",
-    href: "/members/magazine",
-    color: "bg-orange-500"
-  }
-];
-
-const recentActivity = [
-  {
-    title: "Spring Rally 2026 - Registration Confirmed",
-    date: "February 15, 2026",
-    type: "Event"
-  },
-  {
-    title: "Downloaded: TE-20 Workshop Manual",
-    date: "February 10, 2026",
-    type: "Resource"
-  },
-  {
-    title: "New Forum Post: Engine Rebuild Tips",
-    date: "February 8, 2026",
-    type: "Community"
-  }
-];
+import { CheckCircle2, Calendar, Users, FileText, ShoppingBag, Link2, MessageSquare, Camera, Newspaper, Wrench, Store } from "lucide-react";
 
 export default function MemberDashboard() {
   return (
     <>
-      <SEO
+      <SEO 
         title="Member Dashboard - Ferguson Club"
-        description="Your Ferguson Club member dashboard - access resources, manage bookings, and connect with the community."
+        description="Access your Ferguson Club member dashboard, resources, and community features"
       />
-      
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen flex flex-col bg-white">
         <Header />
-        <GDPRConsent />
 
-        {/* Welcome Banner */}
-        <section className="bg-gradient-to-br from-[#8B1538] to-[#6B1028] text-white py-16">
+        {/* Member Navigation */}
+        <section className="bg-gradient-to-r from-[#8B1538] to-[#6B1028] text-white py-4 sticky top-0 z-40 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-4xl font-bold mb-2">Welcome back, John!</h1>
-                <p className="text-white/90 text-lg">Member since 2020 • Membership #12345</p>
-              </div>
-              <Link href="/members/profile">
-                <Button variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
-                  <Settings className="w-4 h-4 mr-2" />
-                  Account Settings
+            <nav className="flex items-center space-x-1 overflow-x-auto scrollbar-hide">
+              <Link href="/members/dashboard">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Dashboard
                 </Button>
+              </Link>
+              <Link href="/members/resources">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Resources
+                </Button>
+              </Link>
+              <Link href="/news">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  News
+                </Button>
+              </Link>
+              <Link href="/events">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Events
+                </Button>
+              </Link>
+              <Link href="/gallery">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Gallery
+                </Button>
+              </Link>
+              <Link href="/tvo-licence">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  TVO Licence
+                </Button>
+              </Link>
+              <Link href="/marketplace">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Marketplace
+                </Button>
+              </Link>
+              <Link href="/shop">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Shop
+                </Button>
+              </Link>
+              <Link href="/links">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Links
+                </Button>
+              </Link>
+              <Link href="/forum">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Forum
+                </Button>
+              </Link>
+            </nav>
+          </div>
+        </section>
+
+        {/* Page Header */}
+        <section className="bg-white border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Welcome Back, <span className="text-[#8B1538]">Member</span>
+            </h1>
+            <p className="text-xl text-gray-600">
+              Your Ferguson Club dashboard and member resources
+            </p>
+          </div>
+        </section>
+
+        {/* Dashboard Content */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          {/* Membership Status */}
+          <Card className="mb-8 border-[#8B1538]/20">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-2xl">Membership Status</CardTitle>
+                  <CardDescription>Your current membership details</CardDescription>
+                </div>
+                <Badge className="bg-green-100 text-green-800 border-green-200">
+                  <CheckCircle2 className="w-4 h-4 mr-1" />
+                  Active
+                </Badge>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <p className="text-sm text-gray-600 mb-1">Member Type</p>
+                  <p className="text-lg font-semibold text-gray-900">Full Member</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600 mb-1">Member Since</p>
+                  <p className="text-lg font-semibold text-gray-900">January 2020</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600 mb-1">Renewal Date</p>
+                  <p className="text-lg font-semibold text-gray-900">January 2027</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Quick Access */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Quick Access</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link href="/members/resources">
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer border-[#8B1538]/20 h-full">
+                  <CardHeader>
+                    <FileText className="w-10 h-10 text-[#8B1538] mb-3" />
+                    <CardTitle className="text-lg">Resources</CardTitle>
+                    <CardDescription>Technical manuals & documents</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/marketplace">
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer border-[#8B1538]/20 h-full">
+                  <CardHeader>
+                    <Store className="w-10 h-10 text-[#8B1538] mb-3" />
+                    <CardTitle className="text-lg">Marketplace</CardTitle>
+                    <CardDescription>Buy, sell & trade</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/forum">
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer border-[#8B1538]/20 h-full">
+                  <CardHeader>
+                    <MessageSquare className="w-10 h-10 text-[#8B1538] mb-3" />
+                    <CardTitle className="text-lg">Forum</CardTitle>
+                    <CardDescription>Community discussions</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/events">
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer border-[#8B1538]/20 h-full">
+                  <CardHeader>
+                    <Calendar className="w-10 h-10 text-[#8B1538] mb-3" />
+                    <CardTitle className="text-lg">Events</CardTitle>
+                    <CardDescription>Upcoming shows & rallies</CardDescription>
+                  </CardHeader>
+                </Card>
               </Link>
             </div>
           </div>
-        </section>
 
-        {/* Quick Links */}
-        <section className="py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Quick Access</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {quickLinks.map((link, index) => (
-                <Link key={index} href={link.href}>
-                  <Card className="p-6 hover:shadow-xl transition-all duration-300 cursor-pointer border-2 hover:border-[#8B1538] group">
-                    <div className={`w-12 h-12 ${link.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                      <link.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="font-bold text-gray-900 mb-2 group-hover:text-[#8B1538] transition-colors">
-                      {link.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm">{link.description}</p>
-                  </Card>
-                </Link>
-              ))}
+          {/* Member Features Grid */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Member Features</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="/news">
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader>
+                    <Newspaper className="w-8 h-8 text-[#8B1538] mb-2" />
+                    <CardTitle>Club News</CardTitle>
+                    <CardDescription>Latest updates and articles</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/gallery">
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader>
+                    <Camera className="w-8 h-8 text-[#8B1538] mb-2" />
+                    <CardTitle>Photo Gallery</CardTitle>
+                    <CardDescription>Event photos & restorations</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/tvo-licence">
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader>
+                    <Wrench className="w-8 h-8 text-[#8B1538] mb-2" />
+                    <CardTitle>TVO Licence</CardTitle>
+                    <CardDescription>Apply for TVO usage</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/shop">
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader>
+                    <ShoppingBag className="w-8 h-8 text-[#8B1538] mb-2" />
+                    <CardTitle>Club Shop</CardTitle>
+                    <CardDescription>Merchandise & books</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link href="/links">
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader>
+                    <Link2 className="w-8 h-8 text-[#8B1538] mb-2" />
+                    <CardTitle>Useful Links</CardTitle>
+                    <CardDescription>Resources & suppliers</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Card className="h-full bg-gray-50">
+                <CardHeader>
+                  <Users className="w-8 h-8 text-gray-400 mb-2" />
+                  <CardTitle className="text-gray-600">More Coming Soon</CardTitle>
+                  <CardDescription>Additional features in development</CardDescription>
+                </CardHeader>
+              </Card>
             </div>
           </div>
-        </section>
 
-        {/* Main Content Grid */}
-        <section className="pb-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Recent Activity */}
-              <div className="lg:col-span-2">
-                <Card className="p-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Recent Activity</h2>
-                  <div className="space-y-4">
-                    {recentActivity.map((activity, index) => (
-                      <div key={index} className="flex items-start pb-4 border-b border-gray-100 last:border-0">
-                        <div className="w-2 h-2 bg-[#8B1538] rounded-full mt-2 mr-4"></div>
-                        <div className="flex-grow">
-                          <h3 className="font-semibold text-gray-900">{activity.title}</h3>
-                          <div className="flex items-center space-x-3 mt-1">
-                            <span className="text-sm text-gray-600">{activity.date}</span>
-                            <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
-                              {activity.type}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+          {/* Recent Activity */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl">Recent Activity</CardTitle>
+              <CardDescription>Your latest interactions with the club</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3 pb-4 border-b border-gray-200">
+                  <Calendar className="w-5 h-5 text-[#8B1538] mt-1" />
+                  <div>
+                    <p className="font-medium text-gray-900">Registered for Spring Rally 2027</p>
+                    <p className="text-sm text-gray-600">3 days ago</p>
                   </div>
-                </Card>
+                </div>
+                <div className="flex items-start space-x-3 pb-4 border-b border-gray-200">
+                  <MessageSquare className="w-5 h-5 text-[#8B1538] mt-1" />
+                  <div>
+                    <p className="font-medium text-gray-900">Posted in Technical Questions forum</p>
+                    <p className="text-sm text-gray-600">1 week ago</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FileText className="w-5 h-5 text-[#8B1538] mt-1" />
+                  <div>
+                    <p className="font-medium text-gray-900">Downloaded Ferguson TE20 Manual</p>
+                    <p className="text-sm text-gray-600">2 weeks ago</p>
+                  </div>
+                </div>
               </div>
-
-              {/* Sidebar */}
-              <div className="space-y-6">
-                {/* Membership Status */}
-                <Card className="p-6 bg-gradient-to-br from-gray-50 to-white">
-                  <h3 className="font-bold text-gray-900 mb-4">Membership Status</h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Type:</span>
-                      <span className="font-semibold text-gray-900">Full Member</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Renewal:</span>
-                      <span className="font-semibold text-gray-900">Dec 31, 2026</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Status:</span>
-                      <span className="text-green-600 font-semibold">Active</span>
-                    </div>
-                  </div>
-                  <Button className="w-full mt-4 bg-[#8B1538] hover:bg-[#6B1028] text-white">
-                    Renew Membership
-                  </Button>
-                </Card>
-
-                {/* Upcoming Events */}
-                <Card className="p-6">
-                  <h3 className="font-bold text-gray-900 mb-4 flex items-center">
-                    <Calendar className="w-5 h-5 mr-2 text-[#8B1538]" />
-                    Your Events
-                  </h3>
-                  <div className="space-y-3">
-                    <div className="bg-gray-50 rounded-lg p-3">
-                      <div className="font-semibold text-gray-900 text-sm">Spring Rally 2026</div>
-                      <div className="text-xs text-gray-600 mt-1">April 12-13, 2026</div>
-                    </div>
-                    <div className="bg-gray-50 rounded-lg p-3">
-                      <div className="font-semibold text-gray-900 text-sm">Workshop Session</div>
-                      <div className="text-xs text-gray-600 mt-1">May 18, 2026</div>
-                    </div>
-                  </div>
-                  <Link href="/members/events">
-                    <Button variant="outline" className="w-full mt-4 border-[#8B1538] text-[#8B1538] hover:bg-[#8B1538] hover:text-white">
-                      View All Events
-                    </Button>
-                  </Link>
-                </Card>
-
-                {/* Notifications */}
-                <Card className="p-6">
-                  <h3 className="font-bold text-gray-900 mb-4 flex items-center">
-                    <Bell className="w-5 h-5 mr-2 text-[#8B1538]" />
-                    Notifications
-                  </h3>
-                  <div className="space-y-2 text-sm">
-                    <p className="text-gray-600">
-                      <span className="font-semibold text-gray-900">New:</span> March magazine now available
-                    </p>
-                    <p className="text-gray-600">
-                      <span className="font-semibold text-gray-900">Reminder:</span> Event registration closes in 5 days
-                    </p>
-                  </div>
-                </Card>
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </section>
 
         <Footer />

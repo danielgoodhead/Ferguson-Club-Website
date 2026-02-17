@@ -5,15 +5,12 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/membership", label: "Membership" },
-    { href: "/events", label: "Events" },
-    { href: "/news", label: "News" },
-    { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -67,11 +64,11 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? (
+            {isMenuOpen ? (
               <X className="w-6 h-6" />
             ) : (
               <Menu className="w-6 h-6" />
@@ -80,7 +77,7 @@ export function Header() {
         </div>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
+        {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-gray-100 animate-in slide-in-from-top-5 duration-200">
             <nav className="flex flex-col space-y-1">
               {navLinks.map((link) => (
@@ -88,19 +85,19 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-[#BE0032] hover:bg-gray-50 rounded-lg transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
               <div className="pt-4 flex flex-col space-y-2 border-t border-gray-100 mt-2">
-                <Link href="/members/login" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/members/login" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="outline" className="w-full justify-start">
                     <User className="w-4 h-4 mr-2" />
                     Members Area
                   </Button>
                 </Link>
-                <Link href="/membership" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/membership" onClick={() => setIsMenuOpen(false)}>
                   <Button className="w-full bg-[#BE0032] hover:bg-[#9A0028]">
                     Join Now
                   </Button>

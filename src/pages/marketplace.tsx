@@ -3,12 +3,13 @@ import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
 import { GDPRConsent } from "@/components/Layout/GDPRConsent";
 import { useState } from "react";
-import { Search, Filter, MapPin, Clock, Tag } from "lucide-react";
+import { Search, Filter, MapPin, Clock, Tag, Plus, Bell, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 const listings = [
   {
@@ -123,8 +124,8 @@ const listings = [
 
 export default function Marketplace() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("all");
   const [typeFilter, setTypeFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState("all");
   const [conditionFilter, setConditionFilter] = useState("all");
 
   const filteredListings = listings.filter(listing => {
@@ -145,6 +146,65 @@ export default function Marketplace() {
       
       <div className="min-h-screen bg-white">
         <Header />
+
+        {/* Member Navigation */}
+        <section className="bg-gradient-to-r from-[#8B1538] to-[#6B1028] text-white py-4 sticky top-0 z-40 shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav className="flex items-center space-x-1 overflow-x-auto scrollbar-hide">
+              <Link href="/members/dashboard">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Dashboard
+                </Button>
+              </Link>
+              <Link href="/members/resources">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Resources
+                </Button>
+              </Link>
+              <Link href="/news">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  News
+                </Button>
+              </Link>
+              <Link href="/events">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Events
+                </Button>
+              </Link>
+              <Link href="/gallery">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Gallery
+                </Button>
+              </Link>
+              <Link href="/tvo-licence">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  TVO Licence
+                </Button>
+              </Link>
+              <Link href="/marketplace">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Marketplace
+                </Button>
+              </Link>
+              <Link href="/shop">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Shop
+                </Button>
+              </Link>
+              <Link href="/links">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Links
+                </Button>
+              </Link>
+              <Link href="/forum">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Forum
+                </Button>
+              </Link>
+            </nav>
+          </div>
+        </section>
+
         <GDPRConsent />
 
         {/* Hero Section */}
@@ -221,9 +281,12 @@ export default function Marketplace() {
               <p className="text-sm text-gray-600">
                 Showing {filteredListings.length} of {listings.length} listings
               </p>
-              <Button className="bg-[#BE0032] hover:bg-[#9A0028]">
-                Post Listing
-              </Button>
+              <Link href="/marketplace/post" className="flex-1">
+                <Button size="lg" className="w-full bg-[#8B1538] hover:bg-[#6B1028]">
+                  <Plus className="w-5 h-5 mr-2" />
+                  Post Listing
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -293,9 +356,14 @@ export default function Marketplace() {
                         </span>
                       </div>
                     </CardContent>
-                    <CardFooter className="p-6 pt-0">
-                      <Button className="w-full bg-[#BE0032] hover:bg-[#9A0028]">
-                        View Details
+                    <CardFooter className="flex gap-3 pt-4">
+                      <Link href={`/marketplace/${listing.id}`} className="flex-1">
+                        <Button className="w-full bg-[#8B1538] hover:bg-[#6B1028]">
+                          View Details
+                        </Button>
+                      </Link>
+                      <Button variant="outline" size="icon">
+                        <Heart className="w-4 h-4" />
                       </Button>
                     </CardFooter>
                   </Card>

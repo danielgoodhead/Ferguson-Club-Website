@@ -7,7 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { MessageSquare, Users, Clock, Search, Pin, Lock, AlertCircle } from "lucide-react";
+import { MessageSquare, Users, Clock, Search, Pin, Lock, AlertCircle, Plus } from "lucide-react";
+import { useState } from "react";
 
 const forumCategories = [
   {
@@ -163,61 +164,119 @@ const recentTopics = [
   }
 ];
 
-export default function ForumPage() {
+export default function Forum() {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <>
       <SEO
         title="Forum - Ferguson Club"
         description="Join our community forum to discuss Ferguson tractors, get technical help, share restoration projects, and connect with fellow enthusiasts."
       />
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen flex flex-col bg-white">
         <Header />
-        <GDPRConsent />
 
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-gray-900 via-[#8B1538] to-gray-900 text-white py-20">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920')] bg-cover bg-center opacity-10"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">Community Forum</h1>
-              <p className="text-xl text-gray-200 mb-8">
-                Connect with fellow Ferguson enthusiasts, get technical help, share your projects, 
-                and discuss everything related to Ferguson tractors.
-              </p>
-              <div className="flex flex-wrap gap-4 text-sm">
-                <div className="flex items-center gap-2">
-                  <Users className="h-5 w-5" />
-                  <span>2,456 Members</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MessageSquare className="h-5 w-5" />
-                  <span>8,642 Topics</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5" />
-                  <span>62,043 Posts</span>
-                </div>
+        {/* Member Navigation */}
+        <section className="bg-gradient-to-r from-[#8B1538] to-[#6B1028] text-white py-4 sticky top-0 z-40 shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav className="flex items-center space-x-1 overflow-x-auto scrollbar-hide">
+              <Link href="/members/dashboard">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Dashboard
+                </Button>
+              </Link>
+              <Link href="/members/resources">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Resources
+                </Button>
+              </Link>
+              <Link href="/news">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  News
+                </Button>
+              </Link>
+              <Link href="/events">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Events
+                </Button>
+              </Link>
+              <Link href="/gallery">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Gallery
+                </Button>
+              </Link>
+              <Link href="/tvo-licence">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  TVO Licence
+                </Button>
+              </Link>
+              <Link href="/marketplace">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Marketplace
+                </Button>
+              </Link>
+              <Link href="/shop">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Shop
+                </Button>
+              </Link>
+              <Link href="/links">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Links
+                </Button>
+              </Link>
+              <Link href="/forum">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Forum
+                </Button>
+              </Link>
+            </nav>
+          </div>
+        </section>
+
+        {/* Page Header */}
+        <section className="bg-white py-16 border-b">
+          <div className="container mx-auto px-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Community <span className="text-[#8B1538]">Forum</span>
+            </h1>
+            <p className="text-lg text-gray-600 mb-6 max-w-3xl">
+              Connect with fellow Ferguson enthusiasts, get technical help, share your projects, and discuss everything related to Ferguson tractors.
+            </p>
+            <div className="flex items-center gap-6 text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4" />
+                <span>2,456 Members</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MessageSquare className="w-4 h-4" />
+                <span>8,642 Topics</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                <span>62,043 Posts</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Search & Actions */}
-        <section className="py-8 border-b bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-              <div className="relative flex-1 max-w-2xl w-full">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-                <Input
-                  type="search"
-                  placeholder="Search forum topics..."
-                  className="pl-12 h-12 text-base"
-                />
-              </div>
-              <Button className="bg-[#8B1538] hover:bg-[#6B0F2A] whitespace-nowrap">
-                New Topic
-              </Button>
+        <GDPRConsent />
+
+        {/* Forum Actions */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+              <Input
+                type="text"
+                placeholder="Search topics..."
+                className="pl-10"
+              />
             </div>
+            <Button className="bg-[#8B1538] hover:bg-[#6B1028] text-white">
+              <Plus className="mr-2 h-4 w-4" />
+              New Topic
+            </Button>
           </div>
         </section>
 
@@ -243,7 +302,7 @@ export default function ForumPage() {
         </section>
 
         {/* Forum Categories */}
-        <section className="py-12">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Forum Categories</h2>
             

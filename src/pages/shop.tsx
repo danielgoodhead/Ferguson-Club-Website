@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import Link from "next/link";
 
 const products = [
   {
@@ -104,6 +105,65 @@ export default function Shop() {
       
       <div className="min-h-screen bg-white">
         <Header />
+
+        {/* Member Navigation */}
+        <section className="bg-gradient-to-r from-[#8B1538] to-[#6B1028] text-white py-4 sticky top-0 z-40 shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav className="flex items-center space-x-1 overflow-x-auto scrollbar-hide">
+              <Link href="/members/dashboard">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Dashboard
+                </Button>
+              </Link>
+              <Link href="/members/resources">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Resources
+                </Button>
+              </Link>
+              <Link href="/news">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  News
+                </Button>
+              </Link>
+              <Link href="/events">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Events
+                </Button>
+              </Link>
+              <Link href="/gallery">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Gallery
+                </Button>
+              </Link>
+              <Link href="/tvo-licence">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  TVO Licence
+                </Button>
+              </Link>
+              <Link href="/marketplace">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Marketplace
+                </Button>
+              </Link>
+              <Link href="/shop">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Shop
+                </Button>
+              </Link>
+              <Link href="/links">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Links
+                </Button>
+              </Link>
+              <Link href="/forum">
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 whitespace-nowrap">
+                  Forum
+                </Button>
+              </Link>
+            </nav>
+          </div>
+        </section>
+
         <GDPRConsent />
 
         {/* Hero Section */}
