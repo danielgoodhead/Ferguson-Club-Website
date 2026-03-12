@@ -228,7 +228,7 @@ export default function EventsPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 font-serif">
-                Upcoming Events
+                Upcoming <span className="text-[#ad1018]">Events</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl">
                 Join us at rallies, workshops, and social gatherings celebrating Ferguson heritage
