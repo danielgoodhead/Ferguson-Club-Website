@@ -30,8 +30,8 @@ export function GDPRConsent() {
         <div className="p-6 sm:p-8">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-[#8B1538]/10 rounded-lg flex items-center justify-center">
-                <Cookie className="w-5 h-5 text-[#8B1538]" />
+              <div className="w-10 h-10 bg-[#ad1018]/10 rounded-lg flex items-center justify-center">
+                <Cookie className="w-5 h-5 text-[#ad1018]" />
               </div>
               <h3 className="text-lg font-bold text-gray-900">Cookie Consent</h3>
             </div>
@@ -48,7 +48,7 @@ export function GDPRConsent() {
             We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
             By clicking "Accept All", you consent to our use of cookies. You can manage your preferences at any time 
             through our{" "}
-            <a href="/cookies" className="text-[#8B1538] hover:underline font-medium">
+            <a href="/cookies" className="text-[#ad1018] hover:underline font-medium">
               Cookie Policy
             </a>
             .
@@ -57,7 +57,7 @@ export function GDPRConsent() {
           <div className="flex flex-col sm:flex-row gap-3">
             <Button
               onClick={handleAccept}
-              className="flex-1 bg-[#8B1538] hover:bg-[#6B1028] text-white shadow-lg shadow-red-900/20"
+              className="flex-1 bg-[#ad1018] hover:bg-[#8d0d14] text-white shadow-lg shadow-red-900/20"
             >
               Accept All Cookies
             </Button>

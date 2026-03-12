@@ -34,8 +34,8 @@ export function MembersNav() {
               href="/members/dashboard" 
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 isActive("/members/dashboard") 
-                  ? "text-[#8B1538] border-b-2 border-[#8B1538] rounded-none" 
-                  : "text-gray-600 hover:text-[#8B1538] hover:bg-gray-50"
+                  ? "text-[#ad1018] border-b-2 border-[#ad1018] rounded-none" 
+                  : "text-gray-600 hover:text-[#ad1018] hover:bg-gray-50"
               }`}
             >
               Dashboard
@@ -45,8 +45,8 @@ export function MembersNav() {
               href="/members/resources" 
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 isActive("/members/resources") 
-                  ? "text-[#8B1538] border-b-2 border-[#8B1538] rounded-none" 
-                  : "text-gray-600 hover:text-[#8B1538] hover:bg-gray-50"
+                  ? "text-[#ad1018] border-b-2 border-[#ad1018] rounded-none" 
+                  : "text-gray-600 hover:text-[#ad1018] hover:bg-gray-50"
               }`}
             >
               Resources
@@ -56,8 +56,8 @@ export function MembersNav() {
               href="/members/profile" 
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 isActive("/members/profile") 
-                  ? "text-[#8B1538] border-b-2 border-[#8B1538] rounded-none" 
-                  : "text-gray-600 hover:text-[#8B1538] hover:bg-gray-50"
+                  ? "text-[#ad1018] border-b-2 border-[#ad1018] rounded-none" 
+                  : "text-gray-600 hover:text-[#ad1018] hover:bg-gray-50"
               }`}
             >
               My Profile
@@ -141,7 +141,7 @@ export function MembersNav() {
               variant="ghost"
               size="sm"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-600 hover:text-[#8B1538]"
+              className="text-gray-600 hover:text-[#ad1018]"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>

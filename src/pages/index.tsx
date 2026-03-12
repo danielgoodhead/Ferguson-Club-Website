@@ -4,7 +4,7 @@ import { Footer } from "@/components/Layout/Footer";
 import { GDPRConsent } from "@/components/Layout/GDPRConsent";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, Calendar, BookOpen, Trophy, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, Users, Calendar, BookOpen, MapPin } from "lucide-react";
 
 export default function Home() {
   return (
@@ -18,89 +18,60 @@ export default function Home() {
         <Header />
         <GDPRConsent />
 
-        {/* Hero Section - Asymmetric Design */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-red-50/30" />
-          
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 lg:pt-32 lg:pb-40">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Hero Section */}
+        <section className="relative bg-white py-20">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
               {/* Left Content */}
-              <div className="space-y-8 animate-in slide-in-from-left duration-700">
-                <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#8B1538]/5 rounded-full border border-[#8B1538]/10">
-                  <Sparkles className="w-4 h-4 text-[#8B1538]" />
-                  <span className="text-sm font-medium text-[#8B1538]">Est. 1986 •</span>
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <h1 className="font-serif text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+                    The Ferguson
+                    <span className="block text-brand">Heritage Lives On</span>
+                  </h1>
+                  <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
+                    Join the world's premier community dedicated to preserving and celebrating Harry Ferguson's revolutionary tractors and agricultural innovations.
+                  </p>
                 </div>
 
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight tracking-tight">
-                  Preserving
-                  <span className="block text-[#8B1538] mt-2">Ferguson Heritage</span>
-                </h1>
-
-                <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
-                  The world's premier community for Ferguson tractor enthusiasts. Connect with passionate collectors, 
-                  access exclusive resources, and celebrate the legacy of Harry Ferguson's revolutionary designs.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-wrap gap-4">
                   <Link href="/membership">
-                    <Button
-                      size="lg"
-                      className="w-full sm:w-auto bg-[#8B1538] hover:bg-[#6B1028] text-white shadow-xl shadow-red-900/20 text-lg px-8 group">
-                      
+                    <Button size="lg" className="bg-[#ad1018] hover:bg-[#8d0d14] text-white px-8">
                       Become a Member
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                   <Link href="/about">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="w-full sm:w-auto border-2 border-gray-300 hover:border-[#8B1538] hover:text-[#8B1538] text-lg px-8">
-                      
+                    <Button size="lg" variant="outline" className="border-gray-300">
                       Learn More
                     </Button>
                   </Link>
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t">
                   <div>
-                    <div className="text-3xl font-bold text-[#8B1538]">3000+</div>
-                    <div className="text-sm text-gray-600 mt-1">Active Members</div>
+                    <div className="text-5xl font-bold text-brand mb-2">5,000+</div>
+                    <p className="text-lg text-muted-foreground">Active Members</p>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#8B1538]">50+</div>
-                    <div className="text-sm text-gray-600 mt-1">Annual Events</div>
+                    <div className="text-5xl font-bold text-brand mb-2">70+</div>
+                    <p className="text-lg text-muted-foreground">Years Heritage</p>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#8B1538]">25+</div>
-                    <div className="text-sm text-gray-600 mt-1">Countries</div>
+                    <div className="text-5xl font-bold text-brand mb-2">50+</div>
+                    <p className="text-lg text-muted-foreground">Annual Events</p>
                   </div>
                 </div>
               </div>
 
-              {/* Right - Hero Image with Decorative Elements */}
-              <div className="relative lg:pl-12 animate-in slide-in-from-right duration-700 delay-150">
-                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+              {/* Right Image */}
+              <div className="relative">
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80"
-                    alt="Classic Ferguson tractor"
-                    className="w-full h-full object-cover" />
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </div>
-                
-                {/* Floating Card */}
-                <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl border border-gray-100 p-6 animate-in zoom-in duration-500 delay-300">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#8B1538] to-[#5a0e24] rounded-xl flex items-center justify-center">
-                      <Trophy className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-gray-900">40</div>
-                      <div className="text-sm text-gray-600">Years honoring Harry Ferguson</div>
-                    </div>
-                  </div>
+                    src="/Gemini_Generated_Image_b3xgrrb3xgrrb3xg.png"
+                    alt="Vintage Ferguson Tractor"
+                    className="h-[500px] w-full object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -112,7 +83,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 space-y-4">
               <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">
-                Why Join the <span className="text-[#8B1538]">Ferguson Club</span>?
+                Why Join the <span className="text-brand">Ferguson Club</span>?
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Connect with a global community of enthusiasts and access exclusive benefits
@@ -121,7 +92,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Card 1 - Large */}
-              <div className="lg:col-span-2 bg-gradient-to-br from-[#8B1538] to-[#6B1028] rounded-3xl p-8 text-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="lg:col-span-2 bg-gradient-to-br from-[#ad1018] to-[#8d0d14] rounded-3xl p-8 text-white shadow-xl hover:shadow-2xl transition-shadow duration-300">
                 <Users className="w-12 h-12 mb-4 opacity-90" />
                 <h3 className="text-2xl font-bold mb-3">Global Community</h3>
                 <p className="text-white/90 text-lg leading-relaxed mb-6">
@@ -129,7 +100,7 @@ export default function Home() {
                   restore tractors together, and celebrate our shared heritage.
                 </p>
                 <Link href="/membership">
-                  <Button variant="secondary" className="bg-white text-[#8B1538] hover:bg-gray-100">
+                  <Button variant="secondary" className="bg-white text-[#ad1018] hover:bg-gray-100">
                     Join Today
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -138,7 +109,7 @@ export default function Home() {
 
               {/* Card 2 */}
               <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <Calendar className="w-12 h-12 text-[#8B1538] mb-4" />
+                <Calendar className="w-12 h-12 text-[#ad1018] mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Exclusive Events</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Access 50+ annual events including rallies, shows, and restoration workshops across the UK and beyond.
@@ -147,7 +118,7 @@ export default function Home() {
 
               {/* Card 3 */}
               <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <BookOpen className="w-12 h-12 text-[#8B1538] mb-4" />
+                <BookOpen className="w-12 h-12 text-[#ad1018] mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Member Resources</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Extensive library of technical manuals, restoration guides, historical archives, and expert advice.
@@ -156,13 +127,13 @@ export default function Home() {
 
               {/* Card 4 */}
               <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <MapPin className="w-12 h-12 text-[#8B1538] mb-4" />
+                <MapPin className="w-12 h-12 text-[#ad1018] mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Local Area Representatives</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Connect with your local area representative for personalized support, regional events, and nearby members.
                 </p>
                 <Link href="/contact">
-                  <Button variant="outline" className="border-2 border-[#8B1538] text-[#8B1538] hover:bg-[#8B1538] hover:text-white">
+                  <Button variant="outline" className="border-2 border-[#ad1018] text-[#ad1018] hover:bg-[#ad1018] hover:text-white">
                     Find Your Rep
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -188,7 +159,7 @@ export default function Home() {
               <Link href="/membership">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-[#8B1538] hover:bg-[#6B1028] text-white shadow-xl text-lg px-8">
+                  className="w-full sm:w-auto bg-[#ad1018] hover:bg-[#8d0d14] text-white shadow-xl text-lg px-8">
                   
                   View Membership Options
                   <ArrowRight className="ml-2 w-5 h-5" />
