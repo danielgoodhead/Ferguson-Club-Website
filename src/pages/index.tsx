@@ -50,7 +50,7 @@ export default function Home() {
                 {/* Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t">
                   <div>
-                    <div className="text-5xl font-bold text-brand mb-2">5,000+</div>
+                    <div className="text-5xl font-bold text-brand mb-2">3,000+</div>
                     <p className="text-lg text-muted-foreground">Active Members</p>
                   </div>
                   <div>
@@ -70,8 +70,8 @@ export default function Home() {
                   <img
                     src="/Gemini_Generated_Image_b3xgrrb3xgrrb3xg.png"
                     alt="Vintage Ferguson Tractor"
-                    className="h-[500px] w-full object-cover"
-                  />
+                    className="h-[500px] w-full object-cover" />
+                  
                 </div>
               </div>
             </div>
