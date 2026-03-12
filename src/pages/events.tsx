@@ -82,7 +82,7 @@ export default function Events() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-                Upcoming <span className="text-[#8B1538]">Events</span>
+                Upcoming <span className="text-[#ad1018]">Events</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Join fellow enthusiasts at our rallies, shows, workshops, and social gatherings. 
@@ -117,17 +117,17 @@ export default function Events() {
                   </div>
 
                   <div className="p-6 space-y-4">
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#8B1538] transition-colors">
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#ad1018] transition-colors">
                       {event.title}
                     </h3>
 
                     <div className="space-y-2">
                       <div className="flex items-start text-gray-600">
-                        <MapPin className="w-4 h-4 mt-0.5 mr-2 flex-shrink-0 text-[#8B1538]" />
+                        <MapPin className="w-4 h-4 mt-0.5 mr-2 flex-shrink-0 text-[#ad1018]" />
                         <span className="text-sm">{event.location}</span>
                       </div>
                       <div className="flex items-start text-gray-600">
-                        <Users className="w-4 h-4 mt-0.5 mr-2 flex-shrink-0 text-[#8B1538]" />
+                        <Users className="w-4 h-4 mt-0.5 mr-2 flex-shrink-0 text-[#ad1018]" />
                         <span className="text-sm">{event.attendees}</span>
                       </div>
                     </div>
@@ -137,7 +137,7 @@ export default function Events() {
                     </p>
 
                     <Button 
-                      className="w-full bg-[#8B1538] hover:bg-[#6B1028] text-white group"
+                      className="w-full bg-[#ad1018] hover:bg-[#8d0d14] text-white group"
                       asChild
                     >
                       <Link href="/members/events">
@@ -155,7 +155,7 @@ export default function Events() {
         {/* Event Calendar CTA */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Calendar className="w-16 h-16 text-[#8B1538] mx-auto mb-6" />
+            <Calendar className="w-16 h-16 text-[#ad1018] mx-auto mb-6" />
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Don't Miss Out
             </h2>
@@ -165,12 +165,12 @@ export default function Events() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/membership">
-                <Button size="lg" className="bg-[#8B1538] hover:bg-[#6B1028] text-white">
+                <Button size="lg" className="bg-[#ad1018] hover:bg-[#8d0d14] text-white">
                   Become a Member
                 </Button>
               </Link>
               <Link href="/members/events">
-                <Button size="lg" variant="outline" className="border-2 border-[#8B1538] text-[#8B1538] hover:bg-[#8B1538] hover:text-white">
+                <Button size="lg" variant="outline" className="border-2 border-[#ad1018] text-[#ad1018] hover:bg-[#ad1018] hover:text-white">
                   View Full Calendar
                 </Button>
               </Link>
@@ -203,7 +203,7 @@ export default function Events() {
                     Over 300 Ferguson tractors gathered at our Winter Rally, featuring vintage models 
                     from the 1940s through to modern restorations. A truly spectacular turnout!
                   </p>
-                  <Link href="/gallery" className="text-[#8B1538] hover:underline font-medium">
+                  <Link href="/gallery" className="text-[#ad1018] hover:underline font-medium">
                     View Gallery →
                   </Link>
                 </div>
@@ -223,7 +223,7 @@ export default function Events() {
                     Our expert-led workshops covered engine rebuilding, electrical systems, and 
                     hydraulic restoration. Members gained invaluable hands-on experience.
                   </p>
-                  <Link href="/news" className="text-[#8B1538] hover:underline font-medium">
+                  <Link href="/news" className="text-[#ad1018] hover:underline font-medium">
                     Read Article →
                   </Link>
                 </div>

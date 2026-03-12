@@ -21,7 +21,7 @@ export default function About() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-                About the <span className="text-[#8B1538]">Ferguson Club</span>
+                About the <span className="text-[#ad1018]">Ferguson Club</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Established in 1998, the Ferguson Club is dedicated to preserving and celebrating 
@@ -76,8 +76,8 @@ export default function About() {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Heart className="w-7 h-7 text-[#8B1538]" />
+                <div className="w-14 h-14 bg-[#ad1018]/10 rounded-xl flex items-center justify-center mb-6">
+                  <Heart className="w-7 h-7 text-[#ad1018]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Passion</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -87,8 +87,8 @@ export default function About() {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <BookOpen className="w-7 h-7 text-[#8B1538]" />
+                <div className="w-14 h-14 bg-[#ad1018]/10 rounded-xl flex items-center justify-center mb-6">
+                  <BookOpen className="w-7 h-7 text-[#ad1018]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Knowledge</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -98,8 +98,8 @@ export default function About() {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Users className="w-7 h-7 text-[#8B1538]" />
+                <div className="w-14 h-14 bg-[#ad1018]/10 rounded-xl flex items-center justify-center mb-6">
+                  <Users className="w-7 h-7 text-[#ad1018]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Community</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -109,8 +109,8 @@ export default function About() {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Award className="w-7 h-7 text-[#8B1538]" />
+                <div className="w-14 h-14 bg-[#ad1018]/10 rounded-xl flex items-center justify-center mb-6">
+                  <Award className="w-7 h-7 text-[#ad1018]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Excellence</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -120,8 +120,8 @@ export default function About() {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Target className="w-7 h-7 text-[#8B1538]" />
+                <div className="w-14 h-14 bg-[#ad1018]/10 rounded-xl flex items-center justify-center mb-6">
+                  <Target className="w-7 h-7 text-[#ad1018]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Preservation</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -131,8 +131,8 @@ export default function About() {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Calendar className="w-7 h-7 text-[#8B1538]" />
+                <div className="w-14 h-14 bg-[#ad1018]/10 rounded-xl flex items-center justify-center mb-6">
+                  <Calendar className="w-7 h-7 text-[#ad1018]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Events</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -152,7 +152,7 @@ export default function About() {
             <div className="space-y-12">
               <div className="flex gap-8">
                 <div className="flex-shrink-0 w-32">
-                  <div className="text-3xl font-bold text-[#8B1538]">1998</div>
+                  <div className="text-3xl font-bold text-[#ad1018]">1998</div>
                 </div>
                 <div className="flex-grow pb-12 border-l-2 border-gray-200 pl-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Club Founded</h3>
@@ -165,7 +165,7 @@ export default function About() {
 
               <div className="flex gap-8">
                 <div className="flex-shrink-0 w-32">
-                  <div className="text-3xl font-bold text-[#8B1538]">2005</div>
+                  <div className="text-3xl font-bold text-[#ad1018]">2005</div>
                 </div>
                 <div className="flex-grow pb-12 border-l-2 border-gray-200 pl-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">First Major Rally</h3>
@@ -178,7 +178,7 @@ export default function About() {
 
               <div className="flex gap-8">
                 <div className="flex-shrink-0 w-32">
-                  <div className="text-3xl font-bold text-[#8B1538]">2010</div>
+                  <div className="text-3xl font-bold text-[#ad1018]">2010</div>
                 </div>
                 <div className="flex-grow pb-12 border-l-2 border-gray-200 pl-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">International Expansion</h3>
@@ -191,7 +191,7 @@ export default function About() {
 
               <div className="flex gap-8">
                 <div className="flex-shrink-0 w-32">
-                  <div className="text-3xl font-bold text-[#8B1538]">2015</div>
+                  <div className="text-3xl font-bold text-[#ad1018]">2015</div>
                 </div>
                 <div className="flex-grow pb-12 border-l-2 border-gray-200 pl-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Digital Archive Launch</h3>
@@ -204,7 +204,7 @@ export default function About() {
 
               <div className="flex gap-8">
                 <div className="flex-shrink-0 w-32">
-                  <div className="text-3xl font-bold text-[#8B1538]">2025</div>
+                  <div className="text-3xl font-bold text-[#ad1018]">2025</div>
                 </div>
                 <div className="flex-grow pl-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">27 Years Strong</h3>
@@ -219,7 +219,7 @@ export default function About() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-20 bg-gradient-to-br from-[#8B1538] to-[#6B1028] text-white">
+        <section className="py-20 bg-gradient-to-br from-[#ad1018] to-[#8d0d14] text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-4 gap-8 text-center">
               <div>
