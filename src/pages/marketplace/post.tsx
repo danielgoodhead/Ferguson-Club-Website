@@ -11,11 +11,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
-import { ArrowLeft, Upload, AlertCircle } from "lucide-react";
+import { ArrowLeft, Upload, AlertCircle, ImageIcon, Save } from "lucide-react";
 import { useState } from "react";
 
 export default function PostListingPage() {
   const [listingType, setListingType] = useState("for-sale");
+  const isEditMode = false;
 
   return (
     <>
@@ -31,9 +32,9 @@ export default function PostListingPage() {
         <div className="bg-gray-50 border-b">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Link href="/" className="hover:text-[#8B1538]">Home</Link>
+              <Link href="/" className="hover:text-[#ad1018]">Home</Link>
               <span>/</span>
-              <Link href="/marketplace" className="hover:text-[#8B1538]">Marketplace</Link>
+              <Link href="/marketplace" className="hover:text-[#ad1018]">Marketplace</Link>
               <span>/</span>
               <span className="text-gray-900">Post Listing</span>
             </div>
@@ -45,7 +46,7 @@ export default function PostListingPage() {
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="mb-6">
               <Link href="/marketplace">
-                <Button variant="ghost" className="text-[#8B1538] hover:text-[#6B0F2A]">
+                <Button variant="ghost" className="text-[#ad1018] hover:text-[#8d0d14]">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Marketplace
                 </Button>
@@ -71,7 +72,7 @@ export default function PostListingPage() {
                       Not a member yet?
                     </p>
                     <Link href="/membership">
-                      <Button size="sm" className="bg-[#8B1538] hover:bg-[#6B0F2A]">
+                      <Button size="sm" className="bg-[#ad1018] hover:bg-[#8d0d14]">
                         Join Now
                       </Button>
                     </Link>
@@ -211,7 +212,7 @@ export default function PostListingPage() {
                   {/* Photos */}
                   <div className="space-y-2">
                     <Label>Photos {listingType === "for-sale" && "*"}</Label>
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#8B1538] transition-colors cursor-pointer">
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#ad1018] transition-colors cursor-pointer">
                       <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                       <p className="text-gray-600 mb-2">
                         Click to upload or drag and drop
@@ -293,8 +294,9 @@ export default function PostListingPage() {
 
                   {/* Submit Buttons */}
                   <div className="flex gap-4 pt-4">
-                    <Button type="submit" className="bg-[#8B1538] hover:bg-[#6B0F2A] flex-1">
-                      Post Listing
+                    <Button type="submit" className="bg-[#ad1018] hover:bg-[#8d0d14] flex-1">
+                      <Save className="h-5 w-5 mr-2" />
+                      {isEditMode ? "Update Listing" : "Post Listing"}
                     </Button>
                     <Button type="button" variant="outline" className="flex-1">
                       Save as Draft

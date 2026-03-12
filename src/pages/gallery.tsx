@@ -5,7 +5,7 @@ import { MembersNav } from "@/components/Layout/MembersNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, MapPin, Filter } from "lucide-react";
+import { Calendar, MapPin, Filter, Upload } from "lucide-react";
 import { useState } from "react";
 
 const galleryImages = [
@@ -120,7 +120,7 @@ export default function Gallery() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-                Photo <span className="text-[#8B1538]">Gallery</span>
+                Photo <span className="text-[#ad1018]">Gallery</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Explore our collection of Ferguson tractors, from vintage models to modern restorations, 
@@ -134,7 +134,7 @@ export default function Gallery() {
         <section className="py-8 bg-white border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center space-x-2 mb-4">
-              <Filter className="w-5 h-5 text-[#8B1538]" />
+              <Filter className="w-5 h-5 text-[#ad1018]" />
               <span className="font-semibold text-gray-900">Filter by Category:</span>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -145,8 +145,8 @@ export default function Gallery() {
                   variant={activeCategory === category ? "default" : "outline"}
                   className={
                     activeCategory === category
-                      ? "bg-[#8B1538] hover:bg-[#6B1028] text-white"
-                      : "border-gray-300 hover:border-[#8B1538] hover:text-[#8B1538]"
+                      ? "bg-[#ad1018] hover:bg-[#8d0d14] text-white"
+                      : "border-gray-300 hover:border-[#ad1018] hover:text-[#ad1018]"
                   }
                 >
                   {category}
@@ -179,7 +179,7 @@ export default function Gallery() {
                     </div>
                   </div>
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-[#8B1538] text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    <span className="bg-[#ad1018] text-white px-3 py-1 rounded-full text-xs font-semibold">
                       {image.category}
                     </span>
                   </div>
@@ -199,8 +199,9 @@ export default function Gallery() {
               Members can submit photos of their Ferguson tractors, restorations, and events 
               to be featured in our gallery. Share your passion with the community!
             </p>
-            <Button size="lg" className="bg-[#8B1538] hover:bg-[#6B1028] text-white">
-              Submit Photos
+            <Button size="lg" className="bg-[#ad1018] hover:bg-[#8d0d14] text-white">
+              <Upload className="h-5 w-5 mr-2" />
+              Upload Photos
             </Button>
           </div>
         </section>

@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { ArrowLeft, MapPin, Calendar, User, Mail, Phone, AlertCircle, Share2 } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, User, Mail, Phone, AlertCircle, Share2, MessageSquare } from "lucide-react";
 
 // Mock data - in production this would come from a database
 const mockListings = {
@@ -109,9 +109,9 @@ export default function MarketplaceItemPage() {
         <div className="bg-gray-50 border-b">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Link href="/" className="hover:text-[#8B1538]">Home</Link>
+              <Link href="/" className="hover:text-[#ad1018]">Home</Link>
               <span>/</span>
-              <Link href="/marketplace" className="hover:text-[#8B1538]">Marketplace</Link>
+              <Link href="/marketplace" className="hover:text-[#ad1018]">Marketplace</Link>
               <span>/</span>
               <span className="text-gray-900">{listing.title}</span>
             </div>
@@ -123,7 +123,7 @@ export default function MarketplaceItemPage() {
           <div className="container mx-auto px-4">
             <div className="mb-6">
               <Link href="/marketplace">
-                <Button variant="ghost" className="text-[#8B1538] hover:text-[#6B0F2A]">
+                <Button variant="ghost" className="text-[#ad1018] hover:text-[#8d0d14]">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Marketplace
                 </Button>
@@ -149,7 +149,7 @@ export default function MarketplaceItemPage() {
                   </div>
                   <h1 className="text-4xl font-bold text-gray-900 mb-4">{listing.title}</h1>
                   {listing.price && (
-                    <p className="text-3xl font-bold text-[#8B1538]">{listing.price}</p>
+                    <p className="text-3xl font-bold text-[#ad1018]">{listing.price}</p>
                   )}
                 </div>
 
@@ -197,7 +197,7 @@ export default function MarketplaceItemPage() {
                       <ul className="space-y-2">
                         {listing.specifications.map((spec, index) => (
                           <li key={index} className="flex items-start gap-2">
-                            <span className="text-[#8B1538] mt-1">•</span>
+                            <span className="text-[#ad1018] mt-1">•</span>
                             <span className="text-gray-700">{spec}</span>
                           </li>
                         ))}
@@ -216,8 +216,8 @@ export default function MarketplaceItemPage() {
                     
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="h-12 w-12 rounded-full bg-[#8B1538] flex items-center justify-center text-white font-bold text-lg">
-                          {listing.seller.charAt(0)}
+                        <div className="h-12 w-12 rounded-full bg-[#ad1018] flex items-center justify-center text-white font-bold text-lg">
+                          {listing.seller.name.split(" ").map(n => n[0]).join("")}
                         </div>
                         <div>
                           <p className="font-semibold text-gray-900">{listing.seller}</p>
@@ -229,7 +229,7 @@ export default function MarketplaceItemPage() {
 
                       <div className="space-y-3">
                         <div className="flex items-start gap-3">
-                          <MapPin className="h-5 w-5 text-[#8B1538] mt-0.5" />
+                          <MapPin className="h-5 w-5 text-[#ad1018] mt-0.5" />
                           <div>
                             <p className="text-sm font-medium text-gray-900">Location</p>
                             <p className="text-sm text-gray-600">{listing.location}</p>
@@ -237,7 +237,7 @@ export default function MarketplaceItemPage() {
                         </div>
 
                         <div className="flex items-start gap-3">
-                          <Calendar className="h-5 w-5 text-[#8B1538] mt-0.5" />
+                          <Calendar className="h-5 w-5 text-[#ad1018] mt-0.5" />
                           <div>
                             <p className="text-sm font-medium text-gray-900">Posted</p>
                             <p className="text-sm text-gray-600">
@@ -252,7 +252,7 @@ export default function MarketplaceItemPage() {
 
                         {listing.views && (
                           <div className="flex items-start gap-3">
-                            <User className="h-5 w-5 text-[#8B1538] mt-0.5" />
+                            <User className="h-5 w-5 text-[#ad1018] mt-0.5" />
                             <div>
                               <p className="text-sm font-medium text-gray-900">Views</p>
                               <p className="text-sm text-gray-600">{listing.views} views</p>
@@ -264,8 +264,8 @@ export default function MarketplaceItemPage() {
                       <Separator />
 
                       <div className="space-y-2">
-                        <Button className="w-full bg-[#8B1538] hover:bg-[#6B0F2A]">
-                          <Mail className="h-4 w-4 mr-2" />
+                        <Button className="w-full bg-[#ad1018] hover:bg-[#8d0d14]">
+                          <MessageSquare className="h-5 w-5 mr-2" />
                           Contact Seller
                         </Button>
                         <Button variant="outline" className="w-full">

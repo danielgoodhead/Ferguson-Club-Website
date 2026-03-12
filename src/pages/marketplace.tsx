@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Search, Plus, Tractor, Wrench, MapPin, Calendar, Eye, Filter, Clock, Heart, Tag } from "lucide-react";
+import { Search, Plus, Tractor, Wrench, MapPin, Calendar, Eye, Filter, Clock, Heart, Tag, MessageSquare } from "lucide-react";
 
 const listings = [
   {
@@ -224,7 +224,7 @@ export default function Marketplace() {
                 Showing {filteredListings.length} of {listings.length} listings
               </p>
               <Link href="/marketplace/post" className="flex-1">
-                <Button size="lg" className="w-full bg-[#8B1538] hover:bg-[#6B1028]">
+                <Button size="lg" className="w-full bg-[#ad1018] hover:bg-[#8d0d14]">
                   <Plus className="w-5 h-5 mr-2" />
                   Post Listing
                 </Button>
@@ -300,7 +300,7 @@ export default function Marketplace() {
                     </CardContent>
                     <CardFooter className="flex gap-3 pt-4">
                       <Link href={`/marketplace/${listing.id}`} className="flex-1">
-                        <Button className="w-full bg-[#8B1538] hover:bg-[#6B1028]">
+                        <Button className="w-full bg-[#ad1018] hover:bg-[#8d0d14]">
                           View Details
                         </Button>
                       </Link>

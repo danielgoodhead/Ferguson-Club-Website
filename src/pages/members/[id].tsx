@@ -122,9 +122,9 @@ export default function MemberProfile() {
           <Card>
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row gap-8">
-                <Avatar className="w-32 h-32 border-4 border-[#8B1538]">
+                <Avatar className="w-32 h-32 border-4 border-[#ad1018]">
                   <AvatarImage src={member.avatar} alt={member.name} />
-                  <AvatarFallback className="bg-[#8B1538] text-white text-4xl">
+                  <AvatarFallback className="bg-[#ad1018] text-white text-4xl">
                     {member.name.split(" ").map(n => n[0]).join("")}
                   </AvatarFallback>
                 </Avatar>
@@ -146,7 +146,7 @@ export default function MemberProfile() {
                     </div>
 
                     <div className="flex gap-2">
-                      <Badge className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                      <Badge className="bg-[#ad1018] hover:bg-[#8d0d14]">
                         <Award className="w-3 h-3 mr-1" />
                         Active Member
                       </Badge>
@@ -158,7 +158,7 @@ export default function MemberProfile() {
                   <div className="flex flex-wrap gap-4">
                     <div className="flex items-center gap-2 text-gray-600">
                       <Mail className="w-4 h-4" />
-                      <a href={`mailto:${member.email}`} className="hover:text-[#8B1538]">{member.email}</a>
+                      <a href={`mailto:${member.email}`} className="hover:text-[#ad1018]">{member.email}</a>
                     </div>
                     <div className="flex items-center gap-2 text-gray-600">
                       <Phone className="w-4 h-4" />

@@ -25,7 +25,7 @@ export default function DVLARegistrations() {
         <section className="bg-white py-12 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              DVLA <span className="text-[#8B1538]">Registrations</span>
+              DVLA <span className="text-[#ad1018]">Registrations</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl">
               Complete guide to registration numbers for Ferguson tractors, including age-related and cherished number information
@@ -38,8 +38,8 @@ export default function DVLARegistrations() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Important Notice */}
-            <Alert className="mb-8 border-[#8B1538] bg-red-50">
-              <AlertCircle className="h-5 w-5 text-[#8B1538]" />
+            <Alert className="mb-8 border-[#ad1018] bg-red-50">
+              <AlertCircle className="h-5 w-5 text-[#ad1018]" />
               <AlertDescription className="text-gray-700">
                 <strong>Important:</strong> This information is provided as a general guide. Always verify registration details with DVLA directly for official purposes.
               </AlertDescription>
@@ -47,13 +47,13 @@ export default function DVLARegistrations() {
 
             <Tabs defaultValue="age-related" className="space-y-8">
               <TabsList className="grid w-full grid-cols-3 bg-white border border-gray-200">
-                <TabsTrigger value="age-related" className="data-[state=active]:bg-[#8B1538] data-[state=active]:text-white">
+                <TabsTrigger value="age-related" className="data-[state=active]:bg-[#ad1018] data-[state=active]:text-white">
                   Age-Related Numbers
                 </TabsTrigger>
-                <TabsTrigger value="cherished" className="data-[state=active]:bg-[#8B1538] data-[state=active]:text-white">
+                <TabsTrigger value="cherished" className="data-[state=active]:bg-[#ad1018] data-[state=active]:text-white">
                   Cherished Numbers
                 </TabsTrigger>
-                <TabsTrigger value="resources" className="data-[state=active]:bg-[#8B1538] data-[state=active]:text-white">
+                <TabsTrigger value="resources" className="data-[state=active]:bg-[#ad1018] data-[state=active]:text-white">
                   Useful Resources
                 </TabsTrigger>
               </TabsList>
@@ -63,7 +63,7 @@ export default function DVLARegistrations() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Calendar className="h-5 w-5 text-[#8B1538]" />
+                      <Calendar className="h-5 w-5 text-[#ad1018]" />
                       Age-Related Registration Numbers
                     </CardTitle>
                     <CardDescription>
@@ -171,7 +171,7 @@ export default function DVLARegistrations() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <FileText className="h-5 w-5 text-[#8B1538]" />
+                      <FileText className="h-5 w-5 text-[#ad1018]" />
                       Cherished and Personalized Numbers
                     </CardTitle>
                     <CardDescription>
@@ -251,7 +251,7 @@ export default function DVLARegistrations() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Search className="h-5 w-5 text-[#8B1538]" />
+                      <Search className="h-5 w-5 text-[#ad1018]" />
                       Useful Resources
                     </CardTitle>
                     <CardDescription>
@@ -262,7 +262,7 @@ export default function DVLARegistrations() {
                     <div className="prose prose-gray max-w-none">
                       <h3 className="text-xl font-semibold text-gray-900 mb-4">Official DVLA Resources</h3>
                       <div className="space-y-4">
-                        <div className="bg-white p-5 rounded-lg border border-gray-200 hover:border-[#8B1538] transition-colors">
+                        <div className="bg-white p-5 rounded-lg border border-gray-200 hover:border-[#ad1018] transition-colors">
                           <h4 className="font-semibold text-gray-900 mb-2">DVLA Personalised Registrations</h4>
                           <p className="text-sm text-gray-700 mb-3">
                             Search, buy, and transfer personalized registration numbers
@@ -271,13 +271,13 @@ export default function DVLARegistrations() {
                             href="https://www.gov.uk/personalised-vehicle-registration-numbers" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-[#8B1538] hover:underline text-sm font-medium"
+                            className="text-[#ad1018] hover:underline text-sm font-medium"
                           >
                             Visit DVLA Personalised Registrations →
                           </a>
                         </div>
 
-                        <div className="bg-white p-5 rounded-lg border border-gray-200 hover:border-[#8B1538] transition-colors">
+                        <div className="bg-white p-5 rounded-lg border border-gray-200 hover:border-[#ad1018] transition-colors">
                           <h4 className="font-semibold text-gray-900 mb-2">Vehicle Registration Certificate (V5C)</h4>
                           <p className="text-sm text-gray-700 mb-3">
                             Information about the V5C logbook and how to update vehicle details
@@ -286,13 +286,13 @@ export default function DVLARegistrations() {
                             href="https://www.gov.uk/vehicle-registration-certificate-v5c-logbook" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-[#8B1538] hover:underline text-sm font-medium"
+                            className="text-[#ad1018] hover:underline text-sm font-medium"
                           >
                             Learn about V5C →
                           </a>
                         </div>
 
-                        <div className="bg-white p-5 rounded-lg border border-gray-200 hover:border-[#8B1538] transition-colors">
+                        <div className="bg-white p-5 rounded-lg border border-gray-200 hover:border-[#ad1018] transition-colors">
                           <h4 className="font-semibold text-gray-900 mb-2">Historic Vehicles Tax Exemption</h4>
                           <p className="text-sm text-gray-700 mb-3">
                             Information about tax exemption for vehicles over 40 years old
@@ -301,7 +301,7 @@ export default function DVLARegistrations() {
                             href="https://www.gov.uk/historic-vehicles" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-[#8B1538] hover:underline text-sm font-medium"
+                            className="text-[#ad1018] hover:underline text-sm font-medium"
                           >
                             View Historic Vehicle Info →
                           </a>
@@ -313,19 +313,19 @@ export default function DVLARegistrations() {
                         <h4 className="font-semibold text-gray-900 mb-3">Registration Number Formats</h4>
                         <div className="space-y-3 text-sm text-gray-700">
                           <div className="flex items-start gap-3">
-                            <div className="bg-[#8B1538] text-white px-3 py-1 rounded font-mono text-xs">ABC 123</div>
+                            <div className="bg-[#ad1018] text-white px-3 py-1 rounded font-mono text-xs">ABC 123</div>
                             <p>Three letters followed by up to 3 numbers (1963-1983)</p>
                           </div>
                           <div className="flex items-start gap-3">
-                            <div className="bg-[#8B1538] text-white px-3 py-1 rounded font-mono text-xs">A123 BCD</div>
+                            <div className="bg-[#ad1018] text-white px-3 py-1 rounded font-mono text-xs">A123 BCD</div>
                             <p>Letter, up to 3 numbers, three letters (1983-2001)</p>
                           </div>
                           <div className="flex items-start gap-3">
-                            <div className="bg-[#8B1538] text-white px-3 py-1 rounded font-mono text-xs">AB12 CDE</div>
+                            <div className="bg-[#ad1018] text-white px-3 py-1 rounded font-mono text-xs">AB12 CDE</div>
                             <p>Current format: two letters, two numbers, three letters (2001-present)</p>
                           </div>
                           <div className="flex items-start gap-3">
-                            <div className="bg-[#8B1538] text-white px-3 py-1 rounded font-mono text-xs">123 ABC</div>
+                            <div className="bg-[#ad1018] text-white px-3 py-1 rounded font-mono text-xs">123 ABC</div>
                             <p>Dateless: up to 3 numbers followed by three letters (pre-1963)</p>
                           </div>
                         </div>
@@ -344,7 +344,7 @@ export default function DVLARegistrations() {
                         </ul>
                         <div className="mt-4 pt-4 border-t border-blue-200">
                           <Link href="/forum">
-                            <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                            <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                               Ask in the Forum
                             </Button>
                           </Link>

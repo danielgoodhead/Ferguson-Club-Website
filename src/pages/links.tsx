@@ -85,7 +85,7 @@ export default function UsefulLinks() {
         <section className="bg-white py-16 border-b">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Useful <span className="text-[#8B1538]">Links</span>
+              Useful <span className="text-[#ad1018]">Links</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl">
               A curated collection of helpful resources, suppliers, clubs, and information for Ferguson tractor enthusiasts
@@ -134,7 +134,7 @@ export default function UsefulLinks() {
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[#8B1538] hover:text-[#6B0F2A] text-sm font-medium inline-flex items-center gap-1"
+                                className="text-[#ad1018] hover:text-[#8d0d14] text-sm font-medium inline-flex items-center gap-1"
                               >
                                 Visit Website
                                 <ExternalLink className="h-4 w-4" />
@@ -142,7 +142,7 @@ export default function UsefulLinks() {
                             ) : (
                               <Link
                                 href={link.url}
-                                className="text-[#8B1538] hover:text-[#6B0F2A] text-sm font-medium inline-flex items-center gap-1"
+                                className="text-[#ad1018] hover:text-[#8d0d14] text-sm font-medium inline-flex items-center gap-1"
                               >
                                 Visit Page
                                 <ExternalLink className="h-4 w-4" />
@@ -170,8 +170,8 @@ export default function UsefulLinks() {
               members, please let us know. We're always looking to expand our links directory.
             </p>
             <Link href="/contact">
-              <button className="bg-[#8B1538] hover:bg-[#6B0F2A] text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                Suggest a Link
+              <button className="bg-[#ad1018] hover:bg-[#8d0d14] text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                Submit a Link
               </button>
             </Link>
           </CardContent>

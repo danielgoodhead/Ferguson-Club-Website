@@ -8,26 +8,25 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Trophy, Users, Calendar, MapPin, Info, BookOpen, Award } from "lucide-react";
 
-export default function Ploughing() {
+export default function PloughingPage() {
   return (
     <>
       <SEO 
-        title="Ploughing - Ferguson Club"
-        description="Ferguson Club ploughing information, competitions, and match ploughing guidelines"
+        title="Ploughing Matches - Ferguson Club"
+        description="Join Ferguson Club ploughing matches and competitions across the UK"
       />
       
-      <div className="min-h-screen flex flex-col bg-white">
+      <div className="min-h-screen bg-white">
         <Header />
         <MembersNav />
 
-        {/* Page Header */}
-        <section className="mx-auto max-w-7xl px-6 py-12">
-          <h1 className="text-4xl font-bold mb-4">
-            Ploughing Match <span className="text-[#8B1538]">Services</span>
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl">
-            Professional ploughing match coordination services for Ferguson enthusiasts
-          </p>
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-gray-50 to-white py-12 border-b">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl">
+              <Badge className="mb-4 bg-[#ad1018] hover:bg-[#8d0d14]">Ploughing Events</Badge>
+            </div>
+          </div>
         </section>
 
         {/* Content */}
@@ -45,7 +44,7 @@ export default function Ploughing() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Info className="h-5 w-5 text-[#8B1538]" />
+                    <Info className="h-5 w-5 text-[#ad1018]" />
                     About Ferguson Ploughing
                   </CardTitle>
                 </CardHeader>
@@ -60,24 +59,24 @@ export default function Ploughing() {
                   <div className="grid md:grid-cols-2 gap-6 mt-8">
                     <div className="bg-gray-50 p-6 rounded-lg">
                       <h3 className="font-semibold text-lg text-gray-900 mb-3 flex items-center gap-2">
-                        <Users className="h-5 w-5 text-[#8B1538]" />
+                        <Users className="h-5 w-5 text-[#ad1018]" />
                         Who Can Compete?
                       </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538] font-bold">•</span>
+                          <span className="text-[#ad1018] font-bold">•</span>
                           <span>Ferguson Club members in good standing</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538] font-bold">•</span>
+                          <span className="text-[#ad1018] font-bold">•</span>
                           <span>Competitors using eligible Ferguson tractors</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538] font-bold">•</span>
+                          <span className="text-[#ad1018] font-bold">•</span>
                           <span>Both experienced ploughmen and novices welcome</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538] font-bold">•</span>
+                          <span className="text-[#ad1018] font-bold">•</span>
                           <span>Multiple age and skill categories available</span>
                         </li>
                       </ul>
@@ -85,24 +84,24 @@ export default function Ploughing() {
 
                     <div className="bg-gray-50 p-6 rounded-lg">
                       <h3 className="font-semibold text-lg text-gray-900 mb-3 flex items-center gap-2">
-                        <Trophy className="h-5 w-5 text-[#8B1538]" />
+                        <Trophy className="h-5 w-5 text-[#ad1018]" />
                         Competition Format
                       </h3>
                       <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538] font-bold">•</span>
+                          <span className="text-[#ad1018] font-bold">•</span>
                           <span>Individual plots marked out for each competitor</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538] font-bold">•</span>
+                          <span className="text-[#ad1018] font-bold">•</span>
                           <span>Timed ploughing with quality judging</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538] font-bold">•</span>
+                          <span className="text-[#ad1018] font-bold">•</span>
                           <span>Points awarded for straightness, depth, and finish</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538] font-bold">•</span>
+                          <span className="text-[#ad1018] font-bold">•</span>
                           <span>Championship points awarded throughout season</span>
                         </li>
                       </ul>
@@ -111,8 +110,8 @@ export default function Ploughing() {
                 </CardContent>
               </Card>
 
-              <Alert className="bg-[#8B1538]/5 border-[#8B1538]">
-                <Info className="h-4 w-4 text-[#8B1538]" />
+              <Alert className="bg-[#ad1018]/5 border-[#ad1018]">
+                <Info className="h-4 w-4 text-[#ad1018]" />
                 <AlertDescription className="text-gray-700">
                   <strong>New to Ploughing?</strong> The Ferguson Club welcomes beginners! Many experienced members are happy to provide guidance and mentoring. Contact your local area representative to find training opportunities.
                 </AlertDescription>
@@ -180,15 +179,15 @@ export default function Ploughing() {
                       <h4 className="font-semibold text-sm text-gray-900 mb-2">Requirements:</h4>
                       <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538]">•</span>
+                          <span className="text-[#ad1018]">•</span>
                           <span>Open to first-time competitors or those with limited experience</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538]">•</span>
+                          <span className="text-[#ad1018]">•</span>
                           <span>Any eligible Ferguson tractor permitted</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538]">•</span>
+                          <span className="text-[#ad1018]">•</span>
                           <span>Longer time allowance and simplified judging criteria</span>
                         </li>
                       </ul>
@@ -206,15 +205,15 @@ export default function Ploughing() {
                       <h4 className="font-semibold text-sm text-gray-900 mb-2">Requirements:</h4>
                       <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538]">•</span>
+                          <span className="text-[#ad1018]">•</span>
                           <span>Competitors aged 14-25 years</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538]">•</span>
+                          <span className="text-[#ad1018]">•</span>
                           <span>Parental consent required for under 18s</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#8B1538]">•</span>
+                          <span className="text-[#ad1018]">•</span>
                           <span>Smaller plot sizes with adapted judging</span>
                         </li>
                       </ul>
@@ -229,7 +228,7 @@ export default function Ploughing() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <BookOpen className="h-5 w-5 text-[#8B1538]" />
+                    <BookOpen className="h-5 w-5 text-[#ad1018]" />
                     Competition Rules
                   </CardTitle>
                   <CardDescription>Standard regulations for Ferguson Club ploughing matches</CardDescription>
@@ -239,19 +238,19 @@ export default function Ploughing() {
                     <h3 className="font-semibold text-lg text-gray-900 mb-3">Equipment Requirements</h3>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start gap-3">
-                        <Badge className="bg-[#8B1538] shrink-0 mt-1">1</Badge>
+                        <Badge className="bg-[#ad1018] shrink-0 mt-1">1</Badge>
                         <span>Tractors must be Ferguson models or Ferguson heritage tractors as defined by class rules</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Badge className="bg-[#8B1538] shrink-0 mt-1">2</Badge>
+                        <Badge className="bg-[#ad1018] shrink-0 mt-1">2</Badge>
                         <span>Ploughs must be period-correct Ferguson or compatible two-furrow or single-furrow implements</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Badge className="bg-[#8B1538] shrink-0 mt-1">3</Badge>
+                        <Badge className="bg-[#ad1018] shrink-0 mt-1">3</Badge>
                         <span>All safety equipment must be fitted and functional (PTO guards, seat belts if fitted)</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Badge className="bg-[#8B1538] shrink-0 mt-1">4</Badge>
+                        <Badge className="bg-[#ad1018] shrink-0 mt-1">4</Badge>
                         <span>Tractors must pass pre-match safety inspection</span>
                       </li>
                     </ul>
@@ -261,19 +260,19 @@ export default function Ploughing() {
                     <h3 className="font-semibold text-lg text-gray-900 mb-3">Match Procedure</h3>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start gap-3">
-                        <Badge className="bg-[#8B1538] shrink-0 mt-1">1</Badge>
+                        <Badge className="bg-[#ad1018] shrink-0 mt-1">1</Badge>
                         <span>Competitors are allocated plots by random draw before the match</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Badge className="bg-[#8B1538] shrink-0 mt-1">2</Badge>
+                        <Badge className="bg-[#ad1018] shrink-0 mt-1">2</Badge>
                         <span>Each competitor ploughs their allocated plot within the time limit (typically 2-3 hours)</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Badge className="bg-[#8B1538] shrink-0 mt-1">3</Badge>
+                        <Badge className="bg-[#ad1018] shrink-0 mt-1">3</Badge>
                         <span>Judges assess work based on straightness, depth consistency, finish, and covering</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Badge className="bg-[#8B1538] shrink-0 mt-1">4</Badge>
+                        <Badge className="bg-[#ad1018] shrink-0 mt-1">4</Badge>
                         <span>Penalty points deducted for faults, with lowest score winning</span>
                       </li>
                     </ul>
@@ -324,14 +323,14 @@ export default function Ploughing() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Calendar className="h-5 w-5 text-[#8B1538]" />
+                    <Calendar className="h-5 w-5 text-[#ad1018]" />
                     Annual Ploughing Calendar
                   </CardTitle>
                   <CardDescription>Ferguson Club ploughing matches throughout the year</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-[#8B1538] pl-4 py-2">
+                    <div className="border-l-4 border-[#ad1018] pl-4 py-2">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold text-gray-900">Spring Ploughing Match</h3>
                         <Badge>March-April</Badge>
@@ -349,7 +348,7 @@ export default function Ploughing() {
                       </div>
                     </div>
 
-                    <div className="border-l-4 border-[#8B1538] pl-4 py-2">
+                    <div className="border-l-4 border-[#ad1018] pl-4 py-2">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold text-gray-900">Regional Championships</h3>
                         <Badge>May-July</Badge>
@@ -367,10 +366,10 @@ export default function Ploughing() {
                       </div>
                     </div>
 
-                    <div className="border-l-4 border-[#8B1538] pl-4 py-2">
+                    <div className="border-l-4 border-[#ad1018] pl-4 py-2">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold text-gray-900">National Ferguson Ploughing Championship</h3>
-                        <Badge className="bg-[#8B1538]">September</Badge>
+                        <Badge className="bg-[#ad1018]">September</Badge>
                       </div>
                       <p className="text-sm text-gray-600 mb-2">The premier event of the Ferguson ploughing calendar</p>
                       <div className="flex items-center gap-4 text-sm text-gray-500">
@@ -385,7 +384,7 @@ export default function Ploughing() {
                       </div>
                     </div>
 
-                    <div className="border-l-4 border-[#8B1538] pl-4 py-2">
+                    <div className="border-l-4 border-[#ad1018] pl-4 py-2">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold text-gray-900">Autumn Match Series</h3>
                         <Badge>October-November</Badge>
@@ -415,19 +414,19 @@ export default function Ploughing() {
                     <p>To compete in Ferguson Club ploughing matches:</p>
                     <ul className="space-y-2">
                       <li className="flex items-start gap-2">
-                        <span className="text-[#8B1538] font-bold">1.</span>
+                        <span className="text-[#ad1018] font-bold">1.</span>
                         <span>Ensure current Ferguson Club membership</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#8B1538] font-bold">2.</span>
+                        <span className="text-[#ad1018] font-bold">2.</span>
                         <span>Register for events via the Events page</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#8B1538] font-bold">3.</span>
+                        <span className="text-[#ad1018] font-bold">3.</span>
                         <span>Entry fees payable on registration</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-[#8B1538] font-bold">4.</span>
+                        <span className="text-[#ad1018] font-bold">4.</span>
                         <span>Receive plot allocation and timing details</span>
                       </li>
                     </ul>
@@ -442,12 +441,12 @@ export default function Ploughing() {
                     <div>
                       <p className="font-semibold text-gray-900">Ploughing Secretary</p>
                       <p className="text-gray-600">For match entries and queries</p>
-                      <p className="text-[#8B1538]">ploughing@fergusonclub.com</p>
+                      <p className="text-[#ad1018]">ploughing@fergusonclub.com</p>
                     </div>
                     <div className="pt-3 border-t">
                       <p className="font-semibold text-gray-900">Chief Steward</p>
                       <p className="text-gray-600">For rules and technical queries</p>
-                      <p className="text-[#8B1538]">steward@fergusonclub.com</p>
+                      <p className="text-[#ad1018]">steward@fergusonclub.com</p>
                     </div>
                   </CardContent>
                 </Card>

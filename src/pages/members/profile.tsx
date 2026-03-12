@@ -90,7 +90,7 @@ export default function MyProfile() {
         <section className="py-12 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-3">
-              My <span className="text-[#8B1538]">Profile</span>
+              My <span className="text-[#ad1018]">Profile</span>
             </h1>
             <p className="text-lg text-gray-600">
               Manage your profile information, tractors, and implements
@@ -116,9 +116,9 @@ export default function MyProfile() {
                     <CardTitle>Profile Picture</CardTitle>
                   </CardHeader>
                   <CardContent className="flex flex-col items-center">
-                    <Avatar className="w-32 h-32 mb-4 border-4 border-[#8B1538]">
+                    <Avatar className="w-32 h-32 mb-4 border-4 border-[#ad1018]">
                       <AvatarImage src={profile.avatar} alt={profile.name} />
-                      <AvatarFallback className="bg-[#8B1538] text-white text-4xl">
+                      <AvatarFallback className="bg-[#ad1018] text-white text-4xl">
                         {profile.name.split(" ").map(n => n[0]).join("")}
                       </AvatarFallback>
                     </Avatar>
@@ -139,7 +139,7 @@ export default function MyProfile() {
                       </label>
                     </div>
                     <div className="mt-6 text-center">
-                      <Badge className="bg-[#8B1538]">Active Member</Badge>
+                      <Badge className="bg-[#ad1018]">Active Member</Badge>
                       <p className="text-sm text-gray-500 mt-2">Member since {profile.joinDate}</p>
                       <p className="text-xs text-gray-400 font-mono mt-1">{profile.membershipNumber}</p>
                     </div>
@@ -193,7 +193,7 @@ export default function MyProfile() {
 
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                       <div className="flex items-center gap-3">
-                        {isPublicProfile ? <Eye className="w-5 h-5 text-[#8B1538]" /> : <EyeOff className="w-5 h-5 text-gray-400" />}
+                        {isPublicProfile ? <Eye className="w-5 h-5 text-[#ad1018]" /> : <EyeOff className="w-5 h-5 text-gray-400" />}
                         <div>
                           <p className="font-medium">Public Profile</p>
                           <p className="text-sm text-gray-600">Show my profile in the Member Directory</p>
@@ -206,7 +206,7 @@ export default function MyProfile() {
                     </div>
 
                     <div className="flex justify-end pt-4">
-                      <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                      <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                         <Save className="w-4 h-4 mr-2" />
                         Save Changes
                       </Button>
@@ -225,7 +225,7 @@ export default function MyProfile() {
                 </div>
                 <Dialog open={isAddTractorOpen} onOpenChange={setIsAddTractorOpen}>
                   <DialogTrigger asChild>
-                    <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                    <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                       <Plus className="h-4 w-4 mr-2" />
                       Add Tractor
                     </Button>
@@ -310,7 +310,7 @@ export default function MyProfile() {
                       <Button variant="outline" onClick={() => setIsAddTractorOpen(false)}>
                         Cancel
                       </Button>
-                      <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                      <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                         Add Tractor
                       </Button>
                     </DialogFooter>
@@ -325,7 +325,7 @@ export default function MyProfile() {
                   <p className="text-gray-600 mb-6">Start building your collection by adding your first Ferguson tractor</p>
                   <Dialog open={isAddTractorOpen} onOpenChange={setIsAddTractorOpen}>
                     <DialogTrigger asChild>
-                      <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                      <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                         <Plus className="h-4 w-4 mr-2" />
                         Add Your First Tractor
                       </Button>
@@ -410,7 +410,7 @@ export default function MyProfile() {
                         <Button variant="outline" onClick={() => setIsAddTractorOpen(false)}>
                           Cancel
                         </Button>
-                        <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                        <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                           Add Tractor
                         </Button>
                       </DialogFooter>
@@ -425,7 +425,7 @@ export default function MyProfile() {
                         <div className="flex items-start justify-between">
                           <div>
                             <CardTitle className="flex items-center gap-2">
-                              <Tractor className="h-5 w-5 text-[#8B1538]" />
+                              <Tractor className="h-5 w-5 text-[#ad1018]" />
                               {tractor.model}
                             </CardTitle>
                             <CardDescription>
@@ -469,7 +469,7 @@ export default function MyProfile() {
                 </div>
                 <Dialog open={isAddImplementOpen} onOpenChange={setIsAddImplementOpen}>
                   <DialogTrigger asChild>
-                    <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                    <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                       <Plus className="h-4 w-4 mr-2" />
                       Add Implement
                     </Button>
@@ -547,7 +547,7 @@ export default function MyProfile() {
                       <Button variant="outline" onClick={() => setIsAddImplementOpen(false)}>
                         Cancel
                       </Button>
-                      <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                      <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                         Add Implement
                       </Button>
                     </DialogFooter>
@@ -562,7 +562,7 @@ export default function MyProfile() {
                   <p className="text-gray-600 mb-6">Start building your collection by adding your first implement</p>
                   <Dialog open={isAddImplementOpen} onOpenChange={setIsAddImplementOpen}>
                     <DialogTrigger asChild>
-                      <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                      <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                         <Plus className="h-4 w-4 mr-2" />
                         Add Your First Implement
                       </Button>
@@ -640,7 +640,7 @@ export default function MyProfile() {
                         <Button variant="outline" onClick={() => setIsAddImplementOpen(false)}>
                           Cancel
                         </Button>
-                        <Button className="bg-[#8B1538] hover:bg-[#6B0E28]">
+                        <Button className="bg-[#ad1018] hover:bg-[#8d0d14]">
                           Add Implement
                         </Button>
                       </DialogFooter>
@@ -655,7 +655,7 @@ export default function MyProfile() {
                         <div className="flex items-start justify-between">
                           <div>
                             <CardTitle className="flex items-center gap-2">
-                              <Wrench className="h-5 w-5 text-[#8B1538]" />
+                              <Wrench className="h-5 w-5 text-[#ad1018]" />
                               {implement.name}
                             </CardTitle>
                             <CardDescription>{implement.type} • {implement.year}</CardDescription>

@@ -181,7 +181,7 @@ export default function Forum() {
         <section className="bg-white py-16 border-b">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Community <span className="text-[#8B1538]">Forum</span>
+              Community <span className="text-[#ad1018]">Forum</span>
             </h1>
             <p className="text-lg text-gray-600 mb-6 max-w-3xl">
               Connect with fellow Ferguson enthusiasts, get technical help, share your projects, and discuss everything related to Ferguson tractors.
@@ -214,9 +214,9 @@ export default function Forum() {
                 className="pl-10"
               />
             </div>
-            <Button className="bg-[#8B1538] hover:bg-[#6B1028] text-white">
-              <Plus className="mr-2 h-4 w-4" />
-              New Topic
+            <Button className="bg-[#ad1018] hover:bg-[#8d0d14] text-white">
+              <Plus className="h-5 w-5 mr-2" />
+              New Discussion
             </Button>
           </div>
         </section>
@@ -230,10 +230,10 @@ export default function Forum() {
                 <h3 className="font-semibold text-gray-900 mb-1">Members Only Forum</h3>
                 <p className="text-sm text-gray-700">
                   You must be logged in as a Ferguson Club member to post topics and replies. 
-                  <Link href="/members/login" className="text-[#8B1538] hover:text-[#6B0F2A] font-medium ml-1">
+                  <Link href="/members/login" className="text-[#ad1018] hover:text-[#8d0d14] font-medium ml-1">
                     Login here
                   </Link> or 
-                  <Link href="/membership" className="text-[#8B1538] hover:text-[#6B0F2A] font-medium ml-1">
+                  <Link href="/membership" className="text-[#ad1018] hover:text-[#8d0d14] font-medium ml-1">
                     join the club
                   </Link> to participate.
                 </p>
@@ -260,7 +260,7 @@ export default function Forum() {
                         <div className="flex items-start justify-between gap-4 mb-2">
                           <div>
                             <Link href={`/forum/${category.id}`}>
-                              <h3 className="text-xl font-semibold text-gray-900 hover:text-[#8B1538] transition-colors">
+                              <h3 className="text-xl font-semibold text-gray-900 hover:text-[#ad1018] transition-colors">
                                 {category.name}
                               </h3>
                             </Link>
@@ -309,10 +309,10 @@ export default function Forum() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start gap-2 mb-2">
                             {topic.isPinned && (
-                              <Pin className="h-4 w-4 text-[#8B1538] flex-shrink-0 mt-1" />
+                              <Pin className="h-4 w-4 text-[#ad1018] flex-shrink-0 mt-1" />
                             )}
                             <Link href={`/forum/topic/${index + 1}`}>
-                              <h3 className="text-lg font-semibold text-gray-900 hover:text-[#8B1538] transition-colors">
+                              <h3 className="text-lg font-semibold text-gray-900 hover:text-[#ad1018] transition-colors">
                                 {topic.title}
                               </h3>
                             </Link>
@@ -354,27 +354,27 @@ export default function Forum() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Forum Guidelines</h3>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-[#8B1538] font-bold mt-1">•</span>
+                    <span className="text-[#ad1018] font-bold mt-1">•</span>
                     <span>Be respectful and courteous to all members</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#8B1538] font-bold mt-1">•</span>
+                    <span className="text-[#ad1018] font-bold mt-1">•</span>
                     <span>Stay on topic and post in the appropriate category</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#8B1538] font-bold mt-1">•</span>
+                    <span className="text-[#ad1018] font-bold mt-1">•</span>
                     <span>No spam, advertising, or commercial solicitation</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#8B1538] font-bold mt-1">•</span>
+                    <span className="text-[#ad1018] font-bold mt-1">•</span>
                     <span>Search before posting to avoid duplicate topics</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#8B1538] font-bold mt-1">•</span>
+                    <span className="text-[#ad1018] font-bold mt-1">•</span>
                     <span>Use clear, descriptive titles for your topics</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#8B1538] font-bold mt-1">•</span>
+                    <span className="text-[#ad1018] font-bold mt-1">•</span>
                     <span>Share knowledge and help other members when you can</span>
                   </li>
                 </ul>

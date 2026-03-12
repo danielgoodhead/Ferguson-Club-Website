@@ -52,8 +52,8 @@ export default function Resources() {
       {files.map((file, index) => (
         <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group">
           <div className="flex items-center gap-4">
-            <div className="bg-[#8B1538]/10 p-3 rounded-lg group-hover:bg-[#8B1538]/20 transition-colors">
-              <file.icon className="h-6 w-6 text-[#8B1538]" />
+            <div className="bg-[#ad1018]/10 p-3 rounded-lg group-hover:bg-[#ad1018]/20 transition-colors">
+              <file.icon className="h-6 w-6 text-[#ad1018]" />
             </div>
             <div>
               <p className="font-semibold text-gray-900">{file.name}</p>
@@ -63,7 +63,7 @@ export default function Resources() {
               </div>
             </div>
           </div>
-          <Button size="sm" variant="outline" className="border-[#8B1538] text-[#8B1538] hover:bg-[#8B1538] hover:text-white">
+          <Button size="sm" variant="outline" className="border-[#ad1018] text-[#ad1018] hover:bg-[#ad1018] hover:text-white">
             <Download className="h-4 w-4 mr-2" />
             Download
           </Button>
@@ -87,9 +87,9 @@ export default function Resources() {
         <section className="py-12 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 mb-3">
-              <BookOpen className="h-10 w-10 text-[#8B1538]" />
+              <BookOpen className="h-10 w-10 text-[#ad1018]" />
               <h1 className="text-4xl font-bold text-gray-900">
-                Member <span className="text-[#8B1538]">Resources</span>
+                Member <span className="text-[#ad1018]">Resources</span>
               </h1>
             </div>
             <p className="text-lg text-gray-600">
@@ -102,36 +102,36 @@ export default function Resources() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <Link href="#technical" className="block">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-[#8B1538] h-full">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-[#ad1018] h-full">
                 <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
-                  <FileText className="h-10 w-10 text-[#8B1538] mb-3" />
+                  <FileText className="h-10 w-10 text-[#ad1018] mb-3" />
                   <p className="font-semibold text-gray-900">Technical Manuals</p>
                 </CardContent>
               </Card>
             </Link>
             
             <Link href="#wiring" className="block">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-[#8B1538] h-full">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-[#ad1018] h-full">
                 <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
-                  <FileImage className="h-10 w-10 text-[#8B1538] mb-3" />
+                  <FileImage className="h-10 w-10 text-[#ad1018] mb-3" />
                   <p className="font-semibold text-gray-900">Wiring Diagrams</p>
                 </CardContent>
               </Card>
             </Link>
 
             <Link href="#restoration" className="block">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-[#8B1538] h-full">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-[#ad1018] h-full">
                 <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
-                  <Wrench className="h-10 w-10 text-[#8B1538] mb-3" />
+                  <Wrench className="h-10 w-10 text-[#ad1018] mb-3" />
                   <p className="font-semibold text-gray-900">Restoration Guides</p>
                 </CardContent>
               </Card>
             </Link>
 
             <Link href="#journals" className="block">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-[#8B1538] h-full">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-[#ad1018] h-full">
                 <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
-                  <Calendar className="h-10 w-10 text-[#8B1538] mb-3" />
+                  <Calendar className="h-10 w-10 text-[#ad1018] mb-3" />
                   <p className="font-semibold text-gray-900">Journal Archive</p>
                 </CardContent>
               </Card>
@@ -143,10 +143,10 @@ export default function Resources() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <Link href="/members/ploughing" className="block">
-              <Card className="border-2 border-[#8B1538] hover:shadow-lg transition-shadow h-full">
+              <Card className="border-2 border-[#ad1018] hover:shadow-lg transition-shadow h-full">
                 <CardHeader>
-                  <div className="bg-[#8B1538]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
-                    <Trophy className="h-6 w-6 text-[#8B1538]" />
+                  <div className="bg-[#ad1018]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                    <Trophy className="h-6 w-6 text-[#ad1018]" />
                   </div>
                   <CardTitle>Ploughing Information</CardTitle>
                   <CardDescription>
@@ -157,10 +157,10 @@ export default function Resources() {
             </Link>
 
             <Link href="/members/benefits" className="block">
-              <Card className="border-2 border-[#8B1538] hover:shadow-lg transition-shadow h-full">
+              <Card className="border-2 border-[#ad1018] hover:shadow-lg transition-shadow h-full">
                 <CardHeader>
-                  <div className="bg-[#8B1538]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
-                    <Download className="h-6 w-6 text-[#8B1538]" />
+                  <div className="bg-[#ad1018]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                    <Download className="h-6 w-6 text-[#ad1018]" />
                   </div>
                   <CardTitle>Member Benefits</CardTitle>
                   <CardDescription>
@@ -170,10 +170,10 @@ export default function Resources() {
               </Card>
             </Link>
 
-            <Card className="border-2 border-[#8B1538] hover:shadow-lg transition-shadow">
+            <Card className="border-2 border-[#ad1018] hover:shadow-lg transition-shadow">
               <CardHeader>
-                <div className="bg-[#8B1538]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
-                  <HelpCircle className="h-6 w-6 text-[#8B1538]" />
+                <div className="bg-[#ad1018]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                  <HelpCircle className="h-6 w-6 text-[#ad1018]" />
                 </div>
                 <CardTitle>Need Help?</CardTitle>
                 <CardDescription>
@@ -189,7 +189,7 @@ export default function Resources() {
           <Card>
             <CardHeader>
               <CardTitle className="text-2xl flex items-center gap-3">
-                <FileText className="h-6 w-6 text-[#8B1538]" />
+                <FileText className="h-6 w-6 text-[#ad1018]" />
                 Technical Manuals
               </CardTitle>
               <CardDescription>
@@ -207,7 +207,7 @@ export default function Resources() {
           <Card>
             <CardHeader>
               <CardTitle className="text-2xl flex items-center gap-3">
-                <FileImage className="h-6 w-6 text-[#8B1538]" />
+                <FileImage className="h-6 w-6 text-[#ad1018]" />
                 Wiring Diagrams
               </CardTitle>
               <CardDescription>
@@ -225,7 +225,7 @@ export default function Resources() {
           <Card>
             <CardHeader>
               <CardTitle className="text-2xl flex items-center gap-3">
-                <Wrench className="h-6 w-6 text-[#8B1538]" />
+                <Wrench className="h-6 w-6 text-[#ad1018]" />
                 Restoration Guides
               </CardTitle>
               <CardDescription>
@@ -243,7 +243,7 @@ export default function Resources() {
           <Card>
             <CardHeader>
               <CardTitle className="text-2xl flex items-center gap-3">
-                <Calendar className="h-6 w-6 text-[#8B1538]" />
+                <Calendar className="h-6 w-6 text-[#ad1018]" />
                 Journal Archive
               </CardTitle>
               <CardDescription>
@@ -255,8 +255,8 @@ export default function Resources() {
                 {journals.map((journal, index) => (
                   <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group">
                     <div className="flex items-center gap-4">
-                      <div className="bg-[#8B1538]/10 p-3 rounded-lg group-hover:bg-[#8B1538]/20 transition-colors">
-                        <BookOpen className="h-6 w-6 text-[#8B1538]" />
+                      <div className="bg-[#ad1018]/10 p-3 rounded-lg group-hover:bg-[#ad1018]/20 transition-colors">
+                        <BookOpen className="h-6 w-6 text-[#ad1018]" />
                       </div>
                       <div>
                         <p className="font-semibold text-gray-900">{journal.issue}</p>
@@ -266,7 +266,7 @@ export default function Resources() {
                         </div>
                       </div>
                     </div>
-                    <Button size="sm" variant="outline" className="border-[#8B1538] text-[#8B1538] hover:bg-[#8B1538] hover:text-white">
+                    <Button size="sm" variant="outline" className="border-[#ad1018] text-[#ad1018] hover:bg-[#ad1018] hover:text-white">
                       <Download className="h-4 w-4 mr-2" />
                       Download
                     </Button>
