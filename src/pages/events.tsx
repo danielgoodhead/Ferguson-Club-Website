@@ -19,9 +19,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 
 interface Event {
-  id: number;
+  id: string;
   title: string;
   date: string;
   location: string;
@@ -31,11 +32,14 @@ interface Event {
   lat?: number;
   lng?: number;
   fullDescription: string;
-  organizer: string;
-  contactEmail: string;
-  contactPhone: string;
+  organizer: {
+    name: string;
+    email: string;
+    phone: string;
+  };
   address: string;
   registrationDeadline: string;
+  image: string;
 }
 
 export default function EventsPage() {
@@ -49,106 +53,124 @@ export default function EventsPage() {
 
   const events: Event[] = [
     {
-      id: 1,
+      id: "1",
       title: "Annual Vintage Tractor Rally",
       date: "2026-06-15",
       location: "Yorkshire Showground",
       description: "Join us for the biggest vintage tractor rally of the year featuring hundreds of classic Ferguson tractors.",
+      fullDescription: "The Annual Vintage Tractor Rally is our flagship event, bringing together Ferguson enthusiasts from across the UK and beyond. Experience a spectacular display of beautifully restored Ferguson tractors spanning decades of agricultural history. The event features static displays, working demonstrations, parade laps, trade stands, and refreshments. Whether you're a seasoned collector or new to vintage machinery, this is an unmissable celebration of Ferguson heritage.",
+      image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80",
       category: "Rally",
       attendees: 250,
-      lat: 53.9915,
-      lng: -1.3501,
-      fullDescription: "The Annual Vintage Tractor Rally is our flagship event, bringing together Ferguson enthusiasts from across the UK and beyond. This year marks our 45th anniversary, and we're planning the biggest celebration yet. Expect to see over 300 vintage tractors on display, including rare Ferguson models from the 1940s through to the 1960s. There will be working demonstrations, expert talks, a trade area with parts and memorabilia, and our famous tractor parade. Entry includes access to all areas, parking, and a commemorative programme.",
-      organizer: "Yorkshire Ferguson Club",
-      contactEmail: "rally@fergusonclub.com",
-      contactPhone: "01904 123456",
-      address: "Great Yorkshire Showground, Harrogate Road, Harrogate, North Yorkshire, HG2 8NZ",
-      registrationDeadline: "2026-06-01"
+      lat: 53.9917, 
+      lng: -1.0574,
+      registrationDeadline: "2026-06-01",
+      organizer: {
+        name: "John Smith",
+        email: "john.smith@fergusonclub.com",
+        phone: "+44 1234 567890"
+      },
+      address: "Great Yorkshire Showground, Harrogate, North Yorkshire, HG2 8NZ"
     },
     {
-      id: 2,
+      id: "2",
       title: "Ferguson Ploughing Match",
       date: "2026-08-20",
       location: "Kent Agricultural Society",
       description: "Annual ploughing competition for Ferguson tractors. All skill levels welcome!",
+      fullDescription: "Test your ploughing skills at our annual Ferguson Ploughing Match. This competitive yet friendly event welcomes both novice and experienced ploughmen. Categories include vintage class, working class, and demonstration class. Judges will assess straightness, depth consistency, finish quality, and overall presentation. Entry includes lunch and refreshments. Spectators welcome - watch skilled operators demonstrate the art of traditional ploughing.",
+      image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80",
       category: "Competition",
       attendees: 85,
-      lat: 51.2787,
+      lat: 51.2787, 
       lng: 0.5217,
-      fullDescription: "Our annual ploughing match is a highlight of the Ferguson calendar. Whether you're a seasoned competitor or trying your hand at ploughing for the first time, this event offers classes for all abilities. We have vintage and classic classes, as well as demonstrations of modern ploughing techniques using Ferguson equipment. The day includes a farmers' market, refreshments, and the chance to network with fellow enthusiasts. Prizes will be awarded for best furrow, straightest line, and overall champion. Pre-registration is required for competitors.",
-      organizer: "Kent Ferguson Society",
-      contactEmail: "ploughing@fergusonclub.com",
-      contactPhone: "01622 987654",
-      address: "Kent Showground, Detling, Maidstone, Kent, ME14 3JF",
-      registrationDeadline: "2026-08-10"
+      registrationDeadline: "2026-08-01",
+      organizer: {
+        name: "David Brown",
+        email: "david.brown@fergusonclub.com",
+        phone: "+44 1987 654321"
+      },
+      address: "Kent County Showground, Detling, Maidstone, Kent, ME14 3JF"
     },
     {
-      id: 3,
+      id: "3",
       title: "Spring Restoration Workshop",
       date: "2026-04-12",
       location: "Ferguson Heritage Centre, Coventry",
       description: "Hands-on workshop covering engine rebuilds, electrical systems, and hydraulics.",
+      fullDescription: "Our popular Spring Restoration Workshop returns with expert-led sessions covering essential Ferguson tractor maintenance and restoration techniques. Topics include engine strip-down and rebuild, electrical system troubleshooting, hydraulic system service, bodywork preparation and painting. Bring your questions and learn from experienced restorers. Workshop includes comprehensive handouts, tool demonstrations, and parts supplier information. Limited to 35 participants to ensure hands-on learning.",
+      image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80",
       category: "Workshop",
       attendees: 35,
-      lat: 52.4068,
+      lat: 52.4068, 
       lng: -1.5197,
-      fullDescription: "This intensive one-day workshop is perfect for anyone restoring a Ferguson tractor or looking to improve their mechanical skills. Led by our team of expert engineers, the workshop covers engine teardown and rebuild, electrical system diagnostics and repair, hydraulic system maintenance, and paint preparation techniques. Each participant will work on real Ferguson components and receive a comprehensive restoration manual. Limited to 35 participants to ensure hands-on time with instructors. Lunch and refreshments included. Tools provided, but bring your own overalls.",
-      organizer: "Ferguson Heritage Centre",
-      contactEmail: "workshop@fergusonclub.com",
-      contactPhone: "024 7655 4321",
-      address: "Ferguson Heritage Centre, Banner Lane, Coventry, CV4 9GH",
-      registrationDeadline: "2026-04-01"
+      registrationDeadline: "2026-03-28",
+      organizer: {
+        name: "Mike Wilson",
+        email: "mike.wilson@fergusonclub.com",
+        phone: "+44 2476 123456"
+      },
+      address: "Ferguson Heritage Centre, Banner Lane, Coventry, CV4 9GH"
     },
     {
-      id: 4,
-      title: "Scottish Ferguson Meet",
-      date: "2026-07-08",
-      location: "Royal Highland Centre, Edinburgh",
-      description: "Northern members meet-up with display, swap meet, and social activities.",
+      id: "4",
+      title: "Summer Steam & Vintage Day",
+      date: "2026-07-18",
+      location: "Berkshire Showground",
+      description: "Combined event featuring Ferguson tractors, steam engines, and vintage vehicles.",
+      fullDescription: "A fantastic family day out celebrating all things vintage! Our Summer Steam & Vintage Day brings together Ferguson tractors, steam engines, classic cars, vintage motorcycles, and stationary engines. Enjoy arena displays, working demonstrations, children's activities, craft stalls, and food vendors. Live commentary throughout the day. Grand parade at 3pm featuring all exhibits. Free parking and entry for under-16s.",
+      image: "https://images.unsplash.com/photo-1530267981375-f0dd48a74a4c?w=800&q=80",
+      category: "Show",
+      attendees: 400,
+      lat: 51.4074, 
+      lng: -1.0031,
+      registrationDeadline: "2026-07-01",
+      organizer: {
+        name: "Sarah Thompson",
+        email: "sarah.thompson@fergusonclub.com",
+        phone: "+44 1189 876543"
+      },
+      address: "Berkshire Showground, Bath Road, Newbury, Berkshire, RG14 2BN"
+    },
+    {
+      id: "5",
+      title: "Autumn Technical Seminar",
+      date: "2026-09-25",
+      location: "National Agricultural Centre",
+      description: "Technical presentations and Q&A sessions with Ferguson experts and historians.",
+      fullDescription: "Our Autumn Technical Seminar features presentations from leading Ferguson historians, restorers, and engineers. Sessions cover Ferguson history and development, identification and dating, correct specifications and colors, parts sourcing strategies, and restoration best practices. Includes lunch, technical manual displays, and networking opportunities. Perfect for serious enthusiasts and those starting restoration projects.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      category: "Seminar",
+      attendees: 60,
+      lat: 52.2933, 
+      lng: -1.6847,
+      registrationDeadline: "2026-09-10",
+      organizer: {
+        name: "Robert Davies",
+        email: "robert.davies@fergusonclub.com",
+        phone: "+44 2476 234567"
+      },
+      address: "National Agricultural Centre, Stoneleigh Park, Warwickshire, CV8 2LG"
+    },
+    {
+      id: "6",
+      title: "Christmas Social & Awards",
+      date: "2026-12-05",
+      location: "Royal Hotel, Birmingham",
+      description: "Annual club dinner with presentations, awards ceremony, and festive celebrations.",
+      fullDescription: "Celebrate the year's achievements at our Christmas Social & Awards evening. Enjoy a three-course dinner, club awards presentation (Restoration of the Year, Member of the Year, Best Display), photo competition results, and festive entertainment. Cash bar available. Dress code: smart casual. This is our main social event of the year - a perfect opportunity to meet fellow members and share your Ferguson stories. Partners welcome.",
+      image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80",
       category: "Social",
       attendees: 120,
-      lat: 55.9278,
-      lng: -3.3089,
-      fullDescription: "The Scottish Ferguson Meet is a relaxed gathering for members from Scotland and Northern England. The day includes a static display of members' tractors, a large swap meet for parts and memorabilia, technical Q&A sessions with experienced restorers, and a buffet lunch in our marquee. In the afternoon, we'll have a guided tour of local Ferguson collections and a scenic tractor drive through the Scottish countryside. Evening social event at a nearby pub (optional). A great opportunity to make new friends and share your passion for Ferguson tractors in a stunning setting.",
-      organizer: "Scottish Ferguson Group",
-      contactEmail: "scotland@fergusonclub.com",
-      contactPhone: "0131 234 5678",
-      address: "Royal Highland Centre, Ingliston, Edinburgh, EH28 8NB",
-      registrationDeadline: "2026-06-28"
-    },
-    {
-      id: 5,
-      title: "Ferguson Family Fun Day",
-      date: "2026-09-05",
-      location: "Somerset Steam Rally",
-      description: "Family-friendly event with tractor rides, vintage games, and children's activities.",
-      category: "Family",
-      attendees: 180,
-      lat: 51.1079,
-      lng: -2.9971,
-      fullDescription: "Bring the whole family to our Ferguson Family Fun Day! While you admire the vintage tractors, kids can enjoy tractor trailer rides, vintage fairground games, face painting, and our popular 'Young Ferguson Drivers' experience where children can sit on tractors and learn about their history. There's a dedicated family marquee with refreshments and baby changing facilities. Local food vendors, craft stalls, and a brass band provide entertainment throughout the day. The event culminates in our Grand Parade of Fergusons at 4pm. Entry includes all activities - great value for a full day out.",
-      organizer: "Somerset Ferguson Club",
-      contactEmail: "family@fergusonclub.com",
-      contactPhone: "01823 456789",
-      address: "Somerset Steam Rally Ground, Low Ham, Langport, Somerset, TA10 9DP",
-      registrationDeadline: "2026-08-25"
-    },
-    {
-      id: 6,
-      title: "Winter Technical Seminar",
-      date: "2026-11-14",
-      location: "Birmingham Conference Centre",
-      description: "Indoor technical presentations covering advanced restoration techniques and sourcing rare parts.",
-      category: "Seminar",
-      attendees: 65,
-      lat: 52.4782,
-      lng: -1.9026,
-      fullDescription: "Our Winter Technical Seminar is an indoor event perfect for the off-season. Expert speakers will present on topics including: sourcing rare Ferguson parts internationally, advanced welding and fabrication techniques, converting Ferguson tractors to 12V electrical systems, hydraulic pump rebuilding, and documenting your restoration project. The afternoon includes breakout sessions where you can get specific advice on your own projects. Includes lunch, refreshments, and a comprehensive technical handbook. Plenty of networking time with fellow restoration enthusiasts. Trade stands selling parts, manuals, and tools.",
-      organizer: "Midlands Ferguson Society",
-      contactEmail: "seminar@fergusonclub.com",
-      contactPhone: "0121 789 0123",
-      address: "NEC Birmingham, North Avenue, Marston Green, Birmingham, B40 1NT",
-      registrationDeadline: "2026-11-01"
+      lat: 52.4862, 
+      lng: -1.8904,
+      registrationDeadline: "2026-11-20",
+      organizer: {
+        name: "Jennifer Clarke",
+        email: "jennifer.clarke@fergusonclub.com",
+        phone: "+44 121 456 7890"
+      },
+      address: "The Royal Hotel, 16 Temple Street, Birmingham, B2 5BG"
     }
   ];
 
@@ -212,6 +234,15 @@ export default function EventsPage() {
   const openEventDetails = (event: Event) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
+  };
+
+  const formatDateString = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("en-GB", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
   };
 
   return (
@@ -313,7 +344,7 @@ export default function EventsPage() {
         </section>
 
         {/* Events Display */}
-        <section className="py-16">
+        <section className="py-16 bg-gray-50/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {filteredEvents.length === 0 ? (
               <div className="text-center py-16">
@@ -322,54 +353,57 @@ export default function EventsPage() {
                 <p className="text-gray-600">Try adjusting your filters to see more events</p>
               </div>
             ) : viewMode === "grid" ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {filteredEvents.map((event) => (
-                  <div
-                    key={event.id}
-                    className="bg-white border rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
-                  >
-                    <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                      <Calendar className="h-16 w-16 text-gray-400" />
+                  <Card key={event.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col bg-white border-0 shadow-md">
+                    <div className="aspect-[4/3] bg-gray-100 relative group">
+                      <img 
+                        src={event.image} 
+                        alt={event.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <Badge className="absolute top-4 right-4 bg-white text-[#ad1018] border-[#ad1018] font-semibold">
+                        {event.category}
+                      </Badge>
                     </div>
-                    <div className="p-6 space-y-4">
-                      <div className="flex items-start justify-between gap-2">
-                        <h3 className="text-xl font-bold text-gray-900 font-serif flex-1">
-                          {event.title}
-                        </h3>
-                        <Badge variant="secondary" className="text-xs shrink-0">
-                          {event.category}
-                        </Badge>
-                      </div>
-                      <div className="space-y-2 text-sm text-gray-600">
-                        <div className="flex items-center gap-2">
-                          <Calendar className="h-4 w-4 text-[#ad1018]" />
-                          <span>{new Date(event.date).toLocaleDateString("en-GB", {
-                            weekday: "long",
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric"
-                          })}</span>
+                    <CardHeader className="flex-grow p-6">
+                      <CardTitle className="text-2xl font-serif text-gray-900 leading-tight mb-2">
+                        {event.title}
+                      </CardTitle>
+                      <div className="space-y-3 text-sm text-gray-600 mt-4 bg-gray-50 p-4 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <div className="p-1.5 bg-red-50 rounded-full">
+                            <Calendar className="h-4 w-4 text-[#ad1018]" />
+                          </div>
+                          <span className="font-medium">{formatDateString(event.date)}</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <MapPin className="h-4 w-4 text-[#ad1018]" />
+                        <div className="flex items-center gap-3">
+                          <div className="p-1.5 bg-red-50 rounded-full">
+                            <MapPin className="h-4 w-4 text-[#ad1018]" />
+                          </div>
                           <span>{event.location}</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <Users className="h-4 w-4 text-[#ad1018]" />
+                        <div className="flex items-center gap-3">
+                          <div className="p-1.5 bg-red-50 rounded-full">
+                            <Users className="h-4 w-4 text-[#ad1018]" />
+                          </div>
                           <span>{event.attendees} attendees</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 text-sm line-clamp-3">
+                      <p className="text-gray-600 mt-5 line-clamp-3 leading-relaxed">
                         {event.description}
                       </p>
+                    </CardHeader>
+                    <CardFooter className="mt-auto p-6 pt-0">
                       <Button 
-                        className="w-full bg-[#ad1018] hover:bg-[#8d0d14] text-white"
+                        className="w-full bg-[#ad1018] hover:bg-[#8B1538] text-white py-6 text-lg font-medium shadow-md hover:shadow-lg transition-all"
                         onClick={() => openEventDetails(event)}
                       >
                         View Details
                       </Button>
-                    </div>
-                  </div>
+                    </CardFooter>
+                  </Card>
                 ))}
               </div>
             ) : (
@@ -377,30 +411,29 @@ export default function EventsPage() {
                 {filteredEvents.map((event) => (
                   <div
                     key={event.id}
-                    className="bg-white border rounded-xl p-6 hover:shadow-lg transition-shadow"
+                    className="bg-white border-0 shadow-md rounded-xl p-6 hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="flex flex-col md:flex-row gap-6">
-                      <div className="w-full md:w-48 h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center shrink-0">
-                        <Calendar className="h-12 w-12 text-gray-400" />
+                    <div className="flex flex-col md:flex-row gap-8">
+                      <div className="w-full md:w-64 h-48 bg-gray-100 rounded-lg overflow-hidden shrink-0 relative">
+                        <img 
+                          src={event.image} 
+                          alt={event.title}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      <div className="flex-1 space-y-3">
-                        <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1 flex flex-col">
+                        <div className="flex items-start justify-between gap-4 mb-4">
                           <h3 className="text-2xl font-bold text-gray-900 font-serif">
                             {event.title}
                           </h3>
-                          <Badge variant="secondary" className="shrink-0">
+                          <Badge variant="secondary" className="shrink-0 bg-red-50 text-[#ad1018] border-0">
                             {event.category}
                           </Badge>
                         </div>
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                        <div className="flex flex-wrap gap-6 text-sm text-gray-600 bg-gray-50 p-3 rounded-lg mb-4">
                           <div className="flex items-center gap-2">
                             <Calendar className="h-4 w-4 text-[#ad1018]" />
-                            <span>{new Date(event.date).toLocaleDateString("en-GB", {
-                              weekday: "long",
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric"
-                            })}</span>
+                            <span className="font-medium">{formatDateString(event.date)}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <MapPin className="h-4 w-4 text-[#ad1018]" />
@@ -411,11 +444,11 @@ export default function EventsPage() {
                             <span>{event.attendees} attendees</span>
                           </div>
                         </div>
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 mb-6 flex-grow">
                           {event.description}
                         </p>
                         <Button 
-                          className="bg-[#ad1018] hover:bg-[#8d0d14] text-white"
+                          className="w-fit min-w-[200px] bg-[#ad1018] hover:bg-[#8d0d14] text-white self-end"
                           onClick={() => openEventDetails(event)}
                         >
                           View Details
@@ -431,99 +464,121 @@ export default function EventsPage() {
 
         {/* Event Details Modal */}
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle className="text-3xl font-bold font-serif text-gray-900">
-                {selectedEvent?.title}
-              </DialogTitle>
-              <DialogDescription>
-                <Badge variant="secondary" className="mt-2">
-                  {selectedEvent?.category}
-                </Badge>
-              </DialogDescription>
-            </DialogHeader>
-            
+          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto p-0">
             {selectedEvent && (
-              <div className="space-y-6 pt-4">
-                {/* Event Details Grid */}
-                <div className="grid md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <Calendar className="h-5 w-5 text-[#ad1018] mt-0.5 shrink-0" />
-                      <div>
-                        <p className="font-semibold text-sm text-gray-500">Date</p>
-                        <p className="text-gray-900">
-                          {new Date(selectedEvent.date).toLocaleDateString("en-GB", {
-                            weekday: "long",
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric"
-                          })}
-                        </p>
+              <>
+                <div className="w-full h-64 relative">
+                  <img 
+                    src={selectedEvent.image} 
+                    alt={selectedEvent.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <Badge className="bg-[#ad1018] text-white hover:bg-[#8B1538] mb-3 border-0">
+                      {selectedEvent.category}
+                    </Badge>
+                    <DialogTitle className="text-3xl font-bold font-serif text-white">
+                      {selectedEvent.title}
+                    </DialogTitle>
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-8">
+                  {/* Event Details Grid */}
+                  <div className="grid md:grid-cols-2 gap-4 p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 bg-red-50 rounded-lg">
+                          <Calendar className="h-5 w-5 text-[#ad1018] shrink-0" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm text-gray-500 mb-1">Date</p>
+                          <p className="text-gray-900 font-medium">{formatDateString(selectedEvent.date)}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 bg-red-50 rounded-lg">
+                          <MapPin className="h-5 w-5 text-[#ad1018] shrink-0" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm text-gray-500 mb-1">Location</p>
+                          <p className="text-gray-900 font-medium">{selectedEvent.location}</p>
+                          <p className="text-sm text-gray-600 mt-1">{selectedEvent.address}</p>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <MapPin className="h-5 w-5 text-[#ad1018] mt-0.5 shrink-0" />
-                      <div>
-                        <p className="font-semibold text-sm text-gray-500">Location</p>
-                        <p className="text-gray-900">{selectedEvent.location}</p>
-                        <p className="text-sm text-gray-600 mt-1">{selectedEvent.address}</p>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 bg-red-50 rounded-lg">
+                          <Users className="h-5 w-5 text-[#ad1018] shrink-0" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm text-gray-500 mb-1">Expected Attendees</p>
+                          <p className="text-gray-900 font-medium">{selectedEvent.attendees} people</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 bg-red-50 rounded-lg">
+                          <Tag className="h-5 w-5 text-[#ad1018] shrink-0" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm text-gray-500 mb-1">Registration Deadline</p>
+                          <p className="text-gray-900 font-medium">
+                            {new Date(selectedEvent.registrationDeadline).toLocaleDateString("en-GB", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric"
+                            })}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <Users className="h-5 w-5 text-[#ad1018] mt-0.5 shrink-0" />
+
+                  {/* Full Description */}
+                  <div>
+                    <h4 className="font-semibold text-xl mb-4 text-gray-900 font-serif border-b pb-2">About This Event</h4>
+                    <p className="text-gray-700 leading-relaxed whitespace-pre-line text-lg">
+                      {selectedEvent.fullDescription}
+                    </p>
+                  </div>
+
+                  {/* Organizer Contact */}
+                  <div className="p-6 bg-red-50 rounded-xl border border-red-100">
+                    <h4 className="font-semibold text-xl mb-4 text-gray-900 font-serif">Event Contact</h4>
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <p className="font-semibold text-sm text-gray-500">Expected Attendees</p>
-                        <p className="text-gray-900">{selectedEvent.attendees} people</p>
+                        <p className="text-sm text-gray-500 mb-1">Organizer</p>
+                        <p className="font-medium text-gray-900">{selectedEvent.organizer.name}</p>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Tag className="h-5 w-5 text-[#ad1018] mt-0.5 shrink-0" />
                       <div>
-                        <p className="font-semibold text-sm text-gray-500">Registration Deadline</p>
-                        <p className="text-gray-900">
-                          {new Date(selectedEvent.registrationDeadline).toLocaleDateString("en-GB", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric"
-                          })}
-                        </p>
+                        <p className="text-sm text-gray-500 mb-1">Email</p>
+                        <a href={`mailto:${selectedEvent.organizer.email}`} className="font-medium text-[#ad1018] hover:underline">
+                          {selectedEvent.organizer.email}
+                        </a>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500 mb-1">Phone</p>
+                        <a href={`tel:${selectedEvent.organizer.phone}`} className="font-medium text-[#ad1018] hover:underline">
+                          {selectedEvent.organizer.phone}
+                        </a>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Full Description */}
-                <div>
-                  <h4 className="font-semibold text-lg mb-3 text-gray-900">About This Event</h4>
-                  <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                    {selectedEvent.fullDescription}
-                  </p>
-                </div>
-
-                {/* Organizer Contact */}
-                <div className="p-4 bg-gray-50 rounded-lg">
-                  <h4 className="font-semibold text-lg mb-3 text-gray-900">Event Contact</h4>
-                  <div className="space-y-2 text-sm">
-                    <p><span className="font-semibold">Organizer:</span> {selectedEvent.organizer}</p>
-                    <p><span className="font-semibold">Email:</span> <a href={`mailto:${selectedEvent.contactEmail}`} className="text-[#ad1018] hover:underline">{selectedEvent.contactEmail}</a></p>
-                    <p><span className="font-semibold">Phone:</span> <a href={`tel:${selectedEvent.contactPhone}`} className="text-[#ad1018] hover:underline">{selectedEvent.contactPhone}</a></p>
+                  {/* Action Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t">
+                    <Button className="flex-1 bg-[#ad1018] hover:bg-[#8d0d14] text-white py-6 text-lg">
+                      Register for Event
+                    </Button>
+                    <Button variant="outline" className="flex-1 py-6 text-lg">
+                      Add to Calendar
+                    </Button>
                   </div>
                 </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-3 pt-4 border-t">
-                  <Button className="flex-1 bg-[#ad1018] hover:bg-[#8d0d14] text-white">
-                    Register for Event
-                  </Button>
-                  <Button variant="outline" className="flex-1">
-                    Add to Calendar
-                  </Button>
-                </div>
-              </div>
+              </>
             )}
           </DialogContent>
         </Dialog>
