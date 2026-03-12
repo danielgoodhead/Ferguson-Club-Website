@@ -54,11 +54,11 @@ export default function Home() {
                     <p className="text-lg text-muted-foreground">Active Members</p>
                   </div>
                   <div>
-                    <div className="text-5xl font-bold text-brand mb-2">70+</div>
+                    <div className="text-5xl font-bold text-brand mb-2">40+</div>
                     <p className="text-lg text-muted-foreground">Years Heritage</p>
                   </div>
                   <div>
-                    <div className="text-5xl font-bold text-brand mb-2">50+</div>
+                    <div className="text-5xl font-bold text-brand mb-2">Regular</div>
                     <p className="text-lg text-muted-foreground">Annual Events</p>
                   </div>
                 </div>
