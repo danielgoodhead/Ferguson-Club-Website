@@ -11,8 +11,8 @@ export default function Home() {
     <>
       <SEO
         title="Ferguson Club - Premier Community for Ferguson Tractor Enthusiasts"
-        description="Join the world's leading community for Ferguson tractor collectors, enthusiasts, and historians. Connect with members, attend events, and preserve agricultural heritage."
-      />
+        description="Join the world's leading community for Ferguson tractor collectors, enthusiasts, and historians. Connect with members, attend events, and preserve agricultural heritage." />
+      
       
       <div className="min-h-screen bg-white">
         <Header />
@@ -28,7 +28,7 @@ export default function Home() {
               <div className="space-y-8 animate-in slide-in-from-left duration-700">
                 <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#8B1538]/5 rounded-full border border-[#8B1538]/10">
                   <Sparkles className="w-4 h-4 text-[#8B1538]" />
-                  <span className="text-sm font-medium text-[#8B1538]">Est. 1998 • 27 Years Strong</span>
+                  <span className="text-sm font-medium text-[#8B1538]">Est. 1986 •</span>
                 </div>
 
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight tracking-tight">
@@ -43,20 +43,20 @@ export default function Home() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/membership">
-                    <Button 
-                      size="lg" 
-                      className="w-full sm:w-auto bg-[#8B1538] hover:bg-[#6B1028] text-white shadow-xl shadow-red-900/20 text-lg px-8 group"
-                    >
+                    <Button
+                      size="lg"
+                      className="w-full sm:w-auto bg-[#8B1538] hover:bg-[#6B1028] text-white shadow-xl shadow-red-900/20 text-lg px-8 group">
+                      
                       Become a Member
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                   <Link href="/about">
-                    <Button 
-                      size="lg" 
+                    <Button
+                      size="lg"
                       variant="outline"
-                      className="w-full sm:w-auto border-2 border-gray-300 hover:border-[#8B1538] hover:text-[#8B1538] text-lg px-8"
-                    >
+                      className="w-full sm:w-auto border-2 border-gray-300 hover:border-[#8B1538] hover:text-[#8B1538] text-lg px-8">
+                      
                       Learn More
                     </Button>
                   </Link>
@@ -65,7 +65,7 @@ export default function Home() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
                   <div>
-                    <div className="text-3xl font-bold text-[#8B1538]">2,500+</div>
+                    <div className="text-3xl font-bold text-[#8B1538]">3000+</div>
                     <div className="text-sm text-gray-600 mt-1">Active Members</div>
                   </div>
                   <div>
@@ -85,8 +85,8 @@ export default function Home() {
                   <img
                     src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80"
                     alt="Classic Ferguson tractor"
-                    className="w-full h-full object-cover"
-                  />
+                    className="w-full h-full object-cover" />
+                  
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
                 
@@ -186,20 +186,20 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/membership">
-                <Button 
-                  size="lg" 
-                  className="w-full sm:w-auto bg-[#8B1538] hover:bg-[#6B1028] text-white shadow-xl text-lg px-8"
-                >
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto bg-[#8B1538] hover:bg-[#6B1028] text-white shadow-xl text-lg px-8">
+                  
                   View Membership Options
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8"
-                >
+                  className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8">
+                  
                   Contact Us
                 </Button>
               </Link>
@@ -209,6 +209,6 @@ export default function Home() {
 
         <Footer />
       </div>
-    </>
-  );
+    </>);
+
 }

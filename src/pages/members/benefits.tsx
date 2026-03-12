@@ -2,197 +2,166 @@ import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
 import { MembersNav } from "@/components/Layout/MembersNav";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { Gift, ShoppingCart, CreditCard, Info, ExternalLink, Percent } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Info, ExternalLink, Gift, ShoppingCart, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Benefits() {
+export default function BenefitsPage() {
   return (
     <>
-      <SEO 
+      <SEO
         title="Member Benefits - Ferguson Club"
-        description="Exclusive discounts and benefits for Ferguson Club members"
+        description="Exclusive member benefits including 10% discount at Old 20 Parts and more"
       />
-      
-      <div className="min-h-screen flex flex-col bg-white">
+      <div className="min-h-screen bg-white flex flex-col">
         <Header />
         <MembersNav />
 
         {/* Page Header */}
-        <section className="py-12 border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-3">
-              <Gift className="h-10 w-10 text-[#8B1538]" />
-              <h1 className="text-4xl font-bold text-gray-900">
-                Member <span className="text-[#8B1538]">Benefits</span>
-              </h1>
-            </div>
-            <p className="text-lg text-gray-600">
+        <section className="py-12 px-4">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-gray-900">Member </span>
+              <span className="text-[#8B1538]">Benefits</span>
+            </h1>
+            <p className="text-lg text-gray-600 max-w-3xl">
               Exclusive discounts and perks for Ferguson Club members
             </p>
           </div>
         </section>
 
-        {/* Benefits Content */}
+        {/* Main Content */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Old 20 Parts Discount Card */}
-            <Card className="border-2 border-[#8B1538]">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-4">
-                  <Badge className="bg-[#8B1538] text-lg px-4 py-2">
-                    <Percent className="h-5 w-5 mr-2" />
-                    10% OFF
-                  </Badge>
-                </div>
-                <div className="bg-white p-6 rounded-lg border mb-4">
-                  <Image 
-                    src="/old20-parts-logo.png" 
-                    alt="Old 20 Parts Company" 
-                    width={400} 
-                    height={150}
-                    className="w-full h-auto"
-                  />
-                </div>
-                <CardTitle className="text-2xl">Old 20 Parts Company</CardTitle>
-                <CardDescription>Quality Ferguson tractor parts and accessories</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <h3 className="font-semibold text-lg text-gray-900 mb-3">About Old 20 Parts</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Old 20 Parts Company is a trusted supplier of genuine and reproduction parts for Ferguson tractors. 
-                    They offer a comprehensive range of parts, from engine components to sheet metal, ensuring you can 
-                    keep your Ferguson tractor running smoothly.
-                  </p>
-                </div>
-
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-lg text-gray-900 mb-4 flex items-center gap-2">
-                    <ShoppingCart className="h-5 w-5 text-[#8B1538]" />
-                    How to Use Your Discount
-                  </h3>
-                  <ol className="space-y-3 text-gray-700">
-                    <li className="flex items-start gap-3">
-                      <Badge className="bg-[#8B1538] shrink-0 mt-1">1</Badge>
-                      <span>Browse and add items to your cart on the Old 20 Parts website</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Badge className="bg-[#8B1538] shrink-0 mt-1">2</Badge>
-                      <span>Proceed to checkout as normal</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Badge className="bg-[#8B1538] shrink-0 mt-1">3</Badge>
-                      <span>In the <strong>"Delivery Instructions"</strong> field, enter your Ferguson Club membership number</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Badge className="bg-[#8B1538] shrink-0 mt-1">4</Badge>
-                      <span>Complete your order - your 10% discount will be applied</span>
-                    </li>
-                  </ol>
-                </div>
-
-                <Alert className="bg-blue-50 border-blue-200">
-                  <Info className="h-4 w-4 text-blue-600" />
-                  <AlertDescription className="text-gray-700">
-                    <strong>Your Membership Number:</strong> You can find your membership number on your membership card 
-                    or in the "My Profile" section of your dashboard.
-                  </AlertDescription>
-                </Alert>
-
-                <div className="pt-4">
-                  <Button className="w-full bg-[#8B1538] hover:bg-[#6B0E28]" asChild>
-                    <a href="https://old20.co.uk" target="_blank" rel="noopener noreferrer">
-                      Visit Old 20 Parts
-                      <ExternalLink className="h-4 w-4 ml-2" />
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Additional Benefits */}
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>More Member Benefits</CardTitle>
-                  <CardDescription>Additional perks of Ferguson Club membership</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-start gap-4 pb-4 border-b">
-                    <div className="bg-[#8B1538]/10 p-3 rounded-lg">
-                      <Gift className="h-6 w-6 text-[#8B1538]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Exclusive Resources</h4>
-                      <p className="text-sm text-gray-600">
-                        Access to technical manuals, wiring diagrams, and restoration guides
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 pb-4 border-b">
-                    <div className="bg-[#8B1538]/10 p-3 rounded-lg">
-                      <Gift className="h-6 w-6 text-[#8B1538]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Club Shop Discounts</h4>
-                      <p className="text-sm text-gray-600">
-                        Special member pricing on club merchandise and regalia
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 pb-4 border-b">
-                    <div className="bg-[#8B1538]/10 p-3 rounded-lg">
-                      <Gift className="h-6 w-6 text-[#8B1538]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Priority Event Registration</h4>
-                      <p className="text-sm text-gray-600">
-                        Early access to register for popular club events and rallies
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 pb-4 border-b">
-                    <div className="bg-[#8B1538]/10 p-3 rounded-lg">
-                      <Gift className="h-6 w-6 text-[#8B1538]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Free Quarterly Journal</h4>
-                      <p className="text-sm text-gray-600">
-                        Receive the Ferguson Club Journal featuring restorations, technical articles, and news
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="bg-[#8B1538]/10 p-3 rounded-lg">
-                      <Gift className="h-6 w-6 text-[#8B1538]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Expert Advice Network</h4>
-                      <p className="text-sm text-gray-600">
-                        Connect with experienced members for restoration tips and technical support
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Alert className="bg-[#8B1538]/5 border-[#8B1538]">
-                <Info className="h-4 w-4 text-[#8B1538]" />
-                <AlertDescription className="text-gray-700">
-                  <strong>Coming Soon:</strong> We're negotiating additional member discounts with more Ferguson parts 
-                  suppliers and service providers. Check back regularly for updates.
-                </AlertDescription>
-              </Alert>
+          
+          {/* Membership Number Info */}
+          <div className="mb-8 bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-start gap-3">
+            <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="text-sm text-blue-900">
+                <strong>Your membership number can be found:</strong> On your membership card, 
+                in your welcome email, or on your profile page. You'll need this to claim your discounts.
+              </p>
             </div>
           </div>
+
+          {/* Old 20 Parts Discount Card */}
+          <Card className="overflow-hidden border-2 border-gray-200 hover:border-[#8B1538] hover:shadow-lg transition-all">
+            <CardContent className="p-0">
+              <div className="grid md:grid-cols-[300px,1fr] gap-0">
+                
+                {/* Logo Section */}
+                <div className="bg-white p-8 flex flex-col items-center justify-center border-r border-gray-200 relative">
+                  <div className="relative w-full max-w-[220px]">
+                    <Image
+                      src="/old20-parts-logo.png"
+                      alt="Old 20 Parts Company"
+                      width={220}
+                      height={120}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                  <Badge className="mt-6 bg-[#8B1538] hover:bg-[#6B1028] text-white px-4 py-2 text-base font-semibold">
+                    10% Member Discount
+                  </Badge>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    Old 20 Parts Company Discount
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    As a Ferguson Club member, enjoy <strong className="text-[#8B1538]">10% off</strong> all 
+                    purchases at Old 20 Parts Company - specialists in Ferguson tractor parts and restoration supplies.
+                  </p>
+
+                  {/* Tabbed Content */}
+                  <Tabs defaultValue="online" className="w-full">
+                    <TabsList className="grid w-full max-w-md grid-cols-2 mb-6">
+                      <TabsTrigger value="online" className="flex items-center gap-2">
+                        <ShoppingCart className="w-4 h-4" />
+                        Online Orders
+                      </TabsTrigger>
+                      <TabsTrigger value="shows" className="flex items-center gap-2">
+                        <Users className="w-4 h-4" />
+                        At Shows
+                      </TabsTrigger>
+                    </TabsList>
+
+                    {/* Online Orders Tab */}
+                    <TabsContent value="online" className="space-y-4">
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <Badge variant="outline" className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-[#8B1538] text-white border-[#8B1538]">
+                            1
+                          </Badge>
+                          <p className="text-gray-700 pt-0.5">Browse the Old 20 Parts website and add items to your cart</p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Badge variant="outline" className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-[#8B1538] text-white border-[#8B1538]">
+                            2
+                          </Badge>
+                          <p className="text-gray-700 pt-0.5">Proceed to checkout as normal</p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Badge variant="outline" className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-[#8B1538] text-white border-[#8B1538]">
+                            3
+                          </Badge>
+                          <p className="text-gray-700 pt-0.5">
+                            In the <strong>"Delivery Instructions"</strong> field, enter your Ferguson Club membership number
+                          </p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Badge variant="outline" className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-[#8B1538] text-white border-[#8B1538]">
+                            4
+                          </Badge>
+                          <p className="text-gray-700 pt-0.5">
+                            Complete your order as normal. <strong>Old 20 Parts will discount the order when they process it.</strong>
+                          </p>
+                        </div>
+                      </div>
+
+                      <Link 
+                        href="https://www.old20.co.uk" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[#8B1538] hover:text-[#6B1028] font-semibold transition-colors mt-4"
+                      >
+                        Visit Old 20 Parts Website
+                        <ExternalLink className="w-4 h-4" />
+                      </Link>
+                    </TabsContent>
+
+                    {/* At Shows Tab */}
+                    <TabsContent value="shows">
+                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                        <div className="flex items-start gap-4">
+                          <div className="p-3 bg-amber-100 rounded-full">
+                            <Users className="w-6 h-6 text-amber-700" />
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-gray-900 mb-2 text-lg">
+                              In-Person at Shows & Events
+                            </h3>
+                            <p className="text-gray-700 mb-3">
+                              If visiting Old 20 Parts at a tractor show or event, simply <strong>present your Ferguson Club membership card</strong> to receive your 10% discount at the point of sale.
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              No need to mention it in advance - just show your card when making your purchase and the discount will be applied immediately.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </TabsContent>
+                  </Tabs>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
         </section>
 
         <Footer />

@@ -21,18 +21,13 @@ export default function Ploughing() {
         <MembersNav />
 
         {/* Page Header */}
-        <section className="py-12 border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-3">
-              <Trophy className="h-10 w-10 text-[#8B1538]" />
-              <h1 className="text-4xl font-bold text-gray-900">
-                Ferguson <span className="text-[#8B1538]">Ploughing</span>
-              </h1>
-            </div>
-            <p className="text-lg text-gray-600">
-              Celebrating the heritage of match ploughing with vintage Ferguson tractors
-            </p>
-          </div>
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          <h1 className="text-4xl font-bold mb-4">
+            Ploughing Match <span className="text-[#8B1538]">Services</span>
+          </h1>
+          <p className="text-lg text-gray-600 max-w-3xl">
+            Professional ploughing match coordination services for Ferguson enthusiasts
+          </p>
         </section>
 
         {/* Content */}
