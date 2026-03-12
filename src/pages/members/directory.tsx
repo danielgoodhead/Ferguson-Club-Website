@@ -105,7 +105,7 @@ export default function MemberDirectory() {
         <section className="py-12 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-3">
-              Member <span className="text-[#8B1538]">Directory</span>
+              Member <span className="text-[#ad1018]">Directory</span>
             </h1>
             <p className="text-lg text-gray-600">
               Connect with fellow Ferguson enthusiasts from around the UK and beyond
@@ -118,15 +118,15 @@ export default function MemberDirectory() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
             <div className="flex items-center gap-6 text-sm text-gray-600">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-[#8B1538] rounded-full"></div>
+                <div className="w-2 h-2 bg-[#ad1018] rounded-full"></div>
                 <span>{filteredMembers.length} Members</span>
               </div>
               <div className="flex items-center gap-2">
-                <Tractor className="w-4 h-4 text-[#8B1538]" />
+                <Tractor className="w-4 h-4 text-[#ad1018]" />
                 <span>{members.reduce((acc, m) => acc + m.tractorCount, 0)} Tractors</span>
               </div>
               <div className="flex items-center gap-2">
-                <Wrench className="w-4 h-4 text-[#8B1538]" />
+                <Wrench className="w-4 h-4 text-[#ad1018]" />
                 <span>{members.reduce((acc, m) => acc + m.implementCount, 0)} Implements</span>
               </div>
             </div>
@@ -150,9 +150,9 @@ export default function MemberDirectory() {
                 <Card className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
-                      <Avatar className="w-16 h-16 border-2 border-[#8B1538]">
+                      <Avatar className="w-16 h-16 border-2 border-[#ad1018]">
                         <AvatarImage src={member.avatar} alt={member.name} />
-                        <AvatarFallback className="bg-[#8B1538] text-white text-lg">
+                        <AvatarFallback className="bg-[#ad1018] text-white text-lg">
                           {member.name.split(" ").map(n => n[0]).join("")}
                         </AvatarFallback>
                       </Avatar>

@@ -37,11 +37,11 @@ export default function Login() {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left Column - Branding */}
               <div className="hidden lg:block">
-                <div className="w-20 h-20 bg-[#8B1538] rounded-2xl flex items-center justify-center mb-8">
+                <div className="w-20 h-20 bg-[#ad1018] rounded-2xl flex items-center justify-center mb-8">
                   <User className="w-10 h-10 text-white" />
                 </div>
                 <h1 className="text-5xl font-bold text-gray-900 mb-6">
-                  Welcome Back to the <span className="text-[#8B1538]">Ferguson Club</span>
+                  Welcome Back to the <span className="text-[#ad1018]">Ferguson Club</span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed mb-8">
                   Access exclusive member resources, technical documentation, event bookings, 
@@ -49,21 +49,21 @@ export default function Login() {
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-[#8B1538] rounded-full mt-2 mr-4"></div>
+                    <div className="w-2 h-2 bg-[#ad1018] rounded-full mt-2 mr-4"></div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">Digital Archives</h3>
                       <p className="text-gray-600">Access thousands of technical documents and manuals</p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-[#8B1538] rounded-full mt-2 mr-4"></div>
+                    <div className="w-2 h-2 bg-[#ad1018] rounded-full mt-2 mr-4"></div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">Priority Booking</h3>
                       <p className="text-gray-600">Early access to events and workshops</p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-[#8B1538] rounded-full mt-2 mr-4"></div>
+                    <div className="w-2 h-2 bg-[#ad1018] rounded-full mt-2 mr-4"></div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">Member Directory</h3>
                       <p className="text-gray-600">Connect with Ferguson owners near you</p>
@@ -126,7 +126,7 @@ export default function Login() {
                           Remember me
                         </Label>
                       </div>
-                      <Link href="/members/forgot-password" className="text-sm text-[#8B1538] hover:underline">
+                      <Link href="/members/forgot-password" className="text-sm text-[#ad1018] hover:underline">
                         Forgot password?
                       </Link>
                     </div>
@@ -134,7 +134,7 @@ export default function Login() {
                     <Button 
                       type="submit" 
                       size="lg" 
-                      className="w-full bg-[#8B1538] hover:bg-[#6B1028] text-white h-14 text-lg group"
+                      className="w-full bg-[#ad1018] hover:bg-[#8d0d14] text-white h-14 text-lg group"
                     >
                       Sign In
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -144,7 +144,7 @@ export default function Login() {
                   <div className="mt-8 pt-8 border-t border-gray-200 text-center">
                     <p className="text-gray-600">
                       Not a member yet?{" "}
-                      <Link href="/membership" className="text-[#8B1538] hover:underline font-semibold">
+                      <Link href="/membership" className="text-[#ad1018] hover:underline font-semibold">
                         Join the Ferguson Club
                       </Link>
                     </p>

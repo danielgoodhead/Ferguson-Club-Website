@@ -1,313 +1,268 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
-import { GDPRConsent } from "@/components/Layout/GDPRConsent";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Gift, BookOpen, Calendar, Users, Mail, Download } from "lucide-react";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Check, Users, Wrench, Calendar, BookOpen, MessageSquare, Award, Globe } from "lucide-react";
+import Link from "next/link";
 
-export default function Membership() {
+export default function MembershipPage() {
+  const benefits = [
+    {
+      icon: <BookOpen className="h-6 w-6" />,
+      title: "Technical Resources",
+      description: "Access to extensive archives, manuals, and technical documentation for Ferguson tractors"
+    },
+    {
+      icon: <Users className="h-6 w-6" />,
+      title: "Community Network",
+      description: "Connect with fellow enthusiasts, share knowledge, and get expert advice"
+    },
+    {
+      icon: <Calendar className="h-6 w-6" />,
+      title: "Exclusive Events",
+      description: "Priority access to rallies, shows, and member-only gatherings throughout the year"
+    },
+    {
+      icon: <MessageSquare className="h-6 w-6" />,
+      title: "Member Forum",
+      description: "Private discussion boards for restoration tips, parts sourcing, and community support"
+    },
+    {
+      icon: <Wrench className="h-6 w-6" />,
+      title: "Parts & Services",
+      description: "Discounts on parts, services, and merchandise from approved suppliers"
+    },
+    {
+      icon: <Award className="h-6 w-6" />,
+      title: "Monthly Magazine",
+      description: "Receive our acclaimed magazine featuring restoration stories, history, and technical articles"
+    }
+  ];
+
+  const membershipTiers = [
+    {
+      name: "Individual Membership",
+      price: "£25",
+      period: "per year",
+      description: "Perfect for individual enthusiasts",
+      features: [
+        "Full access to member resources",
+        "Monthly magazine subscription",
+        "Forum access",
+        "Event discounts",
+        "Area representative support",
+        "Online member directory"
+      ],
+      highlighted: false
+    },
+    {
+      name: "Family Membership",
+      price: "£30",
+      period: "per year",
+      description: "Great value for the whole family",
+      features: [
+        "All Individual benefits",
+        "Up to 4 family members",
+        "Additional member cards",
+        "Family event packages",
+        "Shared online access",
+        "Priority event registration"
+      ],
+      highlighted: true
+    },
+    {
+      name: "Overseas Membership",
+      price: "£35",
+      period: "per year",
+      description: "For members outside the UK",
+      features: [
+        "All Individual benefits",
+        "International magazine delivery",
+        "Digital magazine access",
+        "Global community network",
+        "International event updates",
+        "Currency flexibility"
+      ],
+      highlighted: false
+    }
+  ];
+
   return (
     <>
-      <SEO
-        title="Membership - Ferguson Club"
-        description="Join the Ferguson Club and access exclusive benefits including events, resources, expert support, and a global community of enthusiasts."
+      <SEO 
+        title="Membership - The Ferguson Club"
+        description="Join the world's premier Ferguson tractor community. Access exclusive resources, events, and connect with fellow enthusiasts."
       />
       
       <div className="min-h-screen bg-white">
         <Header />
-        <GDPRConsent />
 
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-gray-50 to-white pt-24 pb-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-                Become a <span className="text-[#8B1538]">Member</span>
+        <section className="bg-gradient-to-br from-gray-50 to-white py-20 border-b">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+                Join The Ferguson Club
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Join the world's premier Ferguson tractor community and unlock exclusive benefits, 
-                resources, and connections with fellow enthusiasts worldwide.
+              <p className="text-xl text-gray-600 mb-8">
+                Become part of a passionate global community dedicated to preserving Ferguson heritage. 
+                Access exclusive resources, events, and connect with fellow enthusiasts worldwide.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
-              Member Benefits
-            </h2>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <BookOpen className="w-7 h-7 text-[#8B1538]" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Technical Library</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Access our extensive collection of workshop manuals, parts lists, restoration 
-                  guides, and historical documentation.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Calendar className="w-7 h-7 text-[#8B1538]" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Exclusive Events</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Priority booking and member discounts for rallies, shows, restoration workshops, 
-                  and social gatherings.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Users className="w-7 h-7 text-[#8B1538]" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Expert Network</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Connect with experienced restorers, historians, and fellow enthusiasts who 
-                  can provide advice and support.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Mail className="w-7 h-7 text-[#8B1538]" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Quarterly Magazine</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Receive our full-color quarterly magazine with articles, restoration stories, 
-                  event coverage, and technical features.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Download className="w-7 h-7 text-[#8B1538]" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Digital Resources</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Download technical documents, access our photo archive, and browse the 
-                  members-only forum.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-                <div className="w-14 h-14 bg-[#8B1538]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Gift className="w-7 h-7 text-[#8B1538]" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Member Discounts</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Exclusive discounts from partner suppliers for parts, tools, and restoration 
-                  services.
-                </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-[#ad1018] hover:bg-[#8d0d14] text-white">
+                  Join Now
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Membership Tiers */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Benefits Grid */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Membership Options</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Choose the membership plan that's right for you and your family
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                Membership Benefits
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Experience the full range of benefits designed to support your passion for Ferguson tractors
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Full Membership */}
-              <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-[#BE0032] transition-all duration-300 hover:shadow-xl">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Full</h3>
-                  <div className="flex items-baseline justify-center">
-                    <span className="text-5xl font-bold text-[#BE0032]">£22</span>
-                    <span className="text-gray-600 ml-2">/year</span>
-                  </div>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Full magazine subscription</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Access to all events</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Members-only resources</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Technical support</span>
-                  </li>
-                </ul>
-                <Button className="w-full bg-[#BE0032] hover:bg-[#9A0028]">
-                  Join Now
-                </Button>
-              </div>
-
-              {/* Family Membership */}
-              <div className="bg-gradient-to-br from-[#BE0032] to-[#9A0028] rounded-3xl p-8 border-2 border-[#BE0032] shadow-xl transform lg:scale-105 relative">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
-                    BEST VALUE
-                  </span>
-                </div>
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">Family</h3>
-                  <div className="flex items-baseline justify-center">
-                    <span className="text-5xl font-bold text-white">£30</span>
-                    <span className="text-white/80 ml-2">/year</span>
-                  </div>
-                  <p className="text-white/90 text-sm mt-2">Same address, children under 18</p>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-white">All Full membership benefits</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-white">Covers entire family</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-white">Children under 18 included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-white">Same address required</span>
-                  </li>
-                </ul>
-                <Button className="w-full bg-white text-[#BE0032] hover:bg-gray-100">
-                  Join Now
-                </Button>
-              </div>
-
-              {/* Junior Membership */}
-              <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-[#BE0032] transition-all duration-300 hover:shadow-xl">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Junior</h3>
-                  <div className="flex items-baseline justify-center">
-                    <span className="text-5xl font-bold text-[#BE0032]">£9</span>
-                    <span className="text-gray-600 ml-2">/year</span>
-                  </div>
-                  <p className="text-gray-600 text-sm mt-2">Under 18 years</p>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Magazine subscription</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Event access</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Youth activities</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Learning resources</span>
-                  </li>
-                </ul>
-                <Button className="w-full bg-[#BE0032] hover:bg-[#9A0028]">
-                  Join Now
-                </Button>
-              </div>
-
-              {/* Life Membership */}
-              <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-[#BE0032] transition-all duration-300 hover:shadow-xl">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Life</h3>
-                  <div className="flex items-baseline justify-center">
-                    <span className="text-5xl font-bold text-[#BE0032]">£220</span>
-                  </div>
-                  <p className="text-gray-600 text-sm mt-2">One-time payment</p>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Lifetime membership</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">All Full benefits forever</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">No renewal fees</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-[#BE0032] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">VIP status</span>
-                  </li>
-                </ul>
-                <Button className="w-full bg-[#BE0032] hover:bg-[#9A0028]">
-                  Join Now
-                </Button>
-              </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {benefits.map((benefit, index) => (
+                <Card key={index} className="border-2 hover:border-[#ad1018] transition-colors">
+                  <CardHeader>
+                    <div className="h-12 w-12 bg-[#ad1018]/10 rounded-lg flex items-center justify-center text-[#ad1018] mb-4">
+                      {benefit.icon}
+                    </div>
+                    <CardTitle className="text-xl">{benefit.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">{benefit.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* How to Join Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
-              How to Join
-            </h2>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-[#8B1538] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                  1
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Complete Application</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Fill out our online membership form with your details and choose your 
-                  membership level.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-[#8B1538] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                  2
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Submit Payment</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Pay your annual membership fee securely online via credit card, debit card, 
-                  or PayPal.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-[#8B1538] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                  3
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Get Access</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Receive your welcome pack and instant access to the members area, resources, 
-                  and community.
-                </p>
-              </div>
+        {/* Pricing Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                Choose Your Membership
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Select the membership tier that best suits your needs
+              </p>
             </div>
 
-            <div className="mt-16 text-center">
-              <Link href="/members/register">
-                <Button size="lg" className="bg-[#8B1538] hover:bg-[#6B1028] text-white text-lg px-12">
-                  Start Your Membership
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {membershipTiers.map((tier, index) => (
+                <Card 
+                  key={index} 
+                  className={`relative ${tier.highlighted ? 'border-[#ad1018] border-2 shadow-lg' : 'border-2'}`}
+                >
+                  {tier.highlighted && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                      <span className="bg-[#ad1018] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+                  
+                  <CardHeader className="text-center pb-8">
+                    <CardTitle className="text-2xl mb-2">{tier.name}</CardTitle>
+                    <CardDescription className="text-base">{tier.description}</CardDescription>
+                    <div className="mt-6">
+                      <span className="text-4xl font-bold text-[#ad1018]">{tier.price}</span>
+                      <span className="text-gray-600 ml-2">{tier.period}</span>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent className="space-y-4">
+                    {tier.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-[#ad1018] flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-600">{feature}</span>
+                      </div>
+                    ))}
+                  </CardContent>
+
+                  <CardFooter>
+                    <Button 
+                      className={`w-full ${tier.highlighted ? 'bg-[#ad1018] hover:bg-[#8d0d14] text-white' : 'bg-white hover:bg-gray-50 text-[#ad1018] border-2 border-[#ad1018]'}`}
+                      size="lg"
+                    >
+                      Select {tier.name}
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Additional Info */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Globe className="h-8 w-8 text-[#ad1018]" />
+                    <h3 className="text-2xl font-serif font-bold">Global Community</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Join over 5,000 active members from around the world who share your passion for Ferguson 
+                    tractors. Our community spans across the UK, Europe, North America, and beyond.
+                  </p>
+                  <p className="text-gray-600">
+                    Connect with local area representatives, attend regional events, and participate in 
+                    international gatherings celebrating Ferguson heritage.
+                  </p>
+                </div>
+
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Award className="h-8 w-8 text-[#ad1018]" />
+                    <h3 className="text-2xl font-serif font-bold">70+ Years of Heritage</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    The Ferguson Club was established to preserve and celebrate the legacy of Harry Ferguson's 
+                    revolutionary contributions to agriculture and engineering.
+                  </p>
+                  <p className="text-gray-600">
+                    As a member, you're part of keeping this important history alive for future generations 
+                    while enjoying the camaraderie of fellow enthusiasts.
+                  </p>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-16 text-center p-8 bg-gradient-to-br from-gray-50 to-white rounded-lg border-2 border-[#ad1018]/20">
+                <h3 className="text-2xl font-serif font-bold mb-4">
+                  Ready to Join?
+                </h3>
+                <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                  Start your membership journey today and gain immediate access to our community, 
+                  resources, and exclusive benefits.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" className="bg-[#ad1018] hover:bg-[#8d0d14] text-white">
+                    Complete Membership Application
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <Link href="/contact">Have Questions? Contact Us</Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
