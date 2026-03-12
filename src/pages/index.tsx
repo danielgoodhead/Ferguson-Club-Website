@@ -97,8 +97,8 @@ export default function Home() {
                       <Trophy className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-gray-900">27</div>
-                      <div className="text-sm text-gray-600">Years of Excellence</div>
+                      <div className="text-2xl font-bold text-gray-900">40</div>
+                      <div className="text-sm text-gray-600">Years honoring Harry Ferguson</div>
                     </div>
                   </div>
                 </div>
