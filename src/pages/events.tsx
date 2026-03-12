@@ -116,21 +116,21 @@ export default function EventsPage() {
       id: "4",
       title: "Summer Steam & Vintage Day",
       date: "2026-07-18",
-      location: "Berkshire Showground",
-      description: "Combined event featuring Ferguson tractors, steam engines, and vintage vehicles.",
+      location: "Newby Hall, Ripon",
+      description: "Family-friendly event featuring steam engines, vintage tractors, and classic vehicles.",
       fullDescription: "A fantastic family day out celebrating all things vintage! Our Summer Steam & Vintage Day brings together Ferguson tractors, steam engines, classic cars, vintage motorcycles, and stationary engines. Enjoy arena displays, working demonstrations, children's activities, craft stalls, and food vendors. Live commentary throughout the day. Grand parade at 3pm featuring all exhibits. Free parking and entry for under-16s.",
-      image: "https://images.unsplash.com/photo-1530267981375-f0dd48a74a4c?w=800&q=80",
       category: "Show",
-      attendees: 400,
-      lat: 51.4074, 
-      lng: -1.0031,
+      attendees: 180,
+      image: "https://images.unsplash.com/photo-1464297162577-f5295c892194?w=800&q=80",
+      lat: 54.1039,
+      lng: -1.4883,
       registrationDeadline: "2026-07-01",
       organizer: {
-        name: "Sarah Thompson",
-        email: "sarah.thompson@fergusonclub.com",
-        phone: "+44 1189 876543"
+        name: "Newby Hall Events",
+        email: "events@newbyhall.com",
+        phone: "+44 1423 322583"
       },
-      address: "Berkshire Showground, Bath Road, Newbury, Berkshire, RG14 2BN"
+      address: "Newby Hall & Gardens, Ripon, North Yorkshire, HG4 5AE"
     },
     {
       id: "5",
@@ -371,24 +371,19 @@ export default function EventsPage() {
                       <CardTitle className="text-2xl font-serif text-gray-900 leading-tight mb-2">
                         {event.title}
                       </CardTitle>
-                      <div className="space-y-3 text-sm text-gray-600 mt-4 bg-gray-50 p-4 rounded-lg">
-                        <div className="flex items-center gap-3">
-                          <div className="p-1.5 bg-red-50 rounded-full">
-                            <Calendar className="h-4 w-4 text-[#ad1018]" />
-                          </div>
-                          <span className="font-medium">{formatDateString(event.date)}</span>
+                      <div className="space-y-2 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="h-4 w-4 text-[#ad1018]" />
+                          <span>{new Date(event.date).toLocaleDateString("en-GB", { 
+                            weekday: "long", 
+                            day: "numeric", 
+                            month: "long", 
+                            year: "numeric" 
+                          })}</span>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <div className="p-1.5 bg-red-50 rounded-full">
-                            <MapPin className="h-4 w-4 text-[#ad1018]" />
-                          </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="h-4 w-4 text-[#ad1018]" />
                           <span>{event.location}</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="p-1.5 bg-red-50 rounded-full">
-                            <Users className="h-4 w-4 text-[#ad1018]" />
-                          </div>
-                          <span>{event.attendees} attendees</span>
                         </div>
                       </div>
                       <p className="text-gray-600 mt-5 line-clamp-3 leading-relaxed">
@@ -430,18 +425,19 @@ export default function EventsPage() {
                             {event.category}
                           </Badge>
                         </div>
-                        <div className="flex flex-wrap gap-6 text-sm text-gray-600 bg-gray-50 p-3 rounded-lg mb-4">
+                        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                           <div className="flex items-center gap-2">
                             <Calendar className="h-4 w-4 text-[#ad1018]" />
-                            <span className="font-medium">{formatDateString(event.date)}</span>
+                            <span>{new Date(event.date).toLocaleDateString("en-GB", { 
+                              weekday: "long", 
+                              day: "numeric", 
+                              month: "long", 
+                              year: "numeric" 
+                            })}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <MapPin className="h-4 w-4 text-[#ad1018]" />
                             <span>{event.location}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Users className="h-4 w-4 text-[#ad1018]" />
-                            <span>{event.attendees} attendees</span>
                           </div>
                         </div>
                         <p className="text-gray-600 mb-6 flex-grow">
@@ -510,15 +506,6 @@ export default function EventsPage() {
                     </div>
                     
                     <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="p-2 bg-red-50 rounded-lg">
-                          <Users className="h-5 w-5 text-[#ad1018] shrink-0" />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-sm text-gray-500 mb-1">Expected Attendees</p>
-                          <p className="text-gray-900 font-medium">{selectedEvent.attendees} people</p>
-                        </div>
-                      </div>
                       <div className="flex items-start gap-3">
                         <div className="p-2 bg-red-50 rounded-lg">
                           <Tag className="h-5 w-5 text-[#ad1018] shrink-0" />
